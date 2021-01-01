@@ -1,0 +1,25 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "CenturyGothic";
+  src: url("GOTHIC.eot"); /* IE9 Compat Modes */
+  src: url("GOTHIC.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("GOTHIC.otf") format("opentype"), /* Open Type Font */
+    url("GOTHIC.svg") format("svg"), /* Legacy iOS */
+    url("GOTHIC.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("GOTHIC.woff") format("woff"), /* Modern Browsers */
+    url("GOTHIC.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CenturyGothic-Bold";
+  src: url("GOTHICB.eot"); /* IE9 Compat Modes */
+  src: url("GOTHICB.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("GOTHICB.otf") format("opentype"), /* Open Type Font */
+    url("GOTHICB.svg") format("svg"), /* Legacy iOS */
+    url("GOTHICB.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("GOTHICB.woff") format("woff"), /* Modern Browsers */
+    url("GOTHICB.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}

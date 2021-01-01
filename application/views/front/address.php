@@ -1,0 +1,170 @@
+<?php 
+include 'includes/header.php';
+?>
+<div class="inner-banner-main parallaxcont wow fadeInUp">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="banner-img">
+					<!--<nav aria-label="breadcrumb">
+						<ol class="breadcrumb justify-content-center">
+							<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+							<li class="breadcrumb-item"><a href="javascript:void(0);">Categories</a></li>
+							<li class="breadcrumb-item active" aria-current="page">Indoor Plants</li>
+						</ol>
+					</nav>-->
+				</div>
+			</div>
+	 	</div>
+	</div>
+</div>
+<section class="section">
+	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb justify-content-center">
+				<li class="breadcrumb-item"><a href="index.php">Home</a></li>
+				<li class="breadcrumb-item active" aria-current="page">My Address</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="wow fadeInLeft" data-wow-duration="1.5s">My Address</h1>
+				<div class="row listing-item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
+					<div class="col-lg-8 col-md-8 col-sm-12">
+						<div class="shopping-box ord-hstr-div">
+							 <div class="checkout-sub address-sub-div">
+								<h3>Shipping Address</h3>
+								<div class="myprofile-main">
+									<div class="profiledata">
+										<div class="form-group">
+											<label>Area </label><p>Salmiya </p>
+										</div>
+										<div class="form-group">
+											<label>Street </label><p>Salem Al Mubarak Street</p>
+										</div>
+										<div class="form-group">
+											<label>Building No</label><p>5</p>
+										</div>
+										<div class="form-group">
+											<label>Apartment No</label><p>2</p>
+										</div>
+										<div class="form-group">
+											<label>Block</label><p>116</p>
+										</div>
+										<div class="form-group">
+											<label>Floor No</label><p>5</p>
+										</div>						
+										<div class="change-div"><a href="javascript:void(0);" class="button change-btn">Change</a></div>
+									</div>					
+									<div class="profileform">
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Area" class="form-control"></div>
+										</div>
+										<div class="form-group">
+											<div class="inputbox"><select class="form-control"><option>All</option><option>Birds</option><option>Poultry</option><option>Pets</option><option>Horses</option><option>Farm Animals</option></select></div>
+										</div>
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Street" class="form-control"></div>
+										</div>
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Building No" class="form-control"></div>
+										</div>
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Apartment No" class="form-control"></div>
+										</div>
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Block" class="form-control"></div>
+										</div>
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Avenue / Judda" class="form-control"></div>
+										</div>
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Floor No" class="form-control"></div>
+										</div>
+										<div class="change-div"><button class="button" type="submit">UPDATE</button> <a href="javascript:void(0);" class="button closebutton">CLOSE</a></div>
+									</div>
+								</div>
+							</div>
+							<div class="checkout-sub address-sub-div">
+								<h3>Billing Address</h3>
+								<div class="myprofile-main">
+									<div class="profiledata">
+										<div class="form-group">
+											<label>Area </label><p>Salmiya </p>
+										</div>
+										<div class="form-group">
+											<label>Street </label><p>Salem Al Mubarak Street</p>
+										</div>
+										<div class="form-group">
+											<label>Building No</label><p>5</p>
+										</div>
+										<div class="form-group">
+											<label>Apartment No</label><p>2</p>
+										</div>
+										<div class="form-group">
+											<label>Block</label><p>116</p>
+										</div>
+										<div class="form-group">
+											<label>Floor No</label><p>5</p>
+										</div>						
+										<div class="change-div"><a href="javascript:void(0);" class="button change-btn">Change</a></div>
+									</div>					
+									<div class="profileform">
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Area" class="form-control"></div>
+										</div>
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Street" class="form-control"></div>
+										</div>
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Building No" class="form-control"></div>
+										</div>
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Apartment No" class="form-control"></div>
+										</div>
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Block" class="form-control"></div>
+										</div>
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Avenue / Judda" class="form-control"></div>
+										</div>
+										<div class="form-group">
+											<div class="inputbox"><input type="text" value="" placeholder="Floor No" class="form-control"></div>
+										</div>
+										<div class="change-div"><button class="button" type="submit">UPDATE</button> <a href="javascript:void(0);" class="button closebutton">CLOSE</a></div>
+									</div>
+								</div>					
+							</div>
+							<div class="checkout-sub address-sub-div">
+								<div class="myprofile-main"><a href="#newAddressModel" data-fancybox class="button add-newadddress">Add New Address</a></div>					
+							</div>
+							 
+						</div>	
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-12 dashboard-main"><a href="javascript:void(0);" charset="dashboard-link"><span></span></a>
+						<div id="sidebar">
+							<h3>My Account</h3>
+							<div class="shopping-summary">
+								<div class="my-cart-items-sub">
+									<ul class="profile-links">
+										<li><a href="my-profile.php">My Profile</a></li>
+										<li><a href="my-order.php">My Order</a></li>
+										<li><a href="my-favourite.php">My Favourite</a></li>
+										<li><a href="address.php" class="active">My Address</a></li>
+										<li><a href="change-password.php">Change Password</a></li>
+										<li><a href="javascript:void(0);">Logout</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<?php 
+include 'includes/footer.php';
+?>
