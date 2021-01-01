@@ -80,8 +80,8 @@
 		}
 	}
 	
-	$("#imgInp").change(function() {
-		readURL(this);
-	});
+//	$("#imgInp").change(function() {
+//		readURL(this);
+//	});
 	
 </script>

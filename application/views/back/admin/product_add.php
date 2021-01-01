@@ -18,9 +18,7 @@
                         <li>
                             <a data-toggle="tab" href="#business_details"><?php echo translate('business_details'); ?></a>
                         </li>
-                        <li>
-                            <a data-toggle="tab" href="#customer_choice_options"><?php echo translate('customer_choice_options'); ?></a>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -38,6 +36,12 @@
                                 <label class="col-sm-4 control-label" for="demo-hor-1"><?php echo translate('product_title');?></label>
                                 <div class="col-sm-6">
                                     <input type="text" name="title" id="demo-hor-1" placeholder="<?php echo translate('product_title');?>" class="form-control required">
+                                </div>
+                            </div>
+                            <div class="form-group btm_border">
+                                <label class="col-sm-4 control-label" for="demo-hor-1"><?php echo translate('product_title');?></label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="title_ar" id="demo-hor-1" placeholder="<?php echo translate('product_title_ar');?>" class="form-control required">
                                 </div>
                             </div>
                             
@@ -164,44 +168,7 @@
                                 <span class="btn unit_set"></span>
                             </div>
                         </div>
-                        <div id="customer_choice_options" class="tab-pane fade">
-                            <div class="form-group btm_border">
-                                <h4 class="text-thin text-center"><?php echo translate('customer_choice_options'); ?></h4>                            
-                            </div>
-                            <div class="form-group btm_border">
-                                <label class="col-sm-4 control-label" for="demo-hor-14"><?php echo translate('color'); ?></label>
-                                <div class="col-sm-4"  id="more_colors">
-                                  <div class="col-md-12" style="margin-bottom:8px;">
-                                      <div class="col-md-10">
-                                          <div class="input-group demo2">
-                                               <input type="text" value="#ccc" name="color[]" class="form-control" />
-                                               <span class="input-group-addon"><i></i></span>
-                                            </div>
-                                      </div>
-                                      <span class="col-md-2">
-                                          <span class="remove_it_v rmc btn btn-danger btn-icon icon-lg fa fa-trash" ></span>
-                                      </span>
-                                  </div>
-                                </div>
-                                <div class="col-sm-2">
-                                    <div id="more_color_btn" class="btn btn-primary btn-labeled fa fa-plus">
-                                        <?php echo translate('add_more_colors');?>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div id="more_additional_options"></div>
-                            <div class="form-group btm_border">
-                                <label class="col-sm-4 control-label" for="demo-hor-inputpass"></label>
-                                <div class="col-sm-6">
-                                    <h4 class="pull-left">
-                                        <i><?php echo translate('if_you_need_more_choice_options_for_customers_of_this_product_,please_click_here.');?></i>
-                                    </h4>
-                                    <div id="more_option_btn" class="btn btn-mint btn-labeled fa fa-plus pull-right">
-                                    <?php echo translate('add_customer_input_options');?></div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
 

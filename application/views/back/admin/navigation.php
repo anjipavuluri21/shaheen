@@ -296,21 +296,11 @@ $customer_product_check = $this->crud_model->get_type_name_by_id('general_settin
 									<?php
 										} if($this->crud_model->admin_permission('brand')){
 									?>
-										<li <?php if($page_name=="brand"){?> class="active-link" <?php } ?> >
-											<a href="<?php echo base_url(); ?>admin/brand">
-												<i class="fa fa-circle fs_i"></i>
-													<?php echo translate('brands');?>
-											</a>
-										</li>
+										
 									<?php
 										} if($this->crud_model->admin_permission('sub_category')){
 									?>
-										<li <?php if($page_name=="sub_category"){?> class="active-link" <?php } ?> >
-											<a href="<?php echo base_url(); ?>admin/sub_category">
-												<i class="fa fa-circle fs_i"></i>
-													<?php echo translate('sub-category');?>
-											</a>
-										</li>
+										
 									<?php
 										} if($this->crud_model->admin_permission('product')){
 									?>
@@ -323,12 +313,7 @@ $customer_product_check = $this->crud_model->get_type_name_by_id('general_settin
     									<?php
                                             } if($this->crud_model->admin_permission('product_bulk_upload')){
                                                 ?>
-                                                <li <?php if($page_name=="product_bulk_upload"){?> class="active-link" <?php } ?> >
-                                                    <a href="<?php echo base_url(); ?>admin/product_bulk_upload">
-                                                        <i class="fa fa-circle fs_i"></i>
-                                                        <?php echo translate('Product bulk upload');?>
-                                                    </a>
-                                                </li>
+                                                
     									<?php
 										} if($this->crud_model->admin_permission('product_bundle') && $bundle_check == 'ok'){
                                         ?>
