@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="demo-hor-1">
-                	<?php echo translate('category_name');?>
+                	<?php echo "Category Name Ar";?>
                 </label>
                 <div class="col-sm-6">
                     <input type="text" name="category_name_ar" id="demo-hor-1" 
@@ -37,7 +37,7 @@
                     </span>
                     <br><br>
                     <span id='wrap' class="pull-left" >
-                        <img src="<?php echo base_url(); ?>uploads/category_image/default.jpg" 
+                        <img src="<?php echo base_url(); ?>template/front/products/outdoor-plants/th/no-image.jpg" 
                             width="100%" id='blah' >
                     </span>
                 </div>

@@ -25,5 +25,5 @@
             Currently v<?php echo $this->db->get_where('general_settings',array('type'=>'version'))->row()->value; ?>
         </div>
     <?php } ?>
-	<p class="pad-lft">&#0169; 2018 <?php echo $system_title;?></p>
+	<p class="pad-lft">&#0169; <?=date('Y')?> <?php echo $system_title;?></p>
 </footer>

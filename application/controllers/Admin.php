@@ -265,9 +265,12 @@ class Admin extends CI_Controller
         }
         if ($para1 == 'do_add') {
             $type                       = 'slides';
-            $data['button_color']       = $this->input->post('color_button');
-            $data['text_color']         = $this->input->post('color_text');
-            $data['button_text']        = $this->input->post('button_text');
+            $data['text1']              = $this->input->post('text1');
+            $data['text1_ar']              = $this->input->post('text1_ar');
+            $data['text2']              = $this->input->post('text2');
+            $data['text2_ar']              = $this->input->post('text2_ar');
+            $data['text3']              = $this->input->post('text3');
+            $data['text3_ar']              = $this->input->post('text3_ar');
             $data['button_link']        = $this->input->post('button_link');
             $data['uploaded_by']        = 'admin';
             $data['status']             = 'ok';
@@ -277,9 +280,12 @@ class Admin extends CI_Controller
             $this->crud_model->file_up("img", "slides", $id, '', '', '.jpg');
             recache();
         } elseif ($para1 == "update") {
-            $data['button_color']       = $this->input->post('color_button');
-            $data['text_color']         = $this->input->post('color_text');
-            $data['button_text']        = $this->input->post('button_text');
+            $data['text1']              = $this->input->post('text1');
+            $data['text1_ar']              = $this->input->post('text1_ar');
+            $data['text2']              = $this->input->post('text2');
+            $data['text2_ar']              = $this->input->post('text2_ar');
+            $data['text3']              = $this->input->post('text3');
+            $data['text3_ar']              = $this->input->post('text3_ar');
             $data['button_link']        = $this->input->post('button_link');
             $this->db->where('slides_id', $para2);
             $this->db->update('slides', $data);
@@ -728,8 +734,12 @@ class Admin extends CI_Controller
                 $num_of_imgs = count($_FILES["images"]['name']);
             }
             $data['title']              = $this->input->post('title');
+            $data['title_ar']              = $this->input->post('title_ar');
             $data['category']           = $this->input->post('category');
             $data['description']        = $this->input->post('description');
+            $data['description_ar']        = $this->input->post('description_ar');
+            $data['features']        = $this->input->post('features');
+            $data['features_ar']        = $this->input->post('features_ar');
             $data['sub_category']       = $this->input->post('sub_category');
             $data['sale_price']         = $this->input->post('sale_price');
             $data['purchase_price']     = $this->input->post('purchase_price');
@@ -787,8 +797,12 @@ class Admin extends CI_Controller
             $num                        = $this->crud_model->get_type_name_by_id('product', $para2, 'num_of_imgs');
             $download                   = $this->crud_model->get_type_name_by_id('product', $para2, 'download');
             $data['title']              = $this->input->post('title');
+            $data['title_ar']              = $this->input->post('title_ar');
             $data['category']           = $this->input->post('category');
             $data['description']        = $this->input->post('description');
+            $data['description_ar']        = $this->input->post('description_ar');
+            $data['features']        = $this->input->post('features');
+            $data['features_ar']        = $this->input->post('features_ar');
             $data['sub_category']       = $this->input->post('sub_category');
             $data['sale_price']         = $this->input->post('sale_price');
             $data['purchase_price']     = $this->input->post('purchase_price');
@@ -5186,9 +5200,9 @@ class Admin extends CI_Controller
             $this->db->update('general_settings', array(
                 'value' => $this->input->post('footer_text', 'chaira_de')
             ));
-            $this->db->where('type', "footer_category");
+            $this->db->where('type', "footer_text_ar");
             $this->db->update('general_settings', array(
-                'value' => json_encode($this->input->post('footer_category'))
+                'value' => json_encode($this->input->post('footer_text_ar'))
             ));
         }
          if ($para1 == "font") {

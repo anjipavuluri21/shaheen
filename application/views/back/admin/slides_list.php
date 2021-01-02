@@ -4,8 +4,11 @@
 				<tr>
 					<th><?php echo translate('no');?></th>
 					<th><?php echo translate('image');?></th>
-                    <th><?php echo translate('button');?></th>
-                    <th><?php echo translate('status');?></th>
+                                        <th><?php echo translate('text 1');?></th>
+                                        <th><?php echo translate('text 2');?></th>
+                                        <th><?php echo translate('text 3');?></th>
+                    
+                                        <th><?php echo translate('status');?></th>
 					<th class="text-right"><?php echo translate('options');?></th>
 				</tr>
 			</thead>
@@ -22,14 +25,10 @@
                         <img class="img-md"
                             src="<?php echo $this->crud_model->file_view('slides',$row['slides_id'],'100','','thumb','src','','','.jpg') ?>"  style="width:120px;"/>
                     </td>
-                    <td>
-                    	<?php if($row['button_text']!=NULL){ ?>
-                    	<a class="btn btn-xs" style="background:<?php echo $row['button_color']; ?>; color:<?php echo $row['text_color']; ?>" href="<?php echo $row['button_link']; ?>"
-                        	data-toggle="tooltip" title="<?php echo translate('click_to_check_link');?>">
-							<?php echo $row['button_text']; ?>
-                        </a>
-                        <?php } ?>
-                    </td>
+                    <td><?php echo $row['text1']; ?></td>
+                    <td><?php echo $row['text2']; ?></td>
+                    <td><?php echo $row['text3']; ?></td>
+                   
                     <td>
                     	<input id="slide_<?php echo $row['slides_id']; ?>" class="slide" type="checkbox" data-id="<?php echo $row['slides_id']; ?>" <?php if($row['status']=='ok'){ echo 'checked'; } ?> />
                     </td>

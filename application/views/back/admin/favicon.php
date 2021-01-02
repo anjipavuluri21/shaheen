@@ -16,7 +16,7 @@
             <div class="col-sm-9">
                 <div class="col-sm-2">
                     <?php $ext =  $this->db->get_where('ui_settings',array('type' => 'fav_ext'))->row()->value;?>
-                    <img class="img-responsive img-md img-circle img-border" src="<?php echo base_url(); ?>uploads/others/favicon.<?php echo $ext; ?>" id="blah4" >
+                    <img class="img-responsive img-md img-circle img-border" src="<?php echo base_url(); ?>uploads/others/favicon.png" id="blah4" >
                 </div>
                 <div class="col-sm-2">
                 <span class="pull-left btn btn-default btn-file margin-top-10">

@@ -25,28 +25,48 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label"><?php echo translate('button_color:');?></label>
+                    <label class="col-sm-4 control-label" for="demo-hor-3"><?php echo translate('text 1');?></label>
                     <div class="col-sm-6">
-                        <div class="input-group demo2">
-                           <input type="text" value="<?php echo $row['button_color'];?>" name="color_button" class="form-control" />
-                           <span class="input-group-addon"><i></i></span>
-                        </div>
+                        <input type="text" name="text1" id="demo-hor-3" value="<?php echo $row['text1']; ?>"
+                            placeholder="<?php echo translate('text 1'); ?>" class="form-control">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="demo-hor-3"><?php echo translate('text 1_ar');?></label>
+                    <div class="col-sm-6">
+                        <input type="text" name="text1_ar" id="demo-hor-3" value="<?php echo $row['text1_ar'];?>"
+                            placeholder="<?php echo translate('text 1_ar'); ?>" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label"><?php echo translate('button_text_color:');?></label>
+                    <label class="col-sm-4 control-label" for="demo-hor-3"><?php echo translate('text 2');?></label>
                     <div class="col-sm-6">
-                        <div class="input-group demo2">
-                           <input type="text" value="<?php echo $row['text_color'];?>" name="color_text" class="form-control" />
-                           <span class="input-group-addon"><i></i></span>
-                        </div>
+                        <input type="text" name="text2" id="demo-hor-3" value="<?php echo $row['text2']; ?>"
+                            placeholder="<?php echo translate('text 2'); ?>" class="form-control">
                     </div>
                 </div>
+                
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="demo-hor-3"><?php echo translate('button_text');?></label>
+                    <label class="col-sm-4 control-label" for="demo-hor-3"><?php echo translate('text 2_ar');?></label>
                     <div class="col-sm-6">
-                        <input type="text" name="button_text" id="demo-hor-3" value="<?php echo $row['button_text'];?>"
-                            placeholder="<?php echo translate('button_text'); ?>" class="form-control">
+                        <input type="text" name="text2_ar" id="demo-hor-3" value="<?php echo $row['text2_ar'];?>"
+                            placeholder="<?php echo translate('text 2_ar'); ?>" class="form-control">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-4 control-label" for="demo-hor-3"><?php echo translate('text 3');?></label>
+                    <div class="col-sm-6">
+                        <input type="text" name="text3" id="demo-hor-3" value="<?php echo $row['text3']; ?>"
+                            placeholder="<?php echo translate('text 3'); ?>" class="form-control">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="demo-hor-3"><?php echo translate('text 3_ar');?></label>
+                    <div class="col-sm-6">
+                        <input type="text" name="text3_ar" id="demo-hor-3" value="<?php echo $row['text3_ar'];?>"
+                            placeholder="<?php echo translate('text 3_ar'); ?>" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">

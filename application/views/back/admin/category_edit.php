@@ -47,7 +47,7 @@
 							<?php
 								} else {
 							?>
-							<img src="<?php echo base_url(); ?>uploads/category_image/default.jpg" width="100%" id='blah' />
+							<img src="<?php echo base_url(); ?>template/front/products/outdoor-plants/th/no-image.jpg" width="100%" id='blah' />
 							<?php
 								}
 							?> 

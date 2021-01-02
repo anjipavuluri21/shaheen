@@ -980,7 +980,7 @@ class Crud_model extends CI_Model
         $logo = $this->db->get_where('ui_settings', array(
             'type' => $type
         ))->row()->value;
-        return base_url() . 'uploads/logo_image/logo_' . $logo . '.jpg';
+        return base_url() . 'uploads/logo_image/logo_' . $logo . '.png';
     }
 
     //GETTING PRODUCT PRICE CALCULATING DISCOUNT

@@ -21,9 +21,7 @@
                         <li>
                             <a data-toggle="tab" href="#business_details"><?php echo translate('business_details'); ?></a>
                         </li>
-                        <li>
-                            <a data-toggle="tab" href="#customer_choice_options"><?php echo translate('customer_choice_options'); ?></a>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -42,31 +40,33 @@
                                 </div>
                             </div>
                             <div class="form-group btm_border">
+                                <label class="col-sm-4 control-label" for="demo-hor-1">
+                                    <?php echo translate('product_title_ar');?>
+                                        </label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="title_ar" id="demo-hor-1" value="<?php echo $row['title_ar']; ?>" placeholder="<?php echo translate('product_title');?>" class="form-control required">
+                                </div>
+                            </div>
+                            <div class="form-group btm_border">
                                 <label class="col-sm-4 control-label" for="demo-hor-2"><?php echo translate('category');?></label>
                                 <div class="col-sm-6">
                                     <?php echo $this->crud_model->select_html('category','category','category_name','edit','demo-chosen-select required',$row['category'],'digital',NULL,'get_cat'); ?>
                                 </div>
                             </div>
-                            <div class="form-group btm_border" id="sub" >
-                                <label class="col-sm-4 control-label" for="demo-hor-3"><?php echo translate('sub-category');?></label>
-                                <div class="col-sm-6" id="sub_cat">
-                                    <?php echo $this->crud_model->select_html('sub_category','sub_category','sub_category_name','edit','demo-chosen-select required',$row['sub_category'],'category',$row['category'],'get_brnd'); ?>
+                            <div class="form-group btm_border">
+                                <label class="col-sm-4 control-label" for="demo-hor-1"><?php echo translate('discription');?></label>
+                                <div class="col-sm-6">
+                                    <textarea type="text" name="description" id="demo-hor-1" placeholder="<?php echo $row['description']; ?>" class="form-control required"><?php echo $row['description']; ?></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group btm_border">
+                                <label class="col-sm-4 control-label" for="demo-hor-1"><?php echo translate('discription_ar');?></label>
+                                <div class="col-sm-6">
+                                    <textarea type="text" name="description_ar" id="demo-hor-1" placeholder="<?php echo $row['description_ar']; ?>" class="form-control required"><?php echo $row['description_ar']; ?></textarea>
                                 </div>
                             </div>
                             
-                            <div class="form-group btm_border" id="brn" >
-                                <label class="col-sm-4 control-label" for="demo-hor-4"><?php echo translate('brand');?></label>
-                                <div class="col-sm-6" id="brand" >
-                                    <?php 
-                                        $brands=json_decode($this->crud_model->get_type_name_by_id('sub_category',$row['sub_category'],'brand'),true);
-                                        if(count($brands)>0){
-										  echo $this->crud_model->select_html('brand','brand','name','edit','demo-chosen-select',$row['brand'],'brand_id',$brands,'','multi'); 
-                                        }else{
-                                            echo translate("No brands are available for this sub category");
-                                        }
-									?>
-                                </div>
-                            </div>
+                            
                             
                             <div class="form-group btm_border">
                                 <label class="col-sm-4 control-label" for="demo-hor-5"><?php echo translate('unit');?></label>
@@ -119,11 +119,20 @@
 
                             <div class="form-group btm_border">
                                 <label class="col-sm-4 control-label" for="demo-hor-14">
-                                    <?php echo translate('description');?>
+                                    <?php echo translate('features');?>
                                         </label>
                                 <div class="col-sm-6">
-                                    <textarea rows="9" class="summernotes" data-height="200" data-name="description">
-                                        <?php echo $row['description']; ?></textarea>
+                                    <textarea rows="9" class="summernotes" data-height="200" data-name="features">
+                                        <?php echo $row['features']; ?></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group btm_border">
+                                <label class="col-sm-4 control-label" for="demo-hor-14">
+                                    <?php echo translate('features_ar');?>
+                                        </label>
+                                <div class="col-sm-6">
+                                    <textarea rows="9" class="summernotes" data-height="200" data-name="features_ar">
+                                        <?php echo $row['features_ar']; ?></textarea>
                                 </div>
                             </div>
                             <?php
@@ -219,113 +228,7 @@
                                 <span class="btn unit_set">/<?php echo $row['unit']; ?></span>
                             </div> 
                         </div>         
-                        <div id="customer_choice_options" class="tab-pane fade">
-                            
-                            <div class="form-group btm_border">'
-                                <label class="col-sm-4 control-label" for="demo-hor-15">
-                                    <?php echo translate('product_color_options');?>
-                                        </label>
-                                    <div class="col-sm-6"  id="more_colors">
-                                        <?php 
-                                            if($all_c){
-                                                foreach($all_c as $p){
-                                        ?>
-                                            <div class="col-md-12" style="margin-bottom:8px;">
-                                                <div class="col-md-8">
-                                                    <div class="input-group demo2">
-                                                        <input type="text" value="<?php echo $p; ?>" name="color[]" class="form-control" />
-                                                        <span class="input-group-addon"><i></i></span>
-                                                    </div>
-                                                </div>
-                                                <span class="col-md-4">
-                                                    <span class="remove_it_v rmc btn btn-danger btn-icon btn-circle icon-lg fa fa-times" ></span>
-                                                </span>
-                                            </div>
-                                        <?php 
-                                                }
-                                            } 
-                                        ?>
-                                    </div>
-                            </div>
-                            
-                            <div class="form-group btm_border">
-                                <label class="col-sm-4 control-label" for="demo-hor-16"></label>
-                                <div class="col-sm-6">
-                                        <div id="more_color_btn" class="btn btn-primary btn-labeled fa fa-plus pull-right">
-                                            <?php echo translate('add_colors');?></div>
-                                </div>
-                            </div>
-                            <div id="more_additional_options">
-                            <?php
-                                $r = 0;
-                                if(!empty($all_op)){
-                                    foreach($all_op as $i=>$row1){
-                                        $r = 1;
-                            ?> 
-                                <div class="form-group" data-no="<?php echo $row1['no']; ?>">
-                                    <div class="col-sm-4">
-                                        <input type="text" name="op_title[]" value="<?php echo $row1['title']; ?>" class="form-control required"  placeholder="<?php echo translate('customer_input_title'); ?>">
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <select class="demo-chosen-select op_type required" name="op_type[]" >
-                                            <option value="" <?php if($row1['type'] == ''){ echo 'selected'; } ?> >(none)</option>
-                                            <option value="text" <?php if($row1['type'] == 'text'){ echo 'selected'; } ?> >Text Input</option>
-                                            <option value="single_select" <?php if($row1['type'] == 'single_select'){ echo 'selected'; } ?> >Dropdown Single Select</option>
-                                            <option value="radio" <?php if($row1['type'] == 'radio'){ echo 'selected'; } ?> >Radio</option>
-                                        </select>
-                                        <div class="col-sm-12 options">
-                                        <?php
-                                            if($row1['type'] == 'text' || $row1['type'] == ''){
-                                        ?>
-                                            <input type="hidden" name="op_set<?php echo $row1['no']; ?>[]" value="none" >
-                                        <?php
-                                            } else {
-                                        ?>
-                                            <div class="col-sm-12">
-                                                <div class="col-sm-12 options margin-bottom-10">
-                                                <?php foreach ($row1['option'] as $key => $row2) { ?>
-                                                    <div>
-                                                        <div class="col-sm-10">
-                                                          <input type="text" name="op_set<?php echo $row1['no']; ?>[]" value="<?php echo $row2; ?>" class="form-control required"  placeholder="<?php echo translate('option_name'); ?>">
-                                                        </div>
-                                                        <div class="col-sm-2">
-                                                          <span class="remove_it_n rmon btn btn-danger btn-icon btn-circle icon-sm fa fa-times" onclick="delete_row(this)"></span>
-                                                        </div>
-                                                    </div>
-                                                <?php } ?>
-                                                </div>
-                                                <br>
-                                                <div class="btn btn-mint btn-labeled fa fa-plus pull-right add_op">
-                                                <?php echo translate('add_options_for_choice');?></div>
-                                            </div>
-
-                                        <?php
-                                            }
-                                        ?>
-                                        </div>
-                                    </div>
-                                    <input type="hidden" name="op_no[]" value="<?php echo $row1['no']; ?>" >
-                                    <div class="col-sm-2">
-                                        <span class="remove_it_o rmo btn btn-danger btn-icon btn-circle icon-lg fa fa-times" onclick="delete_row(this)"></span>
-                                    </div>
-                                </div>
-                            <?php
-                                    }
-                                }
-                            ?> 
-                            </div>
-                            <div class="form-group btm_border">
-                                <label class="col-sm-4 control-label" for="demo-hor-inputpass"></label>
-                                <div class="col-sm-6">
-                                    <h4 class="pull-left">
-                                        <i><?php echo translate('if_you_need_more_choice_options_for_customers_of_this_product_,please_click_here.');?></i>
-                                    </h4>
-                                    <div id="more_option_btn" class="btn btn-mint btn-labeled fa fa-plus pull-right">
-                                    <?php echo translate('add_customer_input_options');?></div>
-                                </div>
-                            </div>
-
-                        </div>
+                        
 
                     </div>
                 </div>

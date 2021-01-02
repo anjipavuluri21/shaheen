@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                             <div class="form-group btm_border">
-                                <label class="col-sm-4 control-label" for="demo-hor-1"><?php echo translate('product_title');?></label>
+                                <label class="col-sm-4 control-label" for="demo-hor-1"><?php echo translate('product_title_ar');?></label>
                                 <div class="col-sm-6">
                                     <input type="text" name="title_ar" id="demo-hor-1" placeholder="<?php echo translate('product_title_ar');?>" class="form-control required">
                                 </div>
@@ -51,19 +51,19 @@
                                     <?php echo $this->crud_model->select_html('category','category','category_name','add','demo-chosen-select required','','digital',NULL,'get_cat'); ?>
                                 </div>
                             </div>
-                            
-                            <div class="form-group btm_border" id="sub" style="display:none;">
-                                <label class="col-sm-4 control-label" for="demo-hor-3"><?php echo translate('sub-category');?></label>
-                                <div class="col-sm-6" id="sub_cat">
+                            <div class="form-group btm_border">
+                                <label class="col-sm-4 control-label" for="demo-hor-1"><?php echo translate('discription');?></label>
+                                <div class="col-sm-6">
+                                    <textarea type="text" name="description" id="demo-hor-1" placeholder="<?php echo translate('discription');?>" class="form-control required"></textarea>
                                 </div>
                             </div>
                             
-                            <div class="form-group btm_border" id="brn" style="display:none;">
-                                <label class="col-sm-4 control-label" for="demo-hor-4"><?php echo translate('brand');?></label>
-                                <div class="col-sm-6" id="brand">
+                            <div class="form-group btm_border">
+                                <label class="col-sm-4 control-label" for="demo-hor-1"><?php echo translate('discription_ar');?></label>
+                                <div class="col-sm-6">
+                                    <textarea type="text" name="description_ar" id="demo-hor-1" placeholder="<?php echo translate('description_ar');?>" class="form-control required"></textarea>
                                 </div>
                             </div>
-                            
                             <div class="form-group btm_border">
                                 <label class="col-sm-4 control-label" for="demo-hor-5"><?php echo translate('unit');?></label>
                                 <div class="col-sm-6">
@@ -76,26 +76,38 @@
                                     <input type="text" name="tag" data-role="tagsinput" placeholder="<?php echo translate('tags');?>" class="form-control">
                                 </div>
                             </div>
-                                            
+                                  
+                            <div class="form-group btm_border">
+                                <label class="col-sm-4 control-label" for="demo-hor-11"><?php echo translate('size');?></label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="size" data-role="tagsinput" placeholder="<?php echo translate('size');?>" class="form-control">
+                                </div>
+                            </div>
                             <div class="form-group btm_border">
                                 <label class="col-sm-4 control-label" for="demo-hor-12"><?php echo translate('images');?></label>
                                 <div class="col-sm-6">
                                 <span class="pull-left btn btn-default btn-file"> <?php echo translate('choose_file');?>
                                     <input type="file" multiple name="images[]" onchange="preview(this);" id="demo-hor-12" class="form-control required">
                                     </span>
-                                    <br><br>
-                                    <span id="previewImg" ></span>
+                                    &nbsp;
+                                    <span id="previewImg" >(Resolution: 400 X 533px)</span>
                                 </div>
                             </div>
                             
                             <div class="form-group btm_border">
-                                <label class="col-sm-4 control-label" for="demo-hor-13"><?php echo translate('description'); ?></label>
+                                <label class="col-sm-4 control-label" for="demo-hor-13"><?php echo translate('features'); ?></label>
                                 <div class="col-sm-6">
-                                    <textarea rows="9"  class="summernotes" data-height="200" data-name="description"></textarea>
+                                    <textarea rows="9"  class="summernotes" data-height="200" data-name="features"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group btm_border">
+                                <label class="col-sm-4 control-label" for="demo-hor-13"><?php echo translate('features_ar'); ?></label>
+                                <div class="col-sm-6">
+                                    <textarea rows="9"  class="summernotes" data-height="200" data-name="features_ar"></textarea>
                                 </div>
                             </div>
                             
-                            <div id="more_additional_fields"></div>
+<!--                            <div id="more_additional_fields"></div>
                             <div class="form-group btm_border">
                                 <label class="col-sm-4 control-label" for="demo-hor-inputpass"></label>
                                 <div class="col-sm-6">
@@ -105,7 +117,7 @@
                                     <div id="more_btn" class="btn btn-mint btn-labeled fa fa-plus pull-right">
                                     <?php echo translate('add_more_fields');?></div>
                                 </div>
-                            </div>
+                            </div>-->
                             
 
                         </div>
