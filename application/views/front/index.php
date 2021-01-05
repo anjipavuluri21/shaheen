@@ -1,4 +1,14 @@
+<?php 
+//$this->db->order_by('category_id', 'desc');
+//            $this->db->where('digital=',NULL);
+//            $page_data['all_categories'] = $this->db->get('category')->result_array();
+////            print_r($page_data['all_categories']);exit;
 
+
+        $categories=$this->db->get('category')->result_array();
+                                                            
+                                                       
+?>
 <div class="main">
 	<div class="banner-main parallaxcont wow fadeInUp">
 		<div class="container">
@@ -75,42 +85,19 @@
 					<div class="carousel-main">
 						<div class="categories-container swiper-container">
 							<div class="swiper-wrapper">
-								<div class="swiper-slide">
-									<div class="category-holder wow fadeInUp" data-wow-delay="0.2s" onClick="location.href='<?=base_url()?>Home/product_by_type/1'">
-										<div class="category-img"><img src="<?=base_url()?>template/front/images/indoor-plants.jpg" alt="Indoor Plants"/></div>
-										<h2>Indoor<br>Plants</h2>
+                                                            <?php 
+                                                            foreach ($categories as $row){ ?>
+                                                                <div class="swiper-slide">
+									<div class="category-holder wow fadeInUp" data-wow-delay="0.2s" onClick="location.href='<?php echo base_url(); ?>home/category/<?php echo $row['category_id']; ?>">
+										<div class="category-img"><img src="<?php echo base_url();?>uploads/category_image/<?php echo $row['banner']; ?>" alt="Indoor Plants"/></div>
+										<h2><?php echo $row['category_name'];?></h2>
 									</div>
 								</div>
-								<div class="swiper-slide">
-									<div class="category-holder wow fadeInUp" data-wow-delay="0.1s" onClick="location.href='outdoor-plants.html'">
-										<div class="category-img"><img src="<?=base_url()?>template/front/images/outdoor-plants.jpg" alt="Outdoor Plants"/></div>
-										<h2>Outdoor<br>Plants</h2>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="category-holder wow fadeInUp" data-wow-delay="0.2s" onClick="location.href='pots.html'">
-										<div class="category-img"><img src="<?=base_url()?>template/front/images/pots.jpg" alt="Pots"/></div>
-										<h2>Pots</h2>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="category-holder wow fadeInUp" data-wow-delay="0.3s" onClick="location.href='fertilizers-and-soil.html'">
-										<div class="category-img"><img src="<?=base_url()?>template/front/images/fertile-soil.jpg" alt="Fertile Soil"/></div>
-										<h2>Fertile<br>Soil</h2>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="category-holder wow fadeInUp" data-wow-delay="0.4s" onClick="location.href='seeds.html'">
-										<div class="category-img"><img src="<?=base_url()?>template/front/images/seeds.jpg" alt="Seeds"/></div>
-										<h2>Seeds</h2>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="category-holder wow fadeInUp" data-wow-delay="0.5s" onClick="location.href='tools.html'">
-										<div class="category-img"><img src="<?=base_url()?>template/front/images/tools.jpg" alt="Tools"/></div>
-										<h2>Tools</h2>
-									</div>
-								</div>
+                                                            <?php }
+                                                            ?>
+								
+								
+								
 							</div>
 						</div>
 						<div class="swiper-pagination categories-pagination"></div>
