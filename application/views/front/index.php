@@ -90,7 +90,7 @@
                                                                 <div class="swiper-slide">
 									<div class="category-holder wow fadeInUp" data-wow-delay="0.2s" onClick="location.href='<?php echo base_url(); ?>home/category/<?php echo $row['category_id']; ?>">
 										<div class="category-img"><img src="<?php echo base_url();?>uploads/category_image/<?php echo $row['banner']; ?>" alt="Indoor Plants"/></div>
-										<h2><?php echo $row['category_name'];?></h2>
+                                                                                <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category_id']; ?>"><h2><?php echo $row['category_name'];?></h2></a>
 									</div>
 								</div>
                                                             <?php }

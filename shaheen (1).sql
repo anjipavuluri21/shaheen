@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2021 at 03:27 PM
+-- Generation Time: Jan 06, 2021 at 09:23 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 5.6.35
 
@@ -239,7 +239,7 @@ INSERT INTO `business_settings` (`business_settings_id`, `type`, `status`, `valu
 (1, 'paypal_email', 'ok', 'paypal@mail.com'),
 (2, 'shipping_cost', 'ok', '10'),
 (3, 'shipping_cost_type', '', 'product_wise'),
-(4, 'currency', '', '1'),
+(4, 'currency', '', '27'),
 (6, 'shipment_info', '', '<p><span style=\"line-height: 17.1429px;\">&nbsp;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p><p>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p><p>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p><p>consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</p><p>cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p><p>proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'),
 (7, 'currency_name', '', 'Dollar'),
 (8, 'exchange', '', '80'),
@@ -250,7 +250,7 @@ INSERT INTO `business_settings` (`business_settings_id`, `type`, `status`, `valu
 (13, 'stripe_set', '', 'no'),
 (14, 'stripe_secret', '', 'sk_test_NYIpPjs6gbmuogdwUuJ8She4'),
 (15, 'stripe_publishable', '', 'pk_test_SuCjGKYkw5J5c0ZXvCfvX3zx'),
-(16, 'home_def_currency', '', '1'),
+(16, 'home_def_currency', '', '27'),
 (17, 'c2_set', NULL, 'no'),
 (18, 'c2_user', NULL, '901378053'),
 (19, 'c2_secret', NULL, '8677E1C0-7CB9-4D35-A513-05CA089B5E70'),
@@ -294,10 +294,8 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`category_id`, `category_name`, `category_name_ar`, `description`, `digital`, `banner`, `data_brands`, `data_vendors`, `data_subdets`) VALUES
-(7, 'Indoor Plants', 'أدوات', NULL, NULL, 'category_7.jpg', '', '', '[]'),
-(8, 'Tools', 'أدوات', NULL, NULL, 'category_8.png', '', '', '[]'),
-(9, 'Outdoor Plants', 'أدوات', NULL, NULL, 'category_9.jpg', '', '', '[]'),
-(10, 'pots', 'نباتات خارجية', NULL, NULL, 'category_10.jpg', '', '', '[]');
+(1, 'Indoor Plants', 'indoor plants ar', NULL, NULL, 'category_1.jpg', '', '', '[]'),
+(2, 'Seeds', 'seeds ar', NULL, NULL, 'category_2.jpg', '', '', '[]');
 
 -- --------------------------------------------------------
 
@@ -430,7 +428,7 @@ INSERT INTO `currency_settings` (`currency_settings_id`, `name`, `symbol`, `exch
 (23, 'Swedish Krona', 'kr', '8.1945', 'ok', 'SEK', '8.1945'),
 (24, 'Swiss Franc', 'CHF', '0.93805', 'ok', 'CHF', '0.93805'),
 (26, 'Thai Baht', '฿', '31.39', 'ok', 'THB', '1'),
-(27, 'your_currency', '?', '1', 'no', '??', '1');
+(27, 'Kuwaiti dinar', 'KWD', '1', 'ok', 'KWD', '1');
 
 -- --------------------------------------------------------
 
@@ -575,9 +573,9 @@ INSERT INTO `general_settings` (`general_settings_id`, `type`, `value`) VALUES
 (71, 'data_all_vendors', '1:::Lavinia Mckee;;;;;;3:::Tom;;;;;;5:::Youn;;;;;;7:::Tony Stark;;;;;;9:::Cheyenne Medina;;;;;;10:::Denton Hansen;;;;;;12:::Idona Snider;;;;;;16:::Carissa Newman;;;;;;19:::mevendor'),
 (72, 'smtp_host', 'ssl://smtp.googlemail.com'),
 (73, 'smtp_port', '465'),
-(74, 'smtp_user', 'smtp@gmail.com'),
-(75, 'smtp_pass', 'smtp password'),
-(76, 'mail_status', 'mail'),
+(74, 'smtp_user', 'hello@activecare.online'),
+(75, 'smtp_pass', 'ELLOH@ct!ve123'),
+(76, 'mail_status', 'smtp'),
 (77, 'captcha_status', 'no'),
 (78, 'version', '2.0.0'),
 (80, 'g_analytics_set', 'ok'),
@@ -3629,7 +3627,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `surname`, `email`, `phone`, `address1`, `address2`, `city`, `zip`, `langlat`, `password`, `fb_id`, `g_id`, `g_photo`, `creation_date`, `google_plus`, `skype`, `facebook`, `wishlist`, `last_login`, `user_type`, `user_type_till`, `left_product_type`, `downloads`, `country`, `state`, `wallet`, `product_upload`, `package_info`) VALUES
-(1, 'rorurehy', 'Fleming', 'customer1@shop.com', '+532-55-5730682', 'USA', 'USA', 'New York', '88604', '(37.09024, -95.71289100000001)', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, '1474453509', '', '', '', '[]', '1575893437', 'default', NULL, '[]', '[]', 'USA', 'NY', NULL, 0, '[]'),
+(1, 'rorurehy', 'Fleming', 'customer1@shop.com', '+532-55-5730682', 'USA', 'USA', 'New York', '88604', '(37.09024, -95.71289100000001)', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, '1474453509', '', '', '', '[]', '1609825122', 'default', NULL, '[]', '[]', 'USA', 'NY', NULL, 0, '[]'),
 (22, 'Guest', 'Demo', 'marketing@gmail.com', '+736-68-4155522', 'USA', 'USA', 'New York', '10024', '(37.09024, -95.71289100000001)', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, '1530764839', NULL, NULL, NULL, '[\"172\"]', '1532842963', 'default', NULL, '[]', '[]', 'USA', 'NY', NULL, 47, '[{\"current_package\":\"Gold\",\"package_price\":\"35\",\"payment_type\":\"SSLcommerz\"}]'),
 (2, 'rorurehy', 'Fleming', 'customer2@shop.com', '+532-55-5730682', 'USA', '', 'New York', '88604', '', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, '1474453555', '', '', '', '[]', '1575973145', 'default', NULL, '[]', '[]', '', '', NULL, 0, '[]'),
 (3, 'Customer', 'Seller', 'customer3@shop.com', '1000452345', 'Demo address  line 1', 'Demo address  line 2', 'Newyork', '1234', '(40.7127837, -74.00594130000002)', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, '1474454007', '', '', '', '[\"63\",\"100\",\"99\",\"73\",\"71\",\"57\",\"55\",\"82\",\"83\"]', '1576129195', 'default', NULL, '[]', '[{\"sale\":1,\"product\":\"44\"}]', '', '', 'MTMx', 18, '[{\"current_package\":\"Platinum\",\"package_price\":\"45\",\"payment_type\":\"Stripe\"}]'),
@@ -3645,7 +3643,8 @@ INSERT INTO `user` (`user_id`, `username`, `surname`, `email`, `phone`, `address
 (21, 'pajezupebu', 'Burgess', 'customer12@shop.com', '+499-60-2936405', '525 Oak Court', 'Quaerat deserunt ea elit incidunt porro quidem commodo eos minus inventore minim quam maiores cumque molestiae Nam voluptatem', 'Eum doloribus dolores eos ea ex irure quaerat repellendus', '42072', '', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, '1530422295', NULL, NULL, NULL, '[]', '1531038698', 'default', NULL, '[]', '[]', 'Deleniti atque minim deserunt cupiditate fugiat voluptatibus quos autem modi perspiciatis est error', 'Quia officiis est est dolore et dolorum', NULL, 2, '[]'),
 (23, 'Demo', 'Test', 'Demo@gmail.com', '1234567890', 'usa', '', 'New York', '10024', '(37.09024, -95.71289100000001)', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, '1531631611', NULL, NULL, NULL, '[]', '1532409701', 'default', NULL, '[]', '[]', 'USA', 'NY', 'Mzk1NQ==', 26, '[{\"current_package\":\"Platinum\",\"package_price\":\"45\",\"payment_type\":\"Wallet\"}]'),
 (24, 'H', 'M', 'hm@gmail.com', '1234', 'USA', 'NY\r\n', 'NYC', '1122', '', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, '1554012425', NULL, NULL, NULL, '[]', '1560848755', 'default', NULL, '[]', '[{\"sale\":187,\"product\":\"221\"},{\"sale\":188,\"product\":\"98\"},{\"sale\":189,\"product\":\"98\"},{\"sale\":190,\"product\":\"98\"},{\"sale\":194,\"product\":\"100\"}]', 'Bangladesh', 'Dhk div', NULL, 69, '[{\"current_package\":\"Platinum\",\"package_price\":\"45\",\"payment_type\":\"Stripe\"}]'),
-(25, 'tokegidov', 'Price', 'lolodag@mailinator.net', '+ 798-6429', '60 Second Court', 'Eaque cillum ut a eu', 'Dolore quam unde qui', '46284', '', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, '1571651783', NULL, NULL, NULL, '[]', '1571724448', 'default', NULL, '[]', '[]', 'Quod quia laboriosam', 'Exercitationem sed t', NULL, 2, '[]');
+(25, 'tokegidov', 'Price', 'lolodag@mailinator.net', '+ 798-6429', '60 Second Court', 'Eaque cillum ut a eu', 'Dolore quam unde qui', '46284', '', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, '1571651783', NULL, NULL, NULL, '[]', '1571724448', 'default', NULL, '[]', '[]', 'Quod quia laboriosam', 'Exercitationem sed t', NULL, 2, '[]'),
+(26, 'adminanji', NULL, 'anji.naga1@gmail.com', '9014675474', NULL, NULL, NULL, NULL, '', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, '1609835827', NULL, NULL, NULL, '[]', '1609842673', 'default', NULL, '[]', '[]', NULL, NULL, NULL, 2, '[]');
 
 -- --------------------------------------------------------
 
@@ -4146,7 +4145,7 @@ ALTER TABLE `business_settings`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `contact_message`
@@ -4194,7 +4193,7 @@ ALTER TABLE `language`
 -- AUTO_INCREMENT for table `language_list`
 --
 ALTER TABLE `language_list`
-  MODIFY `language_list_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `language_list_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `logo`
@@ -4338,7 +4337,7 @@ ALTER TABLE `ui_settings`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `user_rating`

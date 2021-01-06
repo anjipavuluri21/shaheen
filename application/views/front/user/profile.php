@@ -1,5 +1,5 @@
 <?php 
-    include 'includes/header.php';
+    $this->load->view('front/includes/header');
     ?>
 <div class="inner-banner-main parallaxcont wow fadeInUp">
 	<div class="container">
@@ -31,37 +31,41 @@
 		<div class="row">
 			<div class="col-12">
 				<h1 class="wow fadeInLeft" data-wow-duration="1.5s">My Profile</h1>
+                                <?php
+	foreach($user_info as $row)
+	{
+    ?>
 				<div class="row listing-item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
 					<div class="col-lg-8 col-md-8 col-sm-12">
 						<div class="shopping-box">
-							 <div class="myprofile-main">
+                         				 <div class="myprofile-main">
 								<div class="profiledata">
 									<div class="form-group">
-										<label>First Name </label><p>Shamel</p>
+										<label>First Name </label><p><?php echo $row['username'];?></p>
 									</div>
 									<div class="form-group">
-										<label>Last Name </label><p>Nourhan</p>
+										<label>Last Name </label><p><?php echo $row['surname'];?></p>
 									</div>
 									<div class="form-group">
-										<label>Email Address</label><p>mustafa@design-master.com</p>
+										<label>Email Address</label><p><?php echo $row['email'];?></p>
 									</div>
 									<div class="form-group">
-										<label>Mobile</label><p>+965 85858585</p>
+										<label>Mobile</label><p><?php echo $row['phone'];?></p>
 									</div>
 									<div class="change-div"><a href="javascript:void(0);" class="button change-btn">CHANGE</a></div>
 								</div>					
 								<div class="profileform">
 									<div class="form-group">
-										<div class="inputbox"><input type="text" id="" name="" placeholder="First Name" class="form-control" /></div>
+										<div class="inputbox"><input type="text" id="" name="" placeholder="First Name" class="form-control" value="<?php echo $row['username'];?>"/></div>
 									</div>
 									<div class="form-group">
-										<div class="inputbox"><input type="text" id="" name="" placeholder="Last Name" class="form-control" /></div>
+										<div class="inputbox"><input type="text" id="" name="" placeholder="Last Name" class="form-control" value="<?php echo $row['surname'];?>"/></div>
 									</div>
 									<div class="form-group">
-										<div class="inputbox"><input type="text" id="" name="" placeholder="Email Address" class="form-control" /></div>
+										<div class="inputbox"><input type="text" id="" name="" placeholder="Email Address" class="form-control" value="<?php echo $row['email'];?>"/></div>
 									</div>
 									<div class="form-group">
-										<div class="inputbox"><input type="text" id="" name="" placeholder="Mobile" class="form-control" /></div>
+										<div class="inputbox"><input type="text" id="" name="" placeholder="Mobile" class="form-control" value="<?php echo $row['phone'];?>"/></div>
 									</div>
 									<div class="change-div"><button class="button" type="submit">UPDATE</button> <a href="javascript:void(0);" class="button closebutton">CLOSE</a></div>
 								</div>
@@ -80,17 +84,20 @@
 										<li><a href="my-favourite.php">My Favourite</a></li>
 										<li><a href="address.php">My Address</a></li>
 										<li><a href="change-password.php">Change Password</a></li>
-										<li><a href="javascript:void(0);">Logout</a></li>
+										<li><a href="<?=base_url().'home/logout'?>">Logout</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+                                   <?php
+	}
+?> 
 			</div>
 		</div>
 	</div>
 </section>
-    <?php 
-    include 'includes/footer.php';
+<?php 
+    $this->load->view('front/includes/footer');
     ?>

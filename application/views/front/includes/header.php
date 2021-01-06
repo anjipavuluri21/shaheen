@@ -25,6 +25,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Yeseva+One&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>template/front/scrollbar/jquery.mCustomScrollbar.min.css" />	
         <link href="<?=base_url()?>template/front/css/jpreloader.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="<?=base_url()?>template/front/css/activeit.css" rel="stylesheet" type="text/css" media="screen"/>	
+        <link href="<?=base_url()?>template/front/css/activeit.min.css" rel="stylesheet" type="text/css" media="screen"/>	
         <link href="<?=base_url()?>template/front/css/animate.css" rel="stylesheet" type="text/css" media="screen"/>	
         <link href="<?=base_url()?>template/front/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>template/front/fancybox-master/jquery.fancybox.min.css" />	
@@ -35,25 +37,67 @@
     </head>
 
     <body>
+        
+<!--<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+  <div class="toast" style="position: absolute; top: 0; right: 0;">
+    <div class="toast-header">
+      <img src="..." class="rounded mr-2" alt="...">
+      <strong class="mr-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>
+</div>-->
         <header id="header">
             <div class="menu-link-div"><a href="javascript:void(0);" class="menu-link wow fadeInLeft"><span></span></a></div>
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <a href="index.php" class="SNAFCO wow fadeInLeft"><img src="<?=base_url()?>template/front/images/SNAFCO.png" alt="SNAFCO"></a>
+                         <p style="color:white">
+                                <?php echo $this->session->flashdata('alert');?>
+                                </p>
                         <div class="language-search">
                             <div class="search-area wow fadeInRight">
                                 <div class="search-imain">
                                     <a href="javascript:void(0);" class="search-link"><span></span></a>
                                     <div class="search-div"><div class="search-input"><input class="form-control" name="" id="" placeholder="Search" value=""></div><button class="search-btn">Go</button></div>
                                 </div>
-                                <a href="index-ar.html" class="language-link">العربية</a>
+                               
+                                <a href="index-ar.html" class="language-link"> العربية</a>
+                                <p><?php // echo $this->session->userdata('user_login');?></p>
                             </div>
                             <div class="login-cart wow fadeInRight" data-wow-delay="0.2s">
+                                <?php if ($this->session->userdata('user_login') == "yes") { ?>
+            
+        }
+                                <div class="account-navi">
+							<span class="welcome">Welcome :</span>
+							<div class="account-main">
+								<a href="javascript:void(0);" class="account-link"><?=$this->session->userdata('user_name')?></a>
+								<div class="account-div">
+									<ul class="account-ul">
+										<li><a href="<?=base_url().'home/profile/info'?>">My Profile</a></li>
+										<li><a href="my-order.html">My Order</a></li>
+										<li><a href="my-favourite.html">My Favourite</a></li>
+										<li><a href="address.html">My Address</a></li>
+										<li><a href="change-password.html">Change Password</a></li>
+										<li><a href="<?=base_url().'home/logout'?>">Logout</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+                                <?php } else { ?>
                                 <div class="log-reg">
                                     <a href="javascript:void(0);" data-src="#loginModel" data-fancybox class="login-link">Login</a>
                                     <a href="javascript:void(0);" data-src="#registerModel" data-fancybox class="register-link">Register</a>
                                 </div>
+                                <?php } ?>
                                 <div class="faviourite-div"><a href="javascript:void(0);" class="faviourite-link docmenu-link" title="Faviourite"><span class="cart-img"><img src="<?=base_url()?>template/front/images/faviourite-white.svg" alt="faviourite"></span><span class="cart-text">(3)</span></a>
                                     <div class="cart-main">
                                         <div class="shopping-main">
@@ -126,7 +170,7 @@
                                     </div>
                                 </div>
                                 <div class="cart-div">
-                                    <a href="javascript:void(0);" class="cart-link docmenu-link"><span class="cart-img"><img src="<?=base_url()?>template/front/images/cart-white.svg" alt="cart"></span><span class="cart-text">Cart (3)</span></a>
+                                    <a href="javascript:void(0);" class="cart-link docmenu-link"><span class="cart-img"><img src="<?=base_url()?>template/front/images/cart-white.svg" alt="cart"></span><span class="cart-text">Cart (<?php echo $this->cart->contents();?>)</span></a>
                                     <div class="cart-main">
                                         <div class="shopping-main">
                                             <h3>Shopping Cart</h3>

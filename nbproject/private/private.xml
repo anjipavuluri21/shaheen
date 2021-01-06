@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/shaheen/application/views/back/header.php</file>
-            <file>file:/C:/xampp/htdocs/shaheen/application/controllers/Admin.php</file>
-            <file>file:/C:/xampp/htdocs/shaheen/application/views/back/admin/category_add.php</file>
-            <file>file:/C:/xampp/htdocs/shaheen/application/views/back/admin/category.php</file>
-            <file>file:/C:/xampp/htdocs/shaheen/application/views/back/admin/category_edit.php</file>
-            <file>file:/C:/xampp/htdocs/shaheen/application/views/back/admin/category_list.php</file>
+            <file>file:/C:/xampp/htdocs/shaheen/application/libraries/Recaptcha.php</file>
+            <file>file:/C:/xampp/htdocs/shaheen/application/controllers/Home.php</file>
+            <file>file:/C:/xampp/htdocs/shaheen/system/libraries/Cart.php</file>
+            <file>file:/C:/xampp/htdocs/shaheen/application/views/front/includes/footer.php</file>
+            <file>file:/C:/xampp/htdocs/shaheen/application/views/front/includes/header.php</file>
+            <file>file:/C:/xampp/htdocs/shaheen/application/views/front/index.php</file>
+            <file>file:/C:/xampp/htdocs/shaheen/application/models/Email_model.php</file>
         </group>
     </open-files>
 </project-private>

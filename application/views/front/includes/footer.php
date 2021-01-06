@@ -43,13 +43,21 @@
 	</footer>
 </div>	
 <div id="loginModel" class="popup-hidden animated-modal width315px modelbox">
+    <?php
+                    echo form_open(base_url() . 'home/login/do_login/', array(
+                        'class' => 'form-login',
+                        'method' => 'post',
+                        'id' => ''
+                    ));
+    ?>
 	<h2 class="anim1">Sign In</h2>
 	<div class="odd-even">
-		<div class="form-group leftanim animstep1"><input type="text" class="form-control" placeholder="Mobile / Email" value=""/></div>
-		<div class="form-group rightanim animstep1"><input type="password" class="form-control" placeholder="Password" value=""/></div>
+		<div class="form-group leftanim animstep1"><input type="text" class="form-control" placeholder="Mobile / Email" value="" name="email"/></div>
+		<div class="form-group rightanim animstep1"><input type="password" class="form-control" placeholder="Password" value="" name="password"/></div>
 	</div>	
-	<div class="form-group text-center anim2"><button type="submit" class="reverse-button" onClick="location.href='my-profile.php'">Sign In</button></div>
-	<div class="forgot-main">
+	<div class="form-group text-center anim2"><button  type="submit" class="reverse-button" id="login_btn">Sign In</button></div>
+    </form>
+        <div class="forgot-main">
 		<div class="forgot-link-main anim3"><a href="javascript:void(0);" class="forgot-link">Forgot Password</a></div>
 		<div class="forgot-main-sub">
 			<div class="forgot-div"><input type="text" class="form-control" placeholder="Enter mobile or email" value=""/><button type="submit" class="dark-button">Reset Password</button></div>
@@ -57,26 +65,38 @@
 	</div>	
 	<p class="forgot-reg anim5">Don't have an Account ? <a href="javascript:void(0);" onclick="$.fancybox.close();" data-fancybox data-src="#registerModel" data-animation-duration="700">REGISTER</a></p>
 </div>
+    
 <div id="registerModel" class="popup-hidden animated-modal width315px modelbox">
+    <?php
+                    echo form_open(base_url() . 'home/registration/add_info/', array(
+                        'class' => 'form-signup',
+                        'method' => 'post',
+                        'id' => 'signup_form'
+                    ));
+                   
+                ?>
 	<h2 class="anim1">Sign Up</h2>
-	<div class="form-group anim2"><input type="text" class="form-control" placeholder="Full Name" value=""/></div>
+        
+	<div class="form-group anim2"><input type="text" class="form-control" placeholder="Full Name" value="" name="username"/></div>
 	<div class="odd-even">
-		<div class="form-group leftanim animstep3"><input type="text" class="form-control" placeholder="Mobile Number" value=""/></div>
-		<div class="form-group rightanim animstep3"><input type="password" class="form-control" placeholder="Email Address" value=""/></div>
+		<div class="form-group leftanim animstep3"><input type="text" class="form-control" placeholder="Mobile Number" value="" name="phone"/></div>
+		<div class="form-group rightanim animstep3"><input type="email" class="form-control" placeholder="Email Address" value="" name="email"/></div>
 	</div>
 	<div class="odd-even">
-		<div class="form-group leftanim animstep4"><input type="Password" class="form-control" placeholder="Password" value=""/></div>
-		<div class="form-group rightanim animstep4"><input type="password" class="form-control" placeholder="Confirm Password" value=""/></div>
+		<div class="form-group leftanim animstep4"><input type="Password" class="form-control" placeholder="Password" value="" name="password1"/></div>
+		<div class="form-group rightanim animstep4"><input type="password" class="form-control" placeholder="Confirm Password" value="" name="password2"/></div>
 	</div>
-	<div class="form-group text-center anim5"><button type="submit" class="reverse-button" onclick="$.fancybox.close();" data-fancybox data-src="#verifyModel">Register</button></div>
+	<div class="form-group text-center anim5"><button type="submit" class="reverse-button">Register</button></div>
 	<p class="login-link-div anim6">Already an Account ? <a href="javascript:void(0);" onclick="$.fancybox.close();" data-fancybox data-src="#loginModel" data-animation-duration="700">LOGIN</a></p>
+ </form>
 </div>
-<div id="verifyModel" class="popup-hidden animated-modal width315px modelbox text-center">
+<!--<div id="verifyModel" class="popup-hidden animated-modal width315px modelbox text-center">
 	<h2 class="anim1">Enter OTP</h2>
 	<div class="form-group anim2"><p>Please enter OTP code which you have received on your Mobile/Email.</p></div>
-	<div class="form-group anim3"><input type="text" class="form-control text-center" placeholder="Enter otp" value=""/></div>
+	<div class="form-group anim3"><input type="text" class="form-control text-center" placeholder="Enter otp" value="" name="g-recaptcha-response"/></div>
 	<div class="text-center anim4"><button type="submit" class="reverse-button" onClick="location.href='my-profile.php'">Verify</button> <a href="javascript:void(0);" class="resend-otp">Resend OTP</a></div>
-</div>
+</div>-->
+   
 <div id="detail_1" class="popup-hidden animated-modal modelbox detail-popup">
 	<div class="quick-view-main">
 		<div class="row product-detail">
@@ -269,5 +289,8 @@
 <!--end swiper-->
 <script type="text/javascript" src="<?=base_url()?>template/front/js/parallaxscroll.js"></script>	
 <script type="text/javascript" src="<?=base_url()?>template/front/js/custom.js"></script>
+<script>
+
+</script>
 </body>
 </html>

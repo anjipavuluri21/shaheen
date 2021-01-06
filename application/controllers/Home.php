@@ -2616,7 +2616,8 @@ class Home extends CI_Controller
             $this->form_validation->set_rules('password', 'Password', 'required');
 
             if ($this->form_validation->run() == FALSE) {
-                echo validation_errors();
+                                     $this->session->set_flashdata('alert', validation_errors());
+
             } else {
                 $signin_data = $this->db->get_where('user', array(
                     'email' => $this->input->post('email'),
@@ -2632,12 +2633,13 @@ class Home extends CI_Controller
                         $this->db->update('user', array(
                             'last_login' => time()
                         ));
-                        echo 'done';
+                        
                     }
                 } else {
-                    echo 'failed';
+                     $this->session->set_flashdata('alert', 'failed');
                 }
             }
+            redirect(base_url().'Home', 'refresh');  
         } else if ($para1 == 'forget') {
             $this->load->library('form_validation');
             $this->form_validation->set_rules('email', 'Email', 'required');
@@ -2947,7 +2949,7 @@ class Home extends CI_Controller
     function registration($para1 = "", $para2 = "")
     {
         $safe = 'yes';
-        $char = '';
+        $char = '';$msg = '';
         foreach ($_POST as $k => $row) {
             if (preg_match('/[\'^":()}{#~><>|=¬]/', $row, $match)) {
                 if ($k !== 'password1' && $k !== 'password2') {
@@ -2962,22 +2964,22 @@ class Home extends CI_Controller
         $this->load->library('form_validation');
         $page_data['page_name'] = "registration";
         if ($para1 == "add_info") {
-            $msg = '';
+            
             $this->form_validation->set_rules('username', 'First Name', 'required');
             $this->form_validation->set_rules('email', 'Email', 'required|is_unique[user.email]|valid_email', array('required' => 'You have not provided %s.', 'is_unique' => 'This %s already exists.'));
             $this->form_validation->set_rules('password1', 'Password', 'required|matches[password2]');
             $this->form_validation->set_rules('password2', 'Confirm Password', 'required');
-            $this->form_validation->set_rules('address1', 'Address Line 1', 'required');
+//            $this->form_validation->set_rules('address1', 'Address Line 1', 'required');
             $this->form_validation->set_rules('phone', 'Phone', 'required');
-            $this->form_validation->set_rules('surname', 'Last Name', 'required');
-            $this->form_validation->set_rules('zip', 'ZIP', 'required');
-            $this->form_validation->set_rules('city', 'City', 'required');
-            $this->form_validation->set_rules('state', 'State', 'required');
-            $this->form_validation->set_rules('country', 'Country', 'required');
-            $this->form_validation->set_rules('terms_check', 'Terms & Conditions', 'required', array('required' => translate('you_must_agree_with_terms_&_conditions')));
+//            $this->form_validation->set_rules('surname', 'Last Name', 'required');
+//            $this->form_validation->set_rules('zip', 'ZIP', 'required');
+//            $this->form_validation->set_rules('city', 'City', 'required');
+//            $this->form_validation->set_rules('state', 'State', 'required');
+//            $this->form_validation->set_rules('country', 'Country', 'required');
+//            $this->form_validation->set_rules('terms_check', 'Terms & Conditions', 'required', array('required' => translate('you_must_agree_with_terms_&_conditions')));
 
             if ($this->form_validation->run() == FALSE) {
-                echo validation_errors();
+                $msg= validation_errors();
             } else {
                 if ($safe == 'yes') {
                     if ($this->crud_model->get_settings_value('general_settings', 'captcha_status', 'value') == 'ok') {
@@ -3018,14 +3020,14 @@ class Home extends CI_Controller
                     } else {
                         $data['username'] = $this->input->post('username');
                         $data['email'] = $this->input->post('email');
-                        $data['address1'] = $this->input->post('address1');
-                        $data['address2'] = $this->input->post('address2');
+//                        $data['address1'] = $this->input->post('address1');
+//                        $data['address2'] = $this->input->post('address2');
                         $data['phone'] = $this->input->post('phone');
-                        $data['surname'] = $this->input->post('surname');
-                        $data['zip'] = $this->input->post('zip');
-                        $data['city'] = $this->input->post('city');
-                        $data['state'] = $this->input->post('state');
-                        $data['country'] = $this->input->post('country');
+//                        $data['surname'] = $this->input->post('surname');
+//                        $data['zip'] = $this->input->post('zip');
+//                        $data['city'] = $this->input->post('city');
+//                        $data['state'] = $this->input->post('state');
+//                        $data['country'] = $this->input->post('country');
                         $data['langlat'] = '';
                         $data['wishlist'] = '[]';
                         $data['package_info'] = '[]';
@@ -3040,10 +3042,12 @@ class Home extends CI_Controller
                             if ($this->email_model->account_opening('user', $data['email'], $password) == false) {
                                 $msg = 'done_but_not_sent';
                             } else {
-                                $msg = 'done_and_sent';
+                                $msg = 'done_and_sent & Please Login';
                             }
                         }
-                        echo $msg;
+                        $this->session->set_flashdata('alert',$msg);
+                        redirect(base_url().'Home', 'refresh');  
+
                     }
                 } else {
                     echo 'Disallowed charecter : " ' . $char . ' " in the POST';
