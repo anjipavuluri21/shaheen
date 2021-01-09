@@ -53,12 +53,16 @@
     </div>
   </div>
 </div>-->
+<?php 
+ $home_top_logo = $this->db->get_where('ui_settings', array('type' => 'home_top_logo'))->row()->value;
+
+?>
         <header id="header">
             <div class="menu-link-div"><a href="javascript:void(0);" class="menu-link wow fadeInLeft"><span></span></a></div>
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.php" class="SNAFCO wow fadeInLeft"><img src="<?=base_url()?>template/front/images/SNAFCO.png" alt="SNAFCO"></a>
+                        <a href="index.php" class="SNAFCO wow fadeInLeft"><img src="<?php echo base_url(); ?>uploads/logo_image/logo_<?php echo $home_top_logo; ?>.png" alt="SNAFCO"></a>
                          <p style="color:white">
                                 <?php echo $this->session->flashdata('alert');?>
                                 </p>

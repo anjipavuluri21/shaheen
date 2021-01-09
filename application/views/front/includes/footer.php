@@ -1,3 +1,9 @@
+<?php 
+$footer_text =  $this->db->get_where('general_settings',array('type' => 'footer_text'))->row()->value;
+
+
+
+?>
 <footer class="parallaxcont">
 		<div class="container">
 <footer class="parallaxcont">
@@ -16,14 +22,7 @@
 							</ul>
 						</div>
 						<div class="col-lg-7 col-md-6 col-sm-6 foot-address wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.5s">
-							<h4>Address</h4>
-							<h5>Alshaheen nurseries agriculture and food co.</h5>
-							<p>P O Box : 22138 Safat<br>Kuwait Code : 13082</p>
-							<p>Tel : +965 24740140 <br>Fax : +965 24713823</p>
-							<h4>Projects Division</h4>
-							<p>Tel. : +965 99448022</p>
-							<h4>Wholesale Division</h4>
-							<p>Tel. : +965 99448122<br>Email : <a href="mailto:info@alshaheen.com.kw">info@alshaheen.com.kw</a></p>
+							<?php echo $footer_text; ?>
 						</div>	
 					</div>
 				</div>

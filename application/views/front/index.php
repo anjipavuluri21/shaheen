@@ -438,25 +438,32 @@
 			</div>	
 		</div>	
 	</section>
+    
 	<section class="section promotions-main">
 		<div class="object texture-5 wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="2s"><img src="<?=base_url()?>template/front/images/texture5.png" alt="texture"></div>
 		<div class="object texture-6 wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="2s"><img src="<?=base_url()?>template/front/images/texture6.png" alt="texture"></div>
 		<div class="object texture-10 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="2s"><img src="<?=base_url()?>template/front/images/texture10.png" alt="texture"></div>
-		<div class="container">
+		<?php 
+                
+                $promotion_banner_one = $this->db->get_where('ui_settings', array('type' => 'promotion_banner_one'))->row()->value;
+                $promotion_banner_two = $this->db->get_where('ui_settings', array('type' => 'promotion_banner_two'))->row()->value;
+                $promotion_banner_three = $this->db->get_where('ui_settings', array('type' => 'promotion_banner_three'))->row()->value;
+              ?>
+                <div class="container">
 			<div class="row">
 				<div class="col-12">
 					<h1 class="wow fadeInLeft" data-wow-duration="1.5s">Promotions</h1>
 					<div class="row">
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<a href="javascript:void(0);" class="offer-link wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.5s"><img src="<?=base_url()?>template/front/images/offer1.jpg" alt="offer"></a>
+							<a href="javascript:void(0);" class="offer-link wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.5s"><img src="<?php echo base_url(); ?>uploads/logo_image/logo_<?php echo $promotion_banner_one; ?>.png" alt="offer"></a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 promotions-div">
 							<div class="row">
 								<div class="col-12">
-									<a href="javascript:void(0);" class="offer-link wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.5s"><img src="<?=base_url()?>template/front/images/offer2.jpg" alt="offer"></a>
+									<a href="javascript:void(0);" class="offer-link wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.5s"><img src="<?php echo base_url(); ?>uploads/logo_image/logo_<?php echo $promotion_banner_two; ?>.png" alt="offer"></a>
 								</div>
 								<div class="col-12">
-									<a href="javascript:void(0);" class="offer-link wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.5s"><img src="<?=base_url()?>template/front/images/offer3.jpg" alt="offer"></a>
+									<a href="javascript:void(0);" class="offer-link wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.5s"><img src="<?php echo base_url(); ?>uploads/logo_image/logo_<?php echo $promotion_banner_three; ?>.png" alt="offer"></a>
 								</div>
 							</div>
 						</div>
