@@ -64,7 +64,7 @@
                     <div class="col-12">
                         <a href="index.php" class="SNAFCO wow fadeInLeft"><img src="<?php echo base_url(); ?>uploads/logo_image/logo_<?php echo $home_top_logo; ?>.png" alt="SNAFCO"></a>
                          <p style="color:white">
-                                <?php echo $this->session->flashdata('alert');?>
+                                <?php // echo $this->session->flashdata('alert');?>
                                 </p>
                         <div class="language-search">
                             <div class="search-area wow fadeInRight">
@@ -79,7 +79,7 @@
                             <div class="login-cart wow fadeInRight" data-wow-delay="0.2s">
                                 <?php if ($this->session->userdata('user_login') == "yes") { ?>
             
-        }
+        
                                 <div class="account-navi">
 							<span class="welcome">Welcome :</span>
 							<div class="account-main">
@@ -102,143 +102,24 @@
                                     <a href="javascript:void(0);" data-src="#registerModel" data-fancybox class="register-link">Register</a>
                                 </div>
                                 <?php } ?>
-                                <div class="faviourite-div"><a href="javascript:void(0);" class="faviourite-link docmenu-link" title="Faviourite"><span class="cart-img"><img src="<?=base_url()?>template/front/images/faviourite-white.svg" alt="faviourite"></span><span class="cart-text">(3)</span></a>
+                                <div class="faviourite-div"><a href="<?php echo base_url().'home/profile/part/wishlist'?>" class="faviourite-link docmenu-link" title="Faviourite"><span class="cart-img"><img src="<?=base_url()?>template/front/images/faviourite-white.svg" alt="faviourite"></span>( <span class="cart-text wish_num"></span> )</a>
                                     <div class="cart-main">
-                                        <div class="shopping-main">
-                                            <h3>My Faviourite</h3>
-                                            <div class="cart-main-sub scrollbar">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="product-thumb">
-                                                            <div class="product-holder">
-                                                                <div class="product-img"><img src="<?=base_url()?>template/front/products/pots/th/11923-1.jpg" alt="product"/></div>
-                                                                <a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/pots/11923-1.jpg" data-fancybox="favproduct62"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-                                                                <a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/pots/11923.jpg" data-fancybox="favproduct62"></a>
-                                                                <a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/pots/11923E28093.jpg" data-fancybox="favproduct62"></a>
-                                                                <div class="favourite-addtocart">
-                                                                    <a href="javascript:void(0);" class="remove-anchor" title="Remove Item"><img src="<?=base_url()?>template/front/images/close.svg" alt="Remove Item"></a>
-                                                                    <a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-dtl">
-                                                                <h2>Fulya Pot With Plate</h2>
-                                                                <div class="pot-size">Size : 295X260mm, W/MB/DG/TB/Grey</div>
-                                                                <div class="made-by">Type : Pots</div>
-                                                                <p>2.750 KD</p>
-                                                            </div>
-                                                        </div>	
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="product-thumb">
-                                                            <div class="product-holder">
-                                                                <div class="product-img"><img src="<?=base_url()?>template/front/products/indoor-plants/th/10148.jpg" alt="product"/></div>
-                                                                <a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/indoor-plants/10148.jpg" data-fancybox="favproduct19"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-                                                                <a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/indoor-plants/10148-2.jpg" data-fancybox="favproduct19"></a>
-                                                                <a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/indoor-plants/10148-3.jpg" data-fancybox="favproduct19"></a>
-                                                                <div class="favourite-addtocart">
-                                                                    <a href="javascript:void(0);" class="remove-anchor" title="Remove Item"><img src="<?=base_url()?>template/front/images/close.svg" alt="Remove Item"></a>
-                                                                    <a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-dtl">
-                                                                <h2>Asplenium Campio - Air So Pure</h2>
-                                                                <div class="made-by">Size : Pot-12cm, H-30cm</div>
-                                                                <p>2.750 KD</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="product-thumb">
-                                                            <div class="product-holder">
-                                                                <div class="product-img"><img src="<?=base_url()?>template/front/products/indoor-plants/th/10151-1.jpg" alt="product"/></div>
-                                                                <a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/indoor-plants/10151-1.jpg" data-fancybox="product6"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-                                                                <a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/indoor-plants/10151-2.jpg" data-fancybox="product6"></a>
-                                                                <div class="favourite-addtocart">
-                                                                    <a href="javascript:void(0);" class="remove-anchor" title="Remove Item"><img src="<?=base_url()?>template/front/images/close.svg" alt="Remove Item"></a>
-                                                                    <a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-dtl">
-                                                                <h2>Bonsai Mixed Broom Ball</h2>
-                                                                <div class="made-by">Size : P-15cm, H-25cm</div>
-                                                                <p>8.750 KD</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cart-checkout view-faviourite">
-                                                <a href="<?=base_url().'Home/wish_listed'?>" class="button">View My Faviourite</a>
-                                            </div>
-                                        </div>	
+                                       
                                     </div>
                                 </div>
                                 <div class="cart-div">
-                                    <a href="javascript:void(0);" class="cart-link docmenu-link"><span class="cart-img"><img src="<?=base_url()?>template/front/images/cart-white.svg" alt="cart"></span><span class="cart-text">Cart (<?php echo $this->cart->contents();?>)</span></a>
+                                    <a href="javascript:void(0);" class="cart-link docmenu-link"><span class="cart-img"><img src="<?=base_url()?>template/front/images/cart-white.svg" alt="cart"></span>Cart ( <span class="cart-text cart_num"></span> )</a>
                                     <div class="cart-main">
                                         <div class="shopping-main">
                                             <h3>Shopping Cart</h3>
                                             <div class="cart-main-sub scrollbar">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="product-thumb">
-                                                            <div class="product-holder">
-                                                                <div class="product-img"><img src="<?=base_url()?>template/front/products/seeds/th/image00014.jpg" alt="product"/></div>
-                                                                <a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/seeds/image00014.jpg" data-fancybox="product1"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-                                                                <a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/seeds/image00015.jpg" data-fancybox="product1"></a>
-                                                                <div class="favourite-addtocart">
-                                                                    <a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-                                                                    <a href="javascript:void(0);" class="remove-anchor" title="Remove Item"><img src="<?=base_url()?>template/front/images/close.svg" alt="Remove Item"></a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-dtl">
-                                                                <h2>BIO ROCALBA butternut</h2>
-                                                                <p>1.5 KD</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="product-thumb">
-                                                            <div class="product-holder">
-                                                                <div class="product-img"><img src="<?=base_url()?>template/front/products/tools/th/70403.jpg" alt="product"/></div>
-                                                                <a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/tools/70403.jpg" data-fancybox="product71"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-                                                                <a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/tools/70403-.jpg" data-fancybox="product71"></a>
-                                                                <div class="favourite-addtocart">
-                                                                    <a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-                                                                    <a href="javascript:void(0);" class="remove-anchor" title="Remove Item"><img src="<?=base_url()?>template/front/images/close.svg" alt="Remove Item"></a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-dtl">
-                                                                <h2>Shovel Steel Small</h2>
-                                                                <div class="pot-size">Size : Small</div>
-                                                                <div class="made-by">Type : Steel</div>
-                                                                <p>1.500 KD</p>
-                                                            </div>	
-                                                        </div>
-                                                    </div>	
-                                                    <div class="col-12">	
-                                                        <div class="product-thumb">
-                                                            <div class="product-holder">
-                                                                <div class="product-img"><img src="<?=base_url()?>template/front/products/indoor-plants/th/10530-3.jpg" alt="product"/></div>
-                                                                <a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/indoor-plants/10530-3.jpg" data-fancybox="product14"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-                                                                <a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/indoor-plants/10530-2.jpg" data-fancybox="product14"></a>
-                                                                <a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/indoor-plants/10530.jpg" data-fancybox="product14"></a>
-                                                                <div class="favourite-addtocart">
-                                                                    <a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-                                                                    <a href="javascript:void(0);" class="remove-anchor" title="Remove Item"><img src="<?=base_url()?>template/front/images/close.svg" alt="Remove Item"></a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-dtl">
-                                                                <h2>Ficus Benj brided stem Mixed</h2>
-                                                                <div class="pot-size">Size : Pot-17cm, H-65cm</div>
-                                                                <p>9.750 KD</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>	
+                                                <div class="row top_carted_list">
+                                                    
+                                                    	
                                                 </div>
                                             </div>
                                             <div class="cart-checkout">
-                                                <div class="total-amt"><p>Total : <strong>15.750 KWD</strong></p></div>
+                                                <div class="total-amt"><p>Total : <strong class="shopping-cart__total"></strong></p></div>
                                                 <a href="shopping-cart.php" class="button">Show Cart</a>
                                                 <a href="checkout.php" class="button">Checkout</a>
                                             </div>

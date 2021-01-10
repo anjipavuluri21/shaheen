@@ -125,7 +125,7 @@ $(document).ready(function(){
 		}
 	  });
 	});*/
-	$('.addtocart-anchor,.favourite-anchor,.addtocart-popbtn,.addtocart-detailbtn,.save-to-fav-link').on('click', function(){
+	$('.addtocart-anchor-chnage,.favourite-anchor-change,.addtocart-popbtn,.addtocart-detailbtn,.save-to-fav-link').on('click', function(){
 		if($(this).hasClass('addtocart-anchor') || $(this).hasClass('favourite-anchor')){
 			this_img = $(this).parents('.product-holder').find('.product-img');
 			fav_img_ht = $(this).parents('.product-holder').find('.product-img').width();

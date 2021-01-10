@@ -1,4 +1,10 @@
+<?php $this->load->view('front/includes/header');
 
+	foreach($category_data as $cat)
+	{
+   
+
+?>
 <div class="inner-banner-main parallaxcont wow fadeInUp">
 	<div class="container">
 		<div class="row">
@@ -22,14 +28,14 @@
 			<ol class="breadcrumb justify-content-center">
 				<li class="breadcrumb-item"><a href="index.php">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:void(0);">Categories</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Outdoor Plants</li>
+				<li class="breadcrumb-item active" aria-current="page"><?=$cat['category_name']?></li>
 			</ol>
 		</nav>
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-12 product-section">
-				<h1><div class="wow fadeInLeft" data-wow-duration="1.5s">Outdoor Plants</div>
+				<h1><div class="wow fadeInLeft" data-wow-duration="1.5s"><?=$cat['category_name']?></div>
 					<ul class="filter wow fadeInRight" data-wow-duration="1.5s">
 						<li>
 							<select class="form-control"><option>-- Sort By --</option><option>New in</option><option>Price Low to High</option><option>Price High to Low</option><option>Popular</option><option>A to Z</option><option>Z to A</option></select>
@@ -38,29 +44,44 @@
 				</h1>
 				<div class="row listing-item">
 					
-					
+                                        <?php foreach($all_products as $row){ 
+                                            ?> 
 					
 					<div class="col-lg-3 col-md-3 col-sm-6 loadmore-th">
 						<div class="product-thumb product-hover">
 							<div class="product-holder">
-								<div class="product-img"><img src="<?=base_url()?>template/front/products/outdoor-plants/th/no-image.jpg" alt="product"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/outdoor-plants/no-image.jpg" data-fancybox="product1"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-								<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/outdoor-plants/no-image.jpg" data-fancybox="product1"></a>
-								<div class="favourite-addtocart">
-									<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-									<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
+                                                                                <?php 
+                                        $images = $this->crud_model->file_view('product',$row['product_id'],'','','thumb','src','multi','all');
+                                       ?>
+                                                            <div class="product-img"><img src="<?=$images[0]?>" alt="product"/></div>
+								<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=$images[0]?>" data-fancybox="product<?=$row['product_id']?>"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
+						<?php		
+                                        
+                                        if($images){
+                                            foreach ($images as $row1){
+                                              
+                                    ?>
+								<a href="javascript:void(0);" class="none" data-src="<?php echo $row1; ?>" data-fancybox="product<?=$row['product_id']?>"></a>
+                                                               
+                                                    <?php 
+                                            }
+                                        } 
+                                    ?>
+                                                                 <div class="favourite-addtocart">
+									<a href="javascript:void(0);" class="favourite-anchor" data-pid="<?=$row['product_id']?>"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
+									<a href="javascript:void(0);" class="addtocart-anchor" data-pid="<?=$row['product_id']?>"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
 								</div>
 							</div>
 							<div class="product-dtl">
-                                                            <h2><a href="<?=base_url().'Home/product_view/1';?>"> Citrus Reticulata Mandarino (Clementine)</a></h2>
-								<div class="pot-size">Size : 30cm</div>
-								<div class="made-by">Type : Outdoor Plants</div>
-								<p>24.500 KD</p>
+                                                            <h2><a href="<?=base_url().'Home/product_view/1';?>"> <?php echo $row['title'];?></a></h2>
+								<div class="pot-size">Size : <?php echo $row['size'];?> </div>
+								<div class="made-by">Type : <?php echo $row['tag'];?></div>
+								<p><?php echo currency($this->crud_model->get_product_price($row['product_id']));?></p>
 							</div>	
 						</div>
 					</div>
 					
-						
+					<?php }?>	
 					 
 					 
 				</div>
@@ -68,3 +89,4 @@
 		</div>	
 	</div>	
 </section>
+        <?php } $this->load->view('front/includes/footer');?>

@@ -289,7 +289,179 @@ $footer_text =  $this->db->get_where('general_settings',array('type' => 'footer_
 <script type="text/javascript" src="<?=base_url()?>template/front/js/parallaxscroll.js"></script>	
 <script type="text/javascript" src="<?=base_url()?>template/front/js/custom.js"></script>
 <script>
+    $(document).ready(function () {
+    reload_header_cart();
+    $('body').on('click','.remove_one', function(){
+			var here = $(this);
+			var rowid = here.data('pid');
+			$.ajax({
+				url: base_url+'Product/cart/remove_one/'+rowid,
+				
+				success: function(data) {
+                                    alert("Removed");
+					//sound('cart_product_removed');
+					reload_header_cart();
+					
+					
+				},
+				error: function(e) {
+					console.log(e)
+				}
+			});
+		});
+	});
+var base_url = "<?php echo base_url(); ?>"; 
+	var product_added = "<?php echo translate('product_added_to_cart'); ?>";
+	var added_to_cart = "<?php echo translate('added_to_cart'); ?>";
+	var quantity_exceeds = "<?php echo translate('product_quantity_exceed_availability!'); ?>";
+	var product_already = "<?php echo translate('product_already_added_to_cart!'); ?>";
+	var wishlist_add = "<?php echo translate('product_added_to_wishlist'); ?>";
+	var wishlist_add1 = "<?php echo translate('wished'); ?>";
+	var wishlist_adding = "<?php echo translate('wishing..'); ?>";
+	var wishlist_remove = "<?php echo translate('product_removed_from_wishlist'); ?>";
+	var compare_add = "<?php echo translate('product_added_to_compared'); ?>";
+	var compare_add1 = "<?php echo translate('compared'); ?>";
+	var compare_adding = "<?php echo translate('working..'); ?>";
+	var compare_remove = "<?php echo translate('product_removed_from_compare'); ?>";
+	var compare_cat_full = "<?php echo translate('compare_category_full'); ?>";
+	var compare_already = "<?php echo translate('product_already_added_to_compare'); ?>";
+	var rated_success = "<?php echo translate('product_rated_successfully'); ?>";
+	var rated_fail = "<?php echo translate('product_rating_failed'); ?>";
+	var rated_already = "<?php echo translate('you_already_rated_this_product'); ?>";
+	var working = "<?php echo translate('working..'); ?>";
+	var subscribe_already = "<?php echo translate('you_already_subscribed'); ?>";
+	var subscribe_success = "<?php echo translate('you_subscribed_successfully'); ?>";
+	var subscribe_sess = "<?php echo translate('you_already_subscribed_thrice_from_this_browser'); ?>";
+	var logging = "<?php echo translate('logging_in..'); ?>";
+	var login_success = "<?php echo translate('you_logged_in_successfully'); ?>";
+	var login_fail = "<?php echo translate('login_failed!_try_again!'); ?>";
+	var logup_success = "<?php echo translate('you_have_registered_successfully'); ?>";
+	var logup_fail = "<?php echo translate('registration_failed!_try_again!'); ?>";
+	var logging = "<?php echo translate('logging_in..'); ?>";
+	var submitting = "<?php echo translate('submitting..'); ?>";
+	var email_sent = "<?php echo translate('email_sent_successfully'); ?>";
+	var email_noex = "<?php echo translate('email_does_not_exist!'); ?>";
+	var email_fail = "<?php echo translate('email_sending_failed!'); ?>";
+	var logging = "<?php echo translate('logging_in'); ?>";		
+	var cart_adding = "<?php echo translate('adding_to_cart..'); ?>";	
+	var cart_product_removed = "<?php echo translate('product_removed_from_cart'); ?>";	
+	var required = "<?php echo translate('the_field_is_required'); ?>";
+	var mbn = "<?php echo translate('must_be_a_number'); ?>";
+	var mbe = "<?php echo translate('must_be_a_valid_email_address'); ?>";
+	var valid_email = "<?php echo translate('enter_a_valid_email_address'); ?>";
+	var applying = "<?php echo translate('applying..'); ?>";
+	var coupon_not_valid = "<?php echo translate('coupon_not_valid'); ?>";
+	var coupon_discount_successful = "<?php echo translate('coupon_discount_successful'); ?>";
+	var currency = "<?php echo currency(); ?>";
+	var exchange = Number(<?php echo exchange(); ?>);
 
+	var $j = jQuery.noConflict();
+	var $ = jQuery.noConflict();
+        function reload_header_cart(){
+	    $.getJSON(base_url+"Product/cart/whole_list", function(result){
+			var total = 0;
+			var whole_list = '';
+			var count = Object.keys(result).length;
+	        $.each(result, function(i, field){
+				total += Number(field['subtotal'])*exchange;		
+
+      		
+                       whole_list +="<div class=\"col-12\"><div class=\"product-thumb\"><div class=\"product-holder\">"
+                                     +"<div class=\"product-img\"><img src=\""+field['image']+"\" alt=\"product\"/></div>"
+                                     +"<a href=\"javascript:void(0);\" class=\"quick-link-btn\" data-src=\""+field['image']+"\" data-fancybox=\"product"+field['id']+"\"><span class=\"quick-img\">"
+                         +"<img src=\""+base_url+"template/front/images/view.svg\" alt=\"Quick View\"></span><span class=\"quick-text\">\View large\</span></a>"
+                                                                +"<a href=\"javascript:void(0);\" class=\"none\" data-src=\""+base_url+"template/front/products/seeds/image00015.jpg\" data-fancybox=\"product1\"></a>"
+                                                                +"<div class=\"favourite-addtocart\">"
+                                                                    +"<a href=\"javascript:void(0);\" class=\"remove-anchor remove_one\" data-pid="+field['rowid']+" title=\"Remove Item\"><img src=\""+base_url+"template/front/images/close.svg\" alt=\"Remove Item\"></a>"
+                                                                +"</div>"
+                                                            +"</div>"
+                                                            +"<div class=\"product-dtl\">"
+                                                                +"<h2>"+field['name']+" X "+field['qty']+"</h2>"
+                                                                +"<p>"+currency+(Number(field['price'])*exchange*Number(field['qty'])).toFixed(2)+"</p>"
+                                                            +"</div>"
+                                                        +"</div>"
+                                                    +"</div>";
+				
+				
+	        });
+			$('.cart_num').html(count);
+			$('.header__cart__indicator').html(currency+total.toFixed(2));
+			$('.shopping-cart__top').html('Your Cart('+count+')');
+			$('.top_carted_list').html(whole_list);
+			$('.shopping-cart__total').html(currency+total.toFixed(2));	
+	    });
+            $.getJSON(base_url+"Product/wishlist/num", function(result){
+			
+//			var count = Object.keys(result);
+			$('.wish_num').html(result);
+			
+	    });
+	}
+
+$( ".addtocart-anchor" ).click(function() {
+//  alert( "Handler for .click() called." );
+  var product = $(this).data('pid');
+  var qty = 1;
+  $.ajax({
+	            url 		: base_url+'Product/cart/add/'+product+'/'+qty,
+				type 		: 'GET', // form submit method get/post
+				dataType 	: 'html', // request type html/json/xml
+//				data 		: option, // serialize form data 
+				cache       : false,
+				contentType : false,
+				processData : false,
+	         
+	            success: function(data) {
+                        alert(data);
+                        reload_header_cart();
+//                        location.reload();
+
+
+	            },
+	            error: function(e) {
+	                console.log(e)
+	            }
+	        });
+});
+$('.favourite-anchor').click(function(e){
+			e.preventDefault();
+			//$j('#modalAddToWishlist').modal("toggle");		
+			//$j('#modalAddToWishlist .loading').show();
+			//$j('#modalAddToWishlist .success').hide();	
+	        var state = check_login_stat('state');
+			var product = $(this).data('pid');
+			var button = $(this);
+			
+	        state.success(function (data) {
+	            if(data == 'hypass'){
+					$.ajax({
+						url: base_url+'Product/wishlist/add/'+product,
+						beforeSend: function() {
+						},
+						success: function(data) {
+							alert(data);
+                                                        reload_header_cart();
+						},
+						error: function(e) {
+							console.log(e)
+						}
+					});
+	            } else {
+//                        alert();
+					$('.login-link').trigger('click');
+					
+				}
+	        });	
+			
+		});
+                function check_login_stat(thing){
+	        return $.ajax({
+	            url: '<?php echo base_url(); ?>home/check_login/'+thing
+	        });
+	    }
 </script>
+<?php
+//include '../script_texts.php';
+?>
 </body>
 </html>

@@ -1768,6 +1768,9 @@ class Crud_model extends CI_Model
             $this->db->update('user', array(
                 'wishlist' => json_encode($wished)
             ));
+            echo "Added";
+        }else{
+            echo "Alredy";
         }
     }
 

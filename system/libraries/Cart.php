@@ -182,6 +182,7 @@ class CI_Cart {
      */
     protected function _insert($items = array())
     {
+//        print_r($items);
         // Was any cart data passed? No? Bah...
         if ( ! is_array($items) OR count($items) === 0)
         {
@@ -194,7 +195,7 @@ class CI_Cart {
         // Does the $items array contain an id, quantity, price, and name?  These are required
         if ( ! isset($items['id'], $items['qty'], $items['price'], $items['name']))
         {
-            log_message('error', 'The cart array must contain a product ID, quantity, price, and name.');
+            log_message('error', 'The cart array must contain a product ID, quantity, price, and name & Anji.');
             return FALSE;
         }
 
