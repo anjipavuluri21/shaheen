@@ -754,6 +754,7 @@ class Admin extends CI_Controller
             $data['tax_type']           = $this->input->post('tax_type');
             $data['shipping_cost']      = $this->input->post('shipping_cost');
             $data['tag']                = $this->input->post('tag');
+            $data['size']                = $this->input->post('size');
             $data['is_bundle']          = 'no';
             $data['color']              = json_encode($this->input->post('color'));
             $data['num_of_imgs']        = $num_of_imgs;
@@ -812,6 +813,7 @@ class Admin extends CI_Controller
             $data['tax_type']           = $this->input->post('tax_type');
             $data['shipping_cost']      = $this->input->post('shipping_cost');
             $data['tag']                = $this->input->post('tag');
+            $data['size']                = $this->input->post('size');
             $data['color']              = json_encode($this->input->post('color'));
             $data['num_of_imgs']        = $num + $num_of_imgs;
             $data['front_image']        = 0;

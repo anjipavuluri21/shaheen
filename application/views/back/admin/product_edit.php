@@ -8,6 +8,8 @@
 				'class' => 'form-horizontal',
 				'method' => 'post',
 				'id' => 'product_edit',
+                            6ub hhuoko[0;
+//                        ';, m 0l[p[/lmk/;,']
 				'enctype' => 'multipart/form-data'
 			));
 		?>
@@ -78,6 +80,12 @@
                                 <label class="col-sm-4 control-label" for="demo-hor-11"><?php echo translate('tags');?></label>
                                 <div class="col-sm-6">
                                     <input type="text" name="tag" data-role="tagsinput" placeholder="<?php echo translate('tags');?>" value="<?php echo $row['tag']; ?>" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group btm_border">
+                                <label class="col-sm-4 control-label" for="demo-hor-11"><?php echo translate('size');?></label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="size" data-role="tagsinput" placeholder="<?php echo translate('size');?>" value="<?php echo $row['size']; ?>" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group btm_border">
