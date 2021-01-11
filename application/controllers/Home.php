@@ -876,7 +876,10 @@ class Home extends CI_Controller
             $this->load->view('front/user/downloads');
         } elseif ($para1 == "update_profile") {
             $page_data['user_info'] = $this->db->get_where('user', array('user_id' => $this->session->userdata('user_id')))->result_array();
-            $this->load->view('front/user/update_profile', $page_data);
+            $this->load->view('front/change-password', $page_data);
+        }elseif ($para1 == "update_info") {
+//            $page_data['update_info'] = $this->db->get_where('user', array('user_id' => $this->session->userdata('user_id')))->result_array();
+            $this->load->view('front/address', $page_data);  
         } elseif ($para1 == "ticket") {
             $this->load->view('front/user/ticket');
         } elseif ($para1 == "message_box") {
@@ -3055,23 +3058,51 @@ class Home extends CI_Controller
             }
         } else if ($para1 == "update_info") {
             $id = $this->session->userdata('user_id');
-            $data['username'] = $this->input->post('username');
-            $data['surname'] = $this->input->post('surname');
-            $data['address1'] = $this->input->post('address1');
-            $data['address2'] = $this->input->post('address2');
-            $data['phone'] = $this->input->post('phone');
-            $data['city'] = $this->input->post('city');
-            $data['state'] = $this->input->post('state');
+            //$data['username'] = $this->input->post('username');
+            //$data['surname'] = $this->input->post('surname');
             $data['country'] = $this->input->post('country');
-            $data['skype'] = $this->input->post('skype');
-            $data['google_plus'] = $this->input->post('google_plus');
-            $data['facebook'] = $this->input->post('facebook');
-            $data['zip'] = $this->input->post('zip');
+            $data['address1'] = $this->input->post('address1');
+            $data['building_no'] = $this->input->post('building_no');
+            $data['apartment_no'] = $this->input->post('apartment_no');
+            $data['block'] = $this->input->post('block');
+            $data['avenue'] = $this->input->post('avenue');
+            $data['floor_no'] = $this->input->post('floor_no');
+            //$data['address2'] = $this->input->post('address2');
+            //$data['phone'] = $this->input->post('phone');
+            //$data['city'] = $this->input->post('city');
+            //$data['state'] = $this->input->post('state');
+            //$data['skype'] = $this->input->post('skype');
+            //$data['google_plus'] = $this->input->post('google_plus');
+            //$data['facebook'] = $this->input->post('facebook');
+            //$data['zip'] = $this->input->post('zip');
 
             $this->db->where('user_id', $id);
             $this->db->update('user', $data);
-            echo "done";
-        } else if ($para1 == "update_password") {
+            echo '<script>alert("Updated Successfully")</script>';
+        }
+        else if ($para1 == "add__new_address") {
+            $id = $this->session->userdata('user_id');
+            $data['username'] = $this->input->post('username');
+            $data['surname'] = $this->input->post('surname');
+            $data['email'] = $this->input->post('email');
+            $data['phone'] = $this->input->post('phone');
+            $data['address_type'] = $this->input->post('address_type');
+            $data['country'] = $this->input->post('country');
+            $data['address1'] = $this->input->post('address1');
+            $data['address_type'] = $this->input->post('address_type');
+            $data['building_no'] = $this->input->post('building_no');
+            $data['apartment_no'] = $this->input->post('apartment_no');
+            $data['block'] = $this->input->post('block');
+            $data['avenue'] = $this->input->post('avenue');
+            $data['floor_no'] = $this->input->post('floor_no');
+            
+            $this->db->insert('user', $data);
+//            $this->db->update('user', $data);
+        echo '<script>alert("New Address added Successfully")</script>'; 
+            redirect(base_url().'Home', 'refresh');  
+
+        }
+        else if ($para1 == "update_password") {
             $user_data['password'] = $this->input->post('password');
             $account_data = $this->db->get_where('user', array(
                 'user_id' => $this->session->userdata('user_id')
@@ -3082,7 +3113,8 @@ class Home extends CI_Controller
                         $data['password'] = sha1($this->input->post('password1'));
                         $this->db->where('user_id', $this->session->userdata('user_id'));
                         $this->db->update('user', $data);
-                        echo "done";
+                        echo '<script>alert("Password changed Successfully")</script>';
+                        redirect(base_url().'Home', 'refresh');
                     } else {
                         echo translate('passwords_did_not_match!');
                     }

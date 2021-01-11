@@ -8,9 +8,7 @@
 				'class' => 'form-horizontal',
 				'method' => 'post',
 				'id' => 'product_edit',
-                            6ub hhuoko[0;
-//                        ';, m 0l[p[/lmk/;,']
-				'enctype' => 'multipart/form-data'
+                            'enctype' => 'multipart/form-data'
 			));
 		?>
             <!--Panel heading-->

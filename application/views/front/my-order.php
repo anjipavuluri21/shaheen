@@ -22,7 +22,7 @@ include 'includes/header.php';
 	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item"><a href="index.php">Home</a></li>
+				<li class="breadcrumb-item"><a href="<?php echo base_url();?>">Home</a></li>
 				<li class="breadcrumb-item active" aria-current="page">My Orders</li>
 			</ol>
 		</nav>

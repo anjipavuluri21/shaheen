@@ -22,7 +22,7 @@
 	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item"><a href="index.php">Home</a></li>
+				<li class="breadcrumb-item"><a href="<?php echo base_url();?>">Home</a></li>
 				<li class="breadcrumb-item active" aria-current="page">My Profile</li>
 			</ol>
 		</nav>
@@ -79,11 +79,11 @@
 							<div class="shopping-summary">
 								<div class="my-cart-items-sub">
 									<ul class="profile-links">
-										<li><a href="my-profile.php" class="active">My Profile</a></li>
+										<li><a href="<?=base_url().'home/profile/info'?>" class="active">My Profile</a></li>
 										<li><a href="my-order.php">My Order</a></li>
 										<li><a href="my-favourite.php">My Favourite</a></li>
-										<li><a href="address.php">My Address</a></li>
-										<li><a href="change-password.php">Change Password</a></li>
+										<li><a href="<?=base_url().'home/profile/update_info'?>">My Address</a></li>
+										<li><a href="<?=base_url().'home/profile/update_profile'?>">Change Password</a></li>
 										<li><a href="<?=base_url().'home/logout'?>">Logout</a></li>
 									</ul>
 								</div>
