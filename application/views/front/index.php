@@ -110,158 +110,56 @@
 			</div>	
 		</div>	
 	</section>
+    
 	<section class="section new-arriaval-main">
 		<div class="object texture-1 wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="2s"><img src="<?=base_url()?>template/front/images/texture1.png" alt="texture"></div>
 		<div class="object texture-7 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="2s"><img src="<?=base_url()?>template/front/images/texture7.png" alt="texture"></div>
 		<div class="container">
+                     <?php
+					$box_style =  $this->db->get_where('ui_settings',array('ui_settings_id' => 29))->row()->value;
+					$limit =  $this->db->get_where('ui_settings',array('ui_settings_id' => 20))->row()->value;
+                    $featured=$this->crud_model->product_list_set('featured',$limit);
+                    
+                ?>
+              
 			<div class="row">
 				<div class="col-12">
 					<h1 class="wow fadeInLeft" data-wow-duration="1.5s">New Arrivals <a href="new-arrivals.php" class="button pos-right">View all</a></h1>
+                                        
 					<div class="carousel-main">
 						<div class="arriaval-container swiper-container">
 							<div class="swiper-wrapper">
-								<div class="swiper-slide">
+                                                            <?php 
+                                                            foreach($featured as $row){ ?>
+                                                            <div class="swiper-slide">
 									<div class="product-thumb">
 										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/indoor-plants/th/10151-1.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/indoor-plants/10151-1.jpg" data-fancybox="product6"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/indoor-plants/10151-2.jpg" data-fancybox="product6"></a>
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
+                                                                                    <?php 
+                                        $images = $this->crud_model->file_view('product',$row['product_id'],'','','thumb','src','multi','all');
+                                       ?>
+											<div class="product-img"><img src="<?=$images[0]?>" alt="product"/></div>
+											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=$images[0]?>" data-fancybox="product<?=$row['product_id']?>"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
+											
+								<a href="javascript:void(0);" class="none" data-src="<?php echo $row1; ?>" data-fancybox="product<?=$row['product_id']?>"></a>
+                                                               
+                                                    					<div class="favourite-addtocart">
+												<a href="javascript:void(0);" class="favourite-anchor" data-pid="<?=$row['product_id']?>"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
+												<a href="javascript:void(0);" class="addtocart-anchor" data-pid="<?=$row['product_id']?>"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
 											</div>
 										</div>
 										<div class="product-dtl">
-											<h2>Bonsai Mixed Broom Ball</h2>
-											<div class="pot-size">Size : P-15cm, H-25cm</div>
-											<div class="made-by">Type : Indoor Plants</div>
-											<p>8.750 KD</p>
+											<h2><?php echo $row['title'];?></h2>
+											<div class="pot-size">Size : <?php echo $row['size'];?></div>
+											<div class="made-by">Type : <?php echo $row['category'];?></div>
+											<p><?php echo currency($this->crud_model->get_product_price($row['product_id']));?></p>
 										</div>
 									</div>
 								</div>
-								<div class="swiper-slide">
-									<div class="product-thumb wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.5s">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/pots/th/11923-1.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/pots/11923-1.jpg" data-fancybox="product62"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/pots/11923.jpg" data-fancybox="product62"></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/pots/11923E28093.jpg" data-fancybox="product62"></a>
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>Fulya Pot With Plate - 295X260mm, W/MB/DG/TB/Grey</h2>
-											<p>2.750 KD</p>
-										</div>	
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-thumb wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.5s">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/seeds/th/image00016.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/seeds/image00016.jpg" data-fancybox="product2"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>BIO ROCALBA Sweet Pepper Rosso</h2>
-											<p>1.5 KD</p>
-										</div>	
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-thumb wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.5s">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/tools/th/10751.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/tools/10751.jpg" data-fancybox="product17"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<!--<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/tools/no-image.jpg" data-fancybox="product"></a>-->
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>KS Tele Geared Lopper - Dia-4.5cm</h2>
-											<p>16.500 KD</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-thumb wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1.5s">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/fertilizers/th/image00005.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/fertilizers/image00005.jpg" data-fancybox="product3"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/fertilizers/image00006.jpg" data-fancybox="product3"></a>
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>All Purpose plant Food (Old truck) - 5-3-3, 1Kg/USA</h2>
-											<p>6.000 KD</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-thumb">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/indoor-plants/th/10148.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/indoor-plants/10148.jpg" data-fancybox="product19"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/indoor-plants/10148-2.jpg" data-fancybox="product19"></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/indoor-plants/10148-3.jpg" data-fancybox="product19"></a>
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>Asplenium Campio - Air So Pure - Pot-12cm, H-30cm</h2>
-											<p>2.750 KD</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-thumb">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/tools/th/10754.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/tools/10754.jpg" data-fancybox="product19"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<!--<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/tools/no-image.jpg" data-fancybox="product"></a>-->
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>KS Tele Hedge Shear - Dia-0.6cm</h2>
-											<p>15.500 KD</p>
-										</div>
-									</div>
-								</div>
+                                                            
+					 <?php }
+                                                            ?>
 								
-								<div class="swiper-slide">
-									<div class="product-thumb">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/pots/th/12383(2).jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/pots/12383(2).jpg" data-fancybox="product86"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/pots/12383(1).jpg" data-fancybox="product86"></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/pots/12383(3).jpg" data-fancybox="product86"></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/pots/12383.jpg" data-fancybox="product86"></a>
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>Flower pot-M - pottery flower pot/vase 40cmx15cm</h2>
-											<p>7.000 KD</p>
-										</div>
-									</div>
-								</div> 
+							
 
 							</div>
 						</div>

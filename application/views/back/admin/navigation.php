@@ -815,12 +815,12 @@ if ($this->crud_model->admin_permission('slider') ||
         <?php echo translate('Banners & Logos'); ?>
                                                     </a>
                                                 </li>
-                                                <li <?php if ($tab == 'favicon') { ?>class="active-link"<?php } ?> >
+<!--                                                <li <?php if ($tab == 'favicon') { ?>class="active-link"<?php } ?> >
                                                     <a href="<?php echo base_url(); ?>admin/display_settings/favicon">
                                                         <i class="fa fa-circle fs_i"></i>
                                                 <?php echo translate('favicon'); ?>
                                                     </a>
-                                                </li>
+                                                </li>-->
 
 
                                             </ul>

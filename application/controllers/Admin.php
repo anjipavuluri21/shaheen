@@ -798,11 +798,11 @@ class Admin extends CI_Controller
             $num                        = $this->crud_model->get_type_name_by_id('product', $para2, 'num_of_imgs');
             $download                   = $this->crud_model->get_type_name_by_id('product', $para2, 'download');
             $data['title']              = $this->input->post('title');
-            $data['title_ar']              = $this->input->post('title_ar');
+            $data['title_ar']           = $this->input->post('title_ar');
             $data['category']           = $this->input->post('category');
             $data['description']        = $this->input->post('description');
-            $data['description_ar']        = $this->input->post('description_ar');
-            $data['features']        = $this->input->post('features');
+            $data['description_ar']     = $this->input->post('description_ar');
+            $data['features']           = $this->input->post('features');
             $data['features_ar']        = $this->input->post('features_ar');
             $data['sub_category']       = $this->input->post('sub_category');
             $data['sale_price']         = $this->input->post('sale_price');
@@ -813,7 +813,7 @@ class Admin extends CI_Controller
             $data['tax_type']           = $this->input->post('tax_type');
             $data['shipping_cost']      = $this->input->post('shipping_cost');
             $data['tag']                = $this->input->post('tag');
-            $data['size']                = $this->input->post('size');
+            $data['size']               = $this->input->post('size');
             $data['color']              = json_encode($this->input->post('color'));
             $data['num_of_imgs']        = $num + $num_of_imgs;
             $data['front_image']        = 0;

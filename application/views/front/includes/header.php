@@ -62,7 +62,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.php" class="SNAFCO wow fadeInLeft"><img src="<?php echo base_url(); ?>uploads/logo_image/logo_<?php echo $home_top_logo; ?>.png" alt="SNAFCO"></a>
+                        <a href="<?php echo base_url();?>" class="SNAFCO wow fadeInLeft"><img src="<?php echo base_url(); ?>uploads/logo_image/logo_<?php echo $home_top_logo; ?>.png" alt="SNAFCO"></a>
                          <p style="color:white">
                                 <?php // echo $this->session->flashdata('alert');?>
                                 </p>
@@ -89,8 +89,8 @@
 										<li><a href="<?=base_url().'home/profile/info'?>">My Profile</a></li>
 										<li><a href="my-order.html">My Order</a></li>
 										<li><a href="my-favourite.html">My Favourite</a></li>
-										<li><a href="address.html">My Address</a></li>
-										<li><a href="change-password.html">Change Password</a></li>
+										<li><a href="<?=base_url().'home/profile/update_info'?>">My Address</a></li>
+										<li><a href="<?=base_url().'home/profile/update_profile'?>">Change Password</a></li>
 										<li><a href="<?=base_url().'home/logout'?>">Logout</a></li>
 									</ul>
 								</div>
