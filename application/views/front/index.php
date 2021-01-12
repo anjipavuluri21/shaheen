@@ -3,8 +3,8 @@
 //            $this->db->where('digital=',NULL);
 //            $page_data['all_categories'] = $this->db->get('category')->result_array();
 ////            print_r($page_data['all_categories']);exit;
-
-
+                        
+  
         $categories=$this->db->get('category')->result_array();
                                                             
                                                        
