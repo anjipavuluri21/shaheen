@@ -1,4 +1,4 @@
-<?php include 'includes/header.php';?>
+<?php $this->load->view('front/includes/header');?>
 <div class="inner-banner-main parallaxcont wow fadeInUp">
 	<div class="container">
 		<div class="row">
@@ -182,44 +182,26 @@
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-12">
 										<div class="shopping-box">
-								<div class="cart-row">
+                                                                              <?php foreach ($carted as $items){ ?>      
+								<div class="cart-row" data-rowid="<?php echo $items['rowid']; ?>">
 									<div class="product-thumb">
 										<div class="product-holder">
-											<div class="product-img"><img src="products/seeds/th/image00014.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="products/seeds/image00014.jpg" data-fancybox="product1"><span class="quick-img"><img src="images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-												<a href="javascript:void(0);" class="none" data-src="products/seeds/image00015.jpg" data-fancybox="product1"></a>
+											<div class="product-img"><img src="<?php echo $items['image']; ?>" alt="product"/></div>
+											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?php echo $items['image']; ?>" data-fancybox="product1"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></span></a>
 										</div>
 									</div>
 									<div class="cart-dtl">
 										<div class="product-dtl">
-											<h2>BIO ROCALBA butternut</h2>
+											<h2><?php echo $items['name']; ?></h2>
 											<ul>
-												<li><label>Price</label><div>12.500 KWD</div></li>
-												<li><label>Quantity</label><div>1</div></li>
-												<li><label>Sub Total</label><div><strong>12.500 KWD</strong></div></li>
+												<li><label>Price</label><div><?php echo currency($items['price']); ?></div></li>
+												<li><label>Quantity</label><div><?php echo $items['qty']; ?></div></li>
+												<li><label>Sub Total</label><div><strong><?php echo currency($items['subtotal']); ?></strong></div></li>
 											</ul>
 										</div>
 									</div>
 								</div>
-								<div class="cart-row">
-									<div class="product-thumb">
-										<div class="product-holder">
-											<div class="product-img"><img src="products/tools/th/70403.jpg" alt="product"/></div>
-										<a href="javascript:void(0);" class="quick-link-btn" data-src="products/tools/70403.jpg" data-fancybox="product71"><span class="quick-img"><img src="images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-										<a href="javascript:void(0);" class="none" data-src="products/tools/70403-.jpg" data-fancybox="product71"></a>
-										</div>
-									</div>
-									<div class="cart-dtl">
-										<div class="product-dtl">
-											<h2>Shovel Steel Small</h2>
-											<ul>
-												<li><label>Price</label><div>12.500 KWD</div></li>
-												<li><label>Quantity</label><div>2</div></li>
-												<li><label>Sub Total</label><div><strong>25.000 KWD</strong></div></li>
-											</ul>
-										</div>
-									</div>
-								</div>
+                                                                              <?php } ?>
 								</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-12">
@@ -277,5 +259,5 @@
 	</div>
 </section>
 <?php 
-include 'includes/footer.php';
+ $this->load->view('front/includes/footer');
 ?>

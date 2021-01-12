@@ -2868,7 +2868,7 @@ class Product extends CI_Controller
             $page_data['asset_page'] = "shopping_cart";
             $page_data['page_title'] = translate('my_cart');
             $page_data['carted'] = $this->cart->contents();
-            $this->load->view('front/index', $page_data);
+            $this->load->view('front/checkout', $page_data);
         }
     }
 

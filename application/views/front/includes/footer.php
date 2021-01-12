@@ -360,7 +360,7 @@ var base_url = "<?php echo base_url(); ?>";
         function reload_header_cart(){
 	    $.getJSON(base_url+"Product/cart/whole_list", function(result){
 			var total = 0;
-			var whole_list = '';
+			var whole_list = '';var cart_checkout_section="";
 			var count = Object.keys(result).length;
 	        $.each(result, function(i, field){
 				total += Number(field['subtotal'])*exchange;		
@@ -381,14 +381,21 @@ var base_url = "<?php echo base_url(); ?>";
                                                             +"</div>"
                                                         +"</div>"
                                                     +"</div>";
+                                            if(count > 0){
+                                                cart_checkout_section +="<div class=\"total-amt\"><p>Total : <strong class=\"shopping-cart__total\">"+currency+total.toFixed(2)+"</strong></p></div>"
+                                                +"<a href=\"shopping-cart.php\" class=\"button\">Show Cart</a>"
+                                                +"<a href=\""+base_url+"product/cart_checkout\" class=\"button\">Checkout</a>";
 				
+                                            }else{
+                                                cart_checkout_section +="<h3>Cart is empty</h3>";
+                                            }
+                        
 				
 	        });
 			$('.cart_num').html(count);
-			$('.header__cart__indicator').html(currency+total.toFixed(2));
-			$('.shopping-cart__top').html('Your Cart('+count+')');
+			
 			$('.top_carted_list').html(whole_list);
-			$('.shopping-cart__total').html(currency+total.toFixed(2));	
+			$('.cart-checkout').html(cart_checkout_section);	
 	    });
             $.getJSON(base_url+"Product/wishlist/num", function(result){
 			
