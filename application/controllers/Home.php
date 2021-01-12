@@ -1444,9 +1444,9 @@ class Home extends CI_Controller
         $this->ajax_pagination->initialize($config);
         $ids = json_decode($this->db->get_where('user', array('user_id' => $id))->row()->wishlist, true);
         $this->db->where_in('product_id', $ids);
-        $page_data['query'] = $this->db->get('product', $config['per_page'], $para2)->result_array();
+        $page_data['query'] = $this->db->get('product', $config['per_page'], $para2)->result_array(); 
         $this->load->view('front/includes/header', $page_data);
-        $this->load->view('front/favourite', $page_data);
+        $this->load->view('front/user/wishlist', $page_data);
         $this->load->view('front/includes/footer', $page_data);
     }
 

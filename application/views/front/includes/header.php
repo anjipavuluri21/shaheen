@@ -96,17 +96,18 @@
 								</div>
 							</div>
 						</div>
+                                <div class="faviourite-div"><a href="<?php echo base_url().'home/wish_listed/'?>" class="faviourite-link docmenu-link" title="Faviourite"><span class="cart-img"><img src="<?=base_url()?>template/front/images/faviourite-white.svg" alt="faviourite"></span>( <span class="cart-text wish_num"></span> )</a>
+                                    <div class="cart-main">
+                                       
+                                    </div>
+                                </div>
                                 <?php } else { ?>
                                 <div class="log-reg">
                                     <a href="javascript:void(0);" data-src="#loginModel" data-fancybox class="login-link">Login</a>
                                     <a href="javascript:void(0);" data-src="#registerModel" data-fancybox class="register-link">Register</a>
                                 </div>
                                 <?php } ?>
-                                <div class="faviourite-div"><a href="<?php echo base_url().'home/profile/part/wishlist'?>" class="faviourite-link docmenu-link" title="Faviourite"><span class="cart-img"><img src="<?=base_url()?>template/front/images/faviourite-white.svg" alt="faviourite"></span>( <span class="cart-text wish_num"></span> )</a>
-                                    <div class="cart-main">
-                                       
-                                    </div>
-                                </div>
+                                
                                 <div class="cart-div">
                                     <a href="javascript:void(0);" class="cart-link docmenu-link"><span class="cart-img"><img src="<?=base_url()?>template/front/images/cart-white.svg" alt="cart"></span>Cart ( <span class="cart-text cart_num"></span> )</a>
                                     <div class="cart-main">
@@ -119,10 +120,9 @@
                                                 </div>
                                             </div>
                                             <div class="cart-checkout">
-                                                <div class="total-amt"><p>Total : <strong class="shopping-cart__total"></strong></p></div>
-                                                <a href="shopping-cart.php" class="button">Show Cart</a>
-                                                <a href="checkout.php" class="button">Checkout</a>
+                                                hjgk
                                             </div>
+
                                         </div>	
                                     </div>
                                 </div>
