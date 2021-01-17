@@ -2964,6 +2964,7 @@ class Product extends CI_Controller
     /* FUNCTION: Finalising Purchase*/
     function cart_finish($para1 = "", $para2 = "")
     {
+        
         $carted = $this->cart->contents();
         if (count($carted) <= 0) {
             redirect(base_url() . 'home/', 'refresh');
@@ -3220,7 +3221,8 @@ class Product extends CI_Controller
                 $this->vouguepay->submit_vouguepay_post();
                 // submit the fields to vouguepay
             }
-        } else if ($this->input->post('payment_type') == 'cash_on_delivery') {
+        } 
+        else if ($this->input->post('payment_type') == 'cash_on_delivery') {
             if ($para1 == 'go') {
 
                 $data['product_details'] = $product_details;
@@ -3290,10 +3292,11 @@ class Product extends CI_Controller
                 $this->cart->destroy();
                 $this->session->set_userdata('couponer', '');
                 //echo $sale_id;
+                
                 if ($this->session->userdata('user_login') == 'yes') {
-                    redirect(base_url() . 'home/invoice/' . $sale_id, 'refresh');
+                    redirect(base_url() . 'Product/invoice/' . $sale_id, 'refresh');
                 } else {
-                    redirect(base_url() . 'home/guest_invoice/' . $data['guest_id'], 'refresh');
+                    redirect(base_url() . 'Product/guest_invoice/' . $data['guest_id'], 'refresh');
                 }
             }
         } else if ($this->input->post('payment_type') == 'wallet') {
@@ -4542,9 +4545,9 @@ class Product extends CI_Controller
         $page_data['page_name'] = "shopping_cart/invoice";
         $page_data['page_title'] = translate('invoice');
         if ($para2 == 'email') {
-            $this->load->view('front/shopping_cart/invoice_email', $page_data);
+            $this->load->view('front/order-confirmation', $page_data);
         } else {
-            $this->load->view('front/index', $page_data);
+            $this->load->view('front/order-confirmation', $page_data);
         }
     }
 
@@ -4565,7 +4568,7 @@ class Product extends CI_Controller
         $page_data['page_title'] = translate('invoice');
         $page_data['invoice'] = 'guest';
         if ($para2 == 'email') {
-            $this->load->view('front/shopping_cart/invoice_email', $page_data);
+            $this->load->view('front/order-confirmation', $page_data);
         } else {
             $this->load->view('front/index', $page_data);
         }

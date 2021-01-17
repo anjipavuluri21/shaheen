@@ -1,5 +1,10 @@
 <?php 
-    include 'includes/header.php';
+$this->load->view('front/includes/header');
+        $sale_details = $this->db->get_where('sale',array('sale_id'=>$sale_id))->result_array();
+        foreach($sale_details as $row){
+           $vat= $row['vat'];
+           $shipping=$row['shipping'];
+    
     ?> 
 <div class="inner-banner-main parallaxcont wow fadeInUp">
 	<div class="container">
@@ -38,13 +43,16 @@
 							<p><strong>Your payment has been successful.</strong></p>
 							<p>Please check your email for reciept. Thank you for shopping at the Al Shaheen Nurseries Agriculture & Food Co.</p>
 							<p><strong>We have received your order and details are as follows.</strong></p>
+                                                        <?php
+                        $info = json_decode($row['shipping_address'],true);?>
+                   
 							<p><strong>Shipping Address</strong></p>
 							<p>116, Salem Al Mubarak Street, 5th Floor, Opp Olympia Towers Salmiya, Kuwait. Phone: +(965) - 25753210 / 25753202 / 25753155.</p>
 							<div class="final-summery">
 								<div class="item-summery">
 									<div class="item-title">Order ID</div>
 									<div class="item-detail">
-										SNAFCO448455
+										 <?php echo $row['sale_code']; ?>
 									</div>
 								</div>							
 								<div class="item-summery">
@@ -56,25 +64,25 @@
 								<div class="item-summery">
 									<div class="item-title">Date &amp; Time</div>
 									<div class="item-detail">
-										15/10/2020 | Time: 10:45
+										<?php echo date('d M, Y | h:m:i',$row['sale_datetime'] );?>
 									</div>
 								</div>
 								<div class="item-summery">
 									<div class="item-title">Payment Method</div>
 									<div class="item-detail">
-										K-NET
+										 <?php echo ucfirst(str_replace('_', ' ', $info['payment_type'])); ?>
 									</div>
 								</div>
 								<div class="item-summery discount-clr">
 									<div class="item-title">Payment status</div>
 									<div class="item-detail">
-										<strong>Successful</strong>
+										<strong><?php echo translate($this->crud_model->sale_payment_status($row['sale_id'])); ?></strong>
 									</div>
 								</div>
 								<div class="item-summery">
 									<div class="item-title"><strong>Grand Amount</strong></div>
 									<div class="item-detail">
-										<strong>47.000 KD</strong>
+										<strong><?php echo currency($row['grand_total']);?></strong>
 									</div>
 								</div>
 							</div>
@@ -91,44 +99,32 @@
 								<div class="row">
 									<div class="col-lg-7 col-md-7 col-sm-12">	
 										<div class="shopping-box">
+                                                                                                                                  <?php
+                        $product_details = json_decode($row['product_details'], true);
+                        $i =0;
+                        $total = 0;
+                        foreach ($product_details as $row1) {
+                            $i++;
+                    ?>
 								<div class="cart-row">
 									<div class="product-thumb">
 										<div class="product-holder">
-											<div class="product-img"><img src="products/seeds/th/image00014.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="products/seeds/image00014.jpg" data-fancybox="product1"><span class="quick-img"><img src="images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-												<a href="javascript:void(0);" class="none" data-src="products/seeds/image00015.jpg" data-fancybox="product1"></a>
-										</div>
+											<div class="product-img"><img src="<?php echo $row1['image']; ?>" alt="product"/></div>
+											</div>
 									</div>
 									<div class="cart-dtl">
 										<div class="product-dtl">
-											<h2>BIO ROCALBA butternut</h2>
+											<h2><?php echo $row1['name']; ?></h2>
 											<ul>
-												<li><label>Price</label><div>12.500 KWD</div></li>
-												<li><label>Quantity</label><div>1</div></li>
-												<li><label>Sub Total</label><div><strong>12.500 KWD</strong></div></li>
+												<li><label>Price</label><div><?php echo currency($row1['price']); ?></div></li>
+												<li><label>Quantity</label><div><?php echo $row1['qty']; ?></div></li>
+												<li><label>Sub Total</label><div><strong><?php echo currency($row1['subtotal']); $total += $row1['subtotal']; ?></strong></div></li>
 											</ul>
 										</div>
 									</div>
 								</div>
-								<div class="cart-row">
-									<div class="product-thumb">
-										<div class="product-holder">
-											<div class="product-img"><img src="products/tools/th/70403.jpg" alt="product"/></div>
-										<a href="javascript:void(0);" class="quick-link-btn" data-src="products/tools/70403.jpg" data-fancybox="product71"><span class="quick-img"><img src="images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-										<a href="javascript:void(0);" class="none" data-src="products/tools/70403-.jpg" data-fancybox="product71"></a>
-										</div>
-									</div>
-									<div class="cart-dtl">
-										<div class="product-dtl">
-											<h2>Shovel Steel Small</h2>
-											<ul>
-												<li><label>Price</label><div>12.500 KWD</div></li>
-												<li><label>Quantity</label><div>2</div></li>
-												<li><label>Sub Total</label><div><strong>25.000 KWD</strong></div></li>
-											</ul>
-										</div>
-									</div>
-								</div>
+                        <?php } ?>
+                                                                                    
 								</div>
 									</div>
 									<div class="col-lg-5 col-md-5 col-sm-12">
@@ -136,27 +132,27 @@
 											<ul class="summary-detail">
 												<li>
 													<label>Subtotal</label>
-													<div class="summary-dtl">37.500 KWD</div>
+													<div class="summary-dtl"><?php echo currency($total);?></div>
 												</li>
 												<li>
 													<label>Discount</label>
-													<div class="summary-dtl">-2.000 KWD</div>
+													<div class="summary-dtl">0 KWD</div>
 												</li>
 												<li>
 													<label>Taxes</label>
-													<div class="summary-dtl">1.000 KWD</div>
+													<div class="summary-dtl"><?php echo currency($vat);?></div>
 												</li>
 												<li>
 													<label>Delivery Chanrges</label>
-													<div class="summary-dtl">5.000 KWD</div>
+													<div class="summary-dtl"><?php echo currency($shipping);?></div>
 												</li>
 												<li>
 													<label><strong>Total</strong></label>
-													<div class="summary-dtl"><strong>41.500 KWD</strong></div>
+													<div class="summary-dtl"><strong><?php echo currency($row['grand_total']);?></strong></div>
 												</li>
 												<li>
 													<label>Payment Method</label>
-													<div class="summary-dtl">K-NET</div>
+													<div class="summary-dtl"><?php echo ucfirst(str_replace('_', ' ', $info['payment_type'])); ?></div>
 												</li>
 											</ul>
 										</div>
@@ -185,6 +181,6 @@
 		</div>
 	</div>
 </section>
-    <?php 
-    include 'includes/footer.php';
+        <?php  }
+$this->load->view('front/includes/footer');
     ?> 
