@@ -941,10 +941,6 @@ class Admin extends CI_Controller
                                 onclick=\"ajax_modal('add_stock','".translate('add_product_quantity')."','".translate('quantity_added!')."','stock_add','".$row['product_id']."')\" data-original-title=\"Edit\" data-container=\"body\">
                                     ".translate('stock')."
                             </a>
-                            <a class=\"btn btn-dark btn-xs btn-labeled fa fa-minus-square\" data-toggle=\"tooltip\" 
-                                onclick=\"ajax_modal('destroy_stock','".translate('reduce_product_quantity')."','".translate('quantity_reduced!')."','destroy_stock','".$row['product_id']."')\" data-original-title=\"Edit\" data-container=\"body\">
-                                    ".translate('destroy')."
-                            </a>
                             
                             <a class=\"btn btn-success btn-xs btn-labeled fa fa-wrench\" data-toggle=\"tooltip\" 
                                 onclick=\"ajax_set_full('edit','".translate('edit_product')."','".translate('successfully_edited!')."','product_edit','".$row['product_id']."');proceed('to_list');\" data-original-title=\"Edit\" data-container=\"body\">
@@ -987,9 +983,6 @@ class Admin extends CI_Controller
             $data['product'] = $para2;
             $this->load->view('back/admin/product_stock_add', $data);
         } elseif ($para1 == 'destroy_stock') {
-            $data['product'] = $para2;
-            $this->load->view('back/admin/product_stock_destroy', $data);
-        } elseif ($para1 == 'stock_report') {
             $data['product'] = $para2;
             $this->load->view('back/admin/product_stock_report', $data);
         } elseif ($para1 == 'sale_report') {
@@ -2113,10 +2106,10 @@ class Admin extends CI_Controller
                                 onclick=\"ajax_modal('add_stock','".translate('add_bundle_quantity')."','".translate('quantity_added!')."','bundle_stock_add','".$row['product_id']."')\" data-original-title=\"Edit\" data-container=\"body\">
                                     ".translate('stock')."
                             </a>
-                            <a class=\"btn btn-dark btn-xs btn-labeled fa fa-minus-square\" data-toggle=\"tooltip\" 
+                             <a class=\"btn btn-dark btn-xs btn-labeled fa fa-minus-square\" data-toggle=\"tooltip\" 
                                 onclick=\"ajax_modal('destroy_stock','".translate('reduce_bundle_quantity')."','".translate('quantity_reduced!')."','destroy_bundle_stock','".$row['product_id']."')\" data-original-title=\"Edit\" data-container=\"body\">
                                     ".translate('destroy')."
-                            </a>
+                            </a> 
                             
                             <a class=\"btn btn-success btn-xs btn-labeled fa fa-wrench\" data-toggle=\"tooltip\" 
                                 onclick=\"ajax_set_full('edit','".translate('edit_product_bundle')."','".translate('successfully_edited!')."','product_bundle_edit','".$row['product_id']."');proceed('to_list');\" data-original-title=\"Edit\" data-container=\"body\">

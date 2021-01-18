@@ -37,25 +37,9 @@
     </head>
 
     <body>
-        
-<!--<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
-  <div class="toast" style="position: absolute; top: 0; right: 0;">
-    <div class="toast-header">
-      <img src="..." class="rounded mr-2" alt="...">
-      <strong class="mr-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
-  </div>
-</div>-->
+
 <?php 
  $home_top_logo = $this->db->get_where('ui_settings', array('type' => 'home_top_logo'))->row()->value;
-
 ?>
         <header id="header">
             <div class="menu-link-div"><a href="javascript:void(0);" class="menu-link wow fadeInLeft"><span></span></a></div>
@@ -78,7 +62,7 @@
                             </div>
                             <div class="login-cart wow fadeInRight" data-wow-delay="0.2s">
                                 <?php if ($this->session->userdata('user_login') == "yes") { ?>
-            
+                                
         
                                 <div class="account-navi">
 							<span class="welcome">Welcome :</span>
@@ -120,7 +104,7 @@
                                                 </div>
                                             </div>
                                             <div class="cart-checkout">
-                                                hjgk
+                                                
                                             </div>
 
                                         </div>	

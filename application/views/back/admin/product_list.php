@@ -17,15 +17,15 @@
                 <th data-field="current_stock" data-sortable="true">
                     <?php echo translate('current_quantity');?>
                 </th>
-                <th data-field="deal" data-sortable="false">
-                    <?php echo translate("today's_deal");?>
-                </th>
+<!--                <th data-field="deal" data-sortable="false">
+                    <?php // echo translate("today's_deal");?>
+                </th>-->
                 <th data-field="publish" data-sortable="false">
                     <?php echo translate('publish');?>
                 </th>
-                <th data-field="featured" data-sortable="false">
-                    <?php echo translate('featured');?>
-                </th>
+<!--                <th data-field="featured" data-sortable="false">
+                    <?php // echo translate('featured');?>
+                </th>-->
                 <th data-field="options" data-sortable="false" data-align="right">
                     <?php echo translate('options');?>
                 </th>

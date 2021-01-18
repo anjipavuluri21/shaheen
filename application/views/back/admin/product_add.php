@@ -65,9 +65,9 @@
                                 </div>
                             </div>
                             <div class="form-group btm_border">
-                                <label class="col-sm-4 control-label" for="demo-hor-5"><?php echo translate('unit');?></label>
+                                <label class="col-sm-4 control-label" for="demo-hor-5"><?php echo translate('stock');?></label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="unit" id="demo-hor-5" placeholder="<?php echo translate('unit_(e.g._kg,_pc_etc.)'); ?>" class="form-control unit required">
+                                    <input type="text" name="unit" id="demo-hor-5" placeholder="<?php echo translate('stock'); ?>" class="form-control unit required">
                                 </div>
                             </div>              
                             <div class="form-group btm_border">

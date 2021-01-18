@@ -3060,8 +3060,8 @@ class Home extends CI_Controller
             $id = $this->session->userdata('user_id');
             //$data['username'] = $this->input->post('username');
             //$data['surname'] = $this->input->post('surname');
-            $data['country'] = $this->input->post('country');
-            $data['address1'] = $this->input->post('address1');
+            $data['street'] = $this->input->post('street');
+            $data['area'] = $this->input->post('area');
             $data['building_no'] = $this->input->post('building_no');
             $data['apartment_no'] = $this->input->post('apartment_no');
             $data['block'] = $this->input->post('block');
@@ -3077,28 +3077,29 @@ class Home extends CI_Controller
             //$data['zip'] = $this->input->post('zip');
 
             $this->db->where('user_id', $id);
-            $this->db->update('user', $data);
+            $this->db->update('address', $data);
             echo '<script>alert("Updated Successfully")</script>';
         }
         else if ($para1 == "add__new_address") {
-            $id = $this->session->userdata('user_id');
-            $data['username'] = $this->input->post('username');
-            $data['surname'] = $this->input->post('surname');
+            $data['user_id'] = $this->session->userdata('user_id');
+            $data['first_name'] = $this->input->post('first_name');
+            $data['last_name'] = $this->input->post('last_name');
             $data['email'] = $this->input->post('email');
-            $data['phone'] = $this->input->post('phone');
+            $data['mobile'] = $this->input->post('mobile');
+            $data['area'] = $this->input->post('area');
             $data['address_type'] = $this->input->post('address_type');
-            $data['country'] = $this->input->post('country');
-            $data['address1'] = $this->input->post('address1');
-            $data['address_type'] = $this->input->post('address_type');
+            $data['street'] = $this->input->post('street');
             $data['building_no'] = $this->input->post('building_no');
             $data['apartment_no'] = $this->input->post('apartment_no');
             $data['block'] = $this->input->post('block');
             $data['avenue'] = $this->input->post('avenue');
             $data['floor_no'] = $this->input->post('floor_no');
             
-            $this->db->insert('user', $data);
+             $this->db->insert('address', $data);
+//            $rrr = $this->db->last_query();
+//            echo $rrr;
 //            $this->db->update('user', $data);
-        echo '<script>alert("New Address added Successfully")</script>'; 
+        echo '<script>alert("New  Address added Successfully")</script>'; 
             redirect(base_url().'Home', 'refresh');  
 
         }

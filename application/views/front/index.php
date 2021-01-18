@@ -1,13 +1,12 @@
 <?php 
-//$this->db->order_by('category_id', 'desc');
-//            $this->db->where('digital=',NULL);
-//            $page_data['all_categories'] = $this->db->get('category')->result_array();
-////            print_r($page_data['all_categories']);exit;
-                        
-  
-        $categories=$this->db->get('category')->result_array();
-                                                            
-                                                       
+    $categories=$this->db->get('category')->result_array();
+                $this->db->order_by("slides_id", "desc");
+                                        $this->db->where("uploaded_by", "admin");
+                                        $this->db->where("status", "ok");
+                                        $slides=$this->db->get('slides')->result_array();
+//                                        print_r($slides);exit;
+                                            $i=1;        
+        
 ?>
 <div class="main">
 	<div class="banner-main parallaxcont wow fadeInUp">
@@ -17,45 +16,26 @@
 					<div class="carousel-main">
 						<div class="slideshow-container swiper-container">
 							<div class="swiper-wrapper">
-								<div class="swiper-slide">
-									<div class="slideshow-img"><img src="<?=base_url()?>template/front/slideshow/slide-1.jpg" alt="slide"/></div>
+                                                            <?php 
+                                                            
+                                        foreach($slides as $row){ ?>
+                                            <div class="swiper-slide">
+									<div class="slideshow-img<?php echo $i; ?>"><img src="<?php echo $this->crud_model->file_view('slides',$row['slides_id'],'100','','no','src','','','.jpg') ?>" data-src="" alt="" /></div>
 									<div class="slideshow-contents">
 										<div class="banner-logo"><img src="<?=base_url()?>template/front/images/banner-SNAFCO.jpg" alt="SNAFCO"></div>
-										<div class="discount">Get upto 50% Off</div>
-										<h1><span>New Collection</span><div>Big Offers</div></h1>
+										<div class="discount"><?php echo $row['text1'];?></div>
+                                                                                <h1><span><?php echo $row['text2'];?></span><div><?php echo $row['text3']; ?></div></h1>
 										<a href="listing.php" class="button">Shop now</a>
 
 									</div>
 								</div>
-								<div class="swiper-slide">
-									<div class="slideshow-img"><img src="<?=base_url()?>template/front/slideshow/slide-2.jpg" alt="slide"/></div>
-									<div class="slideshow-contents">
-										<div class="banner-logo"><img src="<?=base_url()?>template/front/images/banner-SNAFCO.jpg" alt="SNAFCO"></div>
-										<div class="discount">Get upto 20% Off</div>
-										<h1><span>Fertilizers and Soil</span><div>Big Offers</div></h1>
-										<a href="fertilizers-and-soil.php" class="button">Shop now</a>
-
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="slideshow-img"><img src="<?=base_url()?>template/front/slideshow/slide-3.jpg" alt="slide"/></div>
-									<div class="slideshow-contents">
-										<div class="banner-logo"><img src="<?=base_url()?>template/front/images/banner-SNAFCO.jpg" alt="SNAFCO"></div>
-										<div class="discount">Get upto 25% Off</div>
-										<h1><span>Indoor Plants</span>
-											<div>Big Offers</div></h1>
-										<a href="indoor-plants.php" class="button">Shop now</a>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="slideshow-img"><img src="<?=base_url()?>template/front/slideshow/slide-4.jpg" alt="slide"/></div>
-									<div class="slideshow-contents">
-										<div class="banner-logo"><img src="<?=base_url()?>template/front/images/banner-SNAFCO.jpg" alt="SNAFCO"></div>
-										<div class="discount">Get upto 17% Off</div>
-										<h1><span>Seeds</span><div>Big Offers</div></h1>
-										<a href="seeds.php" class="button">Shop now</a>
-									</div>
-								</div>
+                                                            
+                                        <?php }
+                                        
+                                                            ?>
+								
+								
+								
 							</div>
 							<div class="swiper-pagination slideshow-pagination"></div>
 						</div>
@@ -76,7 +56,6 @@
 			</div>
 		</div>
 	</div>
-
 	<section class="section category-main">
 		<div class="container">
 			<div class="row">

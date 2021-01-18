@@ -34,7 +34,7 @@
 						<div class="shopping-box ord-hstr-div">
 							 <div class="checkout-sub address-sub-div">
                                                              <?php 
-                                       $account_data = $this->db->get_where('user', array('user_id' => $this->session->userdata('user_id')))->result_array();
+                                       $account_data = $this->db->get_where('address', array('user_id' => $this->session->userdata('user_id')))->result_array();
 //                                       print_r($account_data);exit;
                                        
                                        ?>
@@ -45,10 +45,10 @@
                                                                     foreach($account_data as $row){ ?>
 									<div class="profiledata">
 										<div class="form-group">
-											<label>Area </label><p><?php echo $row['country'];?> </p>
+											<label>Area </label><p><?php echo $row['area'];?> </p>
 										</div>
 										<div class="form-group">
-											<label>Street </label><p><?php echo $row['address1'];?></p>
+											<label>Street </label><p><?php echo $row['street'];?></p>
 										</div>
 										<div class="form-group">
 											<label>Building No</label><p><?php echo $row['building_no'];?></p>
@@ -64,9 +64,7 @@
 										</div>						
 										<div class="change-div"><a href="javascript:void(0);" class="button change-btn">Change</a></div>
 									</div>	
-                                                                    <?php } ?>
-                                                                    
-									<div class="profileform">
+                                                                    <div class="profileform">
                                                                             <?php
                                         echo form_open(base_url() . 'home/registration/update_info/', array(
                                             'class' => 'form-login',
@@ -75,11 +73,11 @@
                                         ));
                                     ?>
 										<div class="form-group">
-                                                                                    <div class="inputbox"><input type="text" name="country" value="<?php echo $row['country'];?>" placeholder="Area" class="form-control"></div>
+                                                                                    <div class="inputbox"><input type="text" name="area" value="<?php echo $row['area'];?>" placeholder="Area" class="form-control"></div>
 										</div>
 										
 										<div class="form-group">
-                                                                                    <div class="inputbox"><input type="text" name="address1" value="<?php echo $row['address1'];?>" placeholder="Street" class="form-control"></div>
+                                                                                    <div class="inputbox"><input type="text" name="street" value="<?php echo $row['street'];?>" placeholder="Street" class="form-control"></div>
 										</div>
 										<div class="form-group">
                                                                                     <div class="inputbox"><input type="text" name="building_no" value="<?php echo $row['building_no'];?>" placeholder="Building No" class="form-control"></div>
@@ -99,9 +97,12 @@
 										<div class="change-div"><button class="button" type="submit">UPDATE</button> <a href="javascript:void(0);" class="button closebutton">CLOSE</a></div>
                                                                         </form>
                                                                         </div>
+                                                                    <?php } ?>
+                                                                    
+									
 								</div>
 							</div>
-							<div class="checkout-sub address-sub-div">
+<!--							<div class="checkout-sub address-sub-div">
 								<h3>Billing Address</h3>
 								<div class="myprofile-main">
 									<div class="profiledata">
@@ -150,7 +151,7 @@
 										<div class="change-div"><button class="button" type="submit">UPDATE</button> <a href="javascript:void(0);" class="button closebutton">CLOSE</a></div>
 									</div>
 								</div>					
-							</div>
+							</div>-->
 							<div class="checkout-sub address-sub-div">
 								<div class="myprofile-main"><a href="#newAddressModel" data-fancybox class="button add-newadddress">Add New Address</a></div>					
 							</div>
@@ -172,12 +173,12 @@
 	<div class="row anim3">
 		<div class="col-lg-6 col-md-6 col-sm-6">
 			<div class="form-group">
-                            <div class="inputbox"><input type="text" value="" name="username" placeholder="First Name" class="form-control"></div>
+                            <div class="inputbox"><input type="text" value="" name="first_name" placeholder="First Name" class="form-control"></div>
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6">
 			<div class="form-group">
-                            <div class="inputbox"><input type="text" value="" name="surname" placeholder="Last Name" class="form-control"></div>
+                            <div class="inputbox"><input type="text" value="" name="last_name" placeholder="Last Name" class="form-control"></div>
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6">
@@ -187,7 +188,7 @@
 		</div>	
 		<div class="col-lg-6 col-md-6 col-sm-6">	
 		<div class="form-group">
-                    <div class="inputbox"><input type="text" value="" name="phone" placeholder="Mobile" class="form-control"></div>
+                    <div class="inputbox"><input type="text" value="" name="mobile" placeholder="Mobile" class="form-control"></div>
 		</div>
 		</div>
 	</div>
@@ -197,11 +198,11 @@
 			<div class="form-group">
 				<ul class="unstyled">
 					<li class="black">
-						<input class="styled-checkbox" id="a_aparment" name="address_type" type="radio" value="">
+						<input class="styled-checkbox" id="a_aparment" name="address_type" type="radio" value="Aparment">
 						<label for="a_aparment"><span>Aparment</span></label>
 					</li>
 					<li class="white">
-						<input class="styled-checkbox" id="a_house" name="address_type" type="radio" value="">
+						<input class="styled-checkbox" id="a_house" name="address_type" type="radio" value="House">
 						<label for="a_house"><span>House</span></label>
 					</li>
 				</ul>
@@ -209,12 +210,12 @@
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6">
 			<div class="form-group">
-                            <div class="inputbox"><input type="text" value="" name="country" placeholder="Area" class="form-control"></div>
+                            <div class="inputbox"><input type="text" value="" name="area" placeholder="Area" class="form-control"></div>
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6">
 			<div class="form-group">
-                            <div class="inputbox"><input type="text" value="" name="address1" placeholder="Street" class="form-control"></div>
+                            <div class="inputbox"><input type="text" value="" name="street" placeholder="Street" class="form-control"></div>
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6">
