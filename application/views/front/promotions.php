@@ -1,5 +1,15 @@
 <?php 
-include 'includes/header.php';
+//echo "comming";exit;
+    $this->load->view('front/includes/header');
+    
+    
+    $promotions = $this->db->select('*');
+                   $this->db->from('ui_settings'); 
+                   $this->db->like('type','promotion_banner','match','both')->get();
+                  
+//                print_r($promotions);exit;   
+                   
+    
 ?>
 <div class="inner-banner-main parallaxcont wow fadeInUp">
 	<div class="container">
@@ -22,7 +32,7 @@ include 'includes/header.php';
 	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item"><a href="index.php">Home</a></li>
+				<li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Promotions</li>
 			</ol>
 		</nav>
@@ -35,72 +45,23 @@ include 'includes/header.php';
 					<div class="col-lg-3 col-md-3 col-sm-6">
 						<div class="promotions-thumb wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.5s">
 							<div class="product-holder">
-								<div class="product-img"><img src="images/promotions1.jpg" alt="promotion"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="#promotions_1"><span class="quick-img"><img src="images/view.svg" alt="Read More"></span><span class="quick-text">Read More</span></a>
+								<div class="product-img"><img src="<?=base_url()?>template/front/images/promotions1.jpg" alt="promotion"/></div>
+								<a href="javascript:void(0);" class="quick-link-btn" data-src="#promotions_1"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Read More"></span><span class="quick-text">Read More</span></a>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6">
-						<div class="promotions-thumb wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.5s">
-							<div class="product-holder">
-								<div class="product-img"><img src="images/promotions2.jpg" alt="promotion"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="#promotions_2"><span class="quick-img"><img src="images/view.svg" alt="Read More"></span><span class="quick-text">Read More</span></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6">
-						<div class="promotions-thumb wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.5s">
-							<div class="product-holder">
-								<div class="product-img"><img src="images/promotions3.jpg" alt="promotion"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="#promotions_3"><span class="quick-img"><img src="images/view.svg" alt="Read More"></span><span class="quick-text">Read More</span></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6">
-						<div class="promotions-thumb wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.5s">
-							<div class="product-holder">
-								<div class="product-img"><img src="images/promotions1.jpg" alt="promotion"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="#promotions_1"><span class="quick-img"><img src="images/view.svg" alt="Read More"></span><span class="quick-text">Read More</span></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6">
-						<div class="promotions-thumb wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.5s">
-							<div class="product-holder">
-								<div class="product-img"><img src="images/promotions2.jpg" alt="promotion"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="#promotions_2"><span class="quick-img"><img src="images/view.svg" alt="Read More"></span><span class="quick-text">Read More</span></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6">
-						<div class="promotions-thumb wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.5s">
-							<div class="product-holder">
-								<div class="product-img"><img src="images/promotions3.jpg" alt="promotion"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="#promotions_3"><span class="quick-img"><img src="images/view.svg" alt="Read More"></span><span class="quick-text">Read More</span></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6">
-						<div class="promotions-thumb wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.5s">
-							<div class="product-holder">
-								<div class="product-img"><img src="images/promotions1.jpg" alt="promotion"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="#promotions_1"><span class="quick-img"><img src="images/view.svg" alt="Read More"></span><span class="quick-text">Read More</span></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6">
-						<div class="promotions-thumb wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.5s">
-							<div class="product-holder">
-								<div class="product-img"><img src="images/promotions2.jpg" alt="promotion"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="#promotions_2"><span class="quick-img"><img src="images/view.svg" alt="Read More"></span><span class="quick-text">Read More</span></a>
-							</div>
-						</div>
-					</div>
+					
+				
+					
+					
+					
+					
+					
 				</div>
 			</div>
 		</div>	
 	</div>	
 </section>
 <?php 
-include 'includes/footer.php';
+    $this->load->view('front/includes/footer');
 ?>

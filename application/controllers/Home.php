@@ -2419,6 +2419,7 @@ class Home extends CI_Controller
             }
 
             $this->form_validation->set_rules('name', 'Name', 'required');
+            $this->form_validation->set_rules('mobile', 'Mobile', 'required');
             $this->form_validation->set_rules('subject', 'Subject', 'required');
             $this->form_validation->set_rules('message', 'Message', 'required');
             $this->form_validation->set_rules('email', 'Email', 'required');
@@ -2433,6 +2434,7 @@ class Home extends CI_Controller
                         $response = $this->recaptcha->verifyResponse($captcha_answer);
                         if ($response['success']) {
                             $data['name'] = $this->input->post('name', true);
+                            $data['mobile'] = $this->input->post('mobile');
                             $data['subject'] = $this->input->post('subject');
                             $data['email'] = $this->input->post('email');
                             $data['message'] = $this->security->xss_clean(($this->input->post('message')));
@@ -2464,7 +2466,7 @@ class Home extends CI_Controller
             $page_data['page_name'] = "others/contact";
             $page_data['asset_page'] = "contact";
             $page_data['page_title'] = translate('contact');
-            $this->load->view('front/index', $page_data);
+            $this->load->view('front/contact-us', $page_data);
         }
     }
 
@@ -3080,6 +3082,7 @@ class Home extends CI_Controller
             $this->db->where('user_id', $id);
             $this->db->update('address', $data);
             echo '<script>alert("Updated Successfully")</script>';
+            redirect(base_url().'home/profile/update_info', 'refresh'); 
 
         }
         else if ($para1 == "add__new_address") {
@@ -3102,7 +3105,7 @@ class Home extends CI_Controller
 //            echo $rrr;
 //            $this->db->update('user', $data);
         echo '<script>alert("New  Address added Successfully")</script>'; 
-            redirect(base_url().'Home', 'refresh');  
+            redirect(base_url().'home/profile/update_info', 'refresh');  
 
         }
         else if ($para1 == "update_password") {
@@ -3117,7 +3120,7 @@ class Home extends CI_Controller
                         $this->db->where('user_id', $this->session->userdata('user_id'));
                         $this->db->update('user', $data);
                         echo '<script>alert("Password changed Successfully")</script>';
-                        redirect(base_url().'Home', 'refresh');
+                        redirect(base_url().'home/profile/update_profile', 'refresh');
                     } else {
                         echo translate('passwords_did_not_match!');
                     }
@@ -4834,6 +4837,16 @@ class Home extends CI_Controller
         $this->load->view('front/includes/header');
         $this->load->view('front/products', $page_data);
         $this->load->view('front/includes/footer');
+    }
+    
+    function about_us()
+    {
+        $this->load->view('front/about-us');
+    }
+    
+    function promotions()
+    {
+        $this->load->view('front/promotions');
     }
 
     function bundled_product()

@@ -127,22 +127,26 @@
                             <div class="wsmain">
                                 <nav class="wsmenu clearfix">								
                                     <ul class="mobile-sub wsmenu-list" id="menu">
-                                        <li class="main-link"><a href="index.php" class="nav-active">Home</a></li>
-                                        <li class="main-link"><a href="about-us.php">About Us</a></li>
+                                        <li class="main-link"><a href="<?php echo base_url(); ?>" class="nav-active">Home</a></li>
+                                        <li class="main-link"><a href="<?php echo base_url().'home/about_us'?>">About Us</a></li>
+                                        <?php 
+                                        $categories=$this->db->get('category')->result_array();
+                                        ?>
                                         <li class="main-link"><a href="javascript:void(0);">Categories</a>
                                             <ul class="wsmenu-submenu">
-                                                <li><a href="indoor-plants.php">Indoor Plants</a></li>
-                                                <li><a href="outdoor-plants.php">Outdoor Plants</a></li>
-                                                <li><a href="pots.php">Pots</a></li>
-                                                <li><a href="fertilizers-and-soil.php">Fertilizers and Soil</a></li>
-                                                <li><a href="seeds.php">Seeds</a></li>
-                                                <li><a href="tools.php">Tools</a></li>
+                                                <?php 
+                                                    foreach ($categories as $row){ ?>
+                                                        <li><a href="<?php echo base_url(); ?>product/category/<?php echo $row['category_id']; ?>"><?php echo $row['category_name'];?></a></li>
+                                                   <?php  }
+                                                ?>
+                                                
+                                                
                                             </ul>
                                         </li>
                                         <li class="main-link"><a href="new-arrivals.php">New Arrivals</a></li>
                                         <li class="main-link"><a href="top-sellers.php">Top Sellers</a></li>
-                                        <li class="main-link"><a href="promotions.php">Promotions</a></li>
-                                        <li class="main-link"><a href="contact-us.php">Contact Us</a></li>
+                                        <li class="main-link"><a href="<?php echo base_url().'home/promotions'?>">Promotions</a></li>
+                                        <li class="main-link"><a href="<?php echo base_url().'home/contact'?>">Contact Us</a></li>
                                     </ul>
                                 </nav>
                             </div>

@@ -1,5 +1,6 @@
 <?php 
     $categories=$this->db->get('category')->result_array();
+   
                 $this->db->order_by("slides_id", "desc");
                                         $this->db->where("uploaded_by", "admin");
                                         $this->db->where("status", "ok");
@@ -322,8 +323,8 @@
 		<div class="object texture-10 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="2s"><img src="<?=base_url()?>template/front/images/texture10.png" alt="texture"></div>
 		<?php 
                 
-                $promotion_banner_one = $this->db->get_where('ui_settings', array('type' => 'promotion_banner_one'))->row()->value;
-                $promotion_banner_two = $this->db->get_where('ui_settings', array('type' => 'promotion_banner_two'))->row()->value;
+                $promotion_banner_one   = $this->db->get_where('ui_settings', array('type' => 'promotion_banner_one'))->row()->value;
+                $promotion_banner_two   = $this->db->get_where('ui_settings', array('type' => 'promotion_banner_two'))->row()->value;
                 $promotion_banner_three = $this->db->get_where('ui_settings', array('type' => 'promotion_banner_three'))->row()->value;
               ?>
                 <div class="container">
