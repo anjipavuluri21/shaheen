@@ -3065,6 +3065,7 @@ class Home extends CI_Controller
             $data['building_no'] = $this->input->post('building_no');
             $data['apartment_no'] = $this->input->post('apartment_no');
             $data['block'] = $this->input->post('block');
+            $data['address_type'] = $this->input->post('address_type');
             $data['avenue'] = $this->input->post('avenue');
             $data['floor_no'] = $this->input->post('floor_no');
             //$data['address2'] = $this->input->post('address2');
@@ -3079,6 +3080,7 @@ class Home extends CI_Controller
             $this->db->where('user_id', $id);
             $this->db->update('address', $data);
             echo '<script>alert("Updated Successfully")</script>';
+
         }
         else if ($para1 == "add__new_address") {
             $data['user_id'] = $this->session->userdata('user_id');

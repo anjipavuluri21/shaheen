@@ -410,7 +410,7 @@ class Email_model extends CI_Model
         }
         $subject    = '#'.$CI->crud_model->get_type_name_by_id('sale', $sale_id, 'sale_code');
         $page_data['sale_id'] = $sale_id;
-        $msg        = $this->load->view('front/shopping_cart/invoice_email', $page_data, TRUE);
+        $msg        = $this->load->view('front/order-confirmation', $page_data, TRUE);
 
         $this->do_email($from, $from_name, $to, $subject, $msg);
 
