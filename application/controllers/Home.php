@@ -2306,7 +2306,7 @@ class Home extends CI_Controller
         $this->set_affiliation_code_as_cookie(array());
 
         $this->load->view('front/includes/header', $page_data);
-        $this->load->view('front/product-detail', $page_data);
+        $this->load->view('front/product-detail',  $page_data);
         $this->load->view('front/includes/footer', $page_data);
     }
 
@@ -2441,19 +2441,20 @@ class Home extends CI_Controller
                             $data['view'] = 'no';
                             $data['timestamp'] = time();
                             $this->db->insert('contact_message', $data);
-                            echo 'sent';
-                        } else {
-                            echo translate('captcha_incorrect');
-                        }
+                           
+                            
+                        } 
                     } else {
                         $data['name'] = $this->input->post('name', true);
+                        $data['mobile'] = $this->input->post('mobile');
                         $data['subject'] = $this->input->post('subject');
                         $data['email'] = $this->input->post('email');
                         $data['message'] = $this->security->xss_clean(($this->input->post('message')));
                         $data['view'] = 'no';
                         $data['timestamp'] = time();
                         $this->db->insert('contact_message', $data);
-                        echo 'sent';
+                         $this->session->set_flashdata('alert', 'Sucess');
+                            redirect(base_url().'Home/contact', 'refresh');
                     }
                 } else {
                     echo 'Disallowed charecter : " ' . $char . ' " in the POST';
@@ -4849,6 +4850,11 @@ class Home extends CI_Controller
         $this->load->view('front/promotions');
     }
 
+    function new_arrivals()
+    {
+        $this->load->view('front/new-arrivals');
+    }
+    
     function bundled_product()
     {
         $page_data['product_type'] = "";

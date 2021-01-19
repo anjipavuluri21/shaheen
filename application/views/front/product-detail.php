@@ -1,3 +1,8 @@
+<?php 
+        $page_data['product_details'] = $this->db->get_where('product', array('product_id' => $para1, 'status' => 'ok'))->result_array();
+//        print_r($page_data['product_details']);exit;
+?>
+
 
 <div class="inner-banner-main parallaxcont wow fadeInUp">
 	<div class="container">
@@ -14,7 +19,7 @@
 	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:void(0);">Categories</a></li>
 				<li class="breadcrumb-item"><a href="listing.html">Indoor Plants</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Calathea Orbifolia</li>

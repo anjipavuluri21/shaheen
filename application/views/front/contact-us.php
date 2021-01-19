@@ -62,6 +62,14 @@
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 feedback wow fadeInUp" data-wow-delay="0.4s">
 						<h4>Your Feedback</h4>
+                                                <?php
+                                                    echo form_open(base_url() . 'home/contact/send', array(
+                                                        'class' => 'contact-form',
+                                                        'method' => 'post',
+                                                        'enctype' => 'multipart/form-data',
+                                                        'id' => 'contact-form'
+                                                    ));
+                ?> 
 						<div class="form-group">
                                                     <div class="inputbox"><input class="form-control" value="" name="name" placeholder="Name..." /></div>	
 						</div>
@@ -75,11 +83,13 @@
                                                     <div class="inputbox"><input class="form-control" value="" name="subject" placeholder="Subject..." /></div>	
 						</div>
 						<div class="form-group">
-							<div class="inputbox"><textarea class="form-control" placeholder="Message..."></textarea></div>	
+                                                    <div class="inputbox"><textarea class="form-control" placeholder="Message..." name="message"></textarea></div>	
 						</div>
 						<div class="form-group">
-							<div class="inputbox"><button class="button">Send Feedback</button></div>	
+							<div class="inputbox"><button class="button">Send Feedback</button> <?php echo $this->session->flashdata('alert');?></div>	
 						</div>
+                                                
+                                        </form>
 					</div>
 					
 					<div class="col-lg-12 col-md-12 wow fadeInUp" data-wow-delay="0.4s">
