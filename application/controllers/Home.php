@@ -871,7 +871,7 @@ class Home extends CI_Controller
                 $this->load->view('front/user/wallet');
             }
         } elseif ($para1 == "order_history") {
-            $this->load->view('front/user/order_history');
+            $this->load->view('front/my-order');
         } elseif ($para1 == "downloads") {
             $this->load->view('front/user/downloads');
         } elseif ($para1 == "update_profile") {
@@ -1396,8 +1396,10 @@ class Home extends CI_Controller
         $config['num_tag_close'] = '</a></li>';
         $this->ajax_pagination->initialize($config);
         $this->db->where('buyer', $id);
-        $page_data['orders'] = $this->db->order_by("sale_id", "desc")->get('sale', $config['per_page'], $para2)->result_array();
-        $this->load->view('front/user/order_listed', $page_data);
+        $page_data['orders'] = $this->db->order_by("sale_id", "desc")->get('sale')->result_array();
+//        print_r($orders);exit;
+//       echo $this->db->last_query();
+        $this->load->view('front/my-order', $page_data);
     }
 
     function wish_listed($para2 = '')
@@ -3061,8 +3063,9 @@ class Home extends CI_Controller
             }
         } else if ($para1 == "update_info") {
             $id = $this->session->userdata('user_id');
-            //$data['username'] = $this->input->post('username');
-            //$data['surname'] = $this->input->post('surname');
+           
+            $data['first_name'] = $this->input->post('first_name');
+            $data['mobile'] = $this->input->post('mobile');
             $data['street'] = $this->input->post('street');
             $data['area'] = $this->input->post('area');
             $data['building_no'] = $this->input->post('building_no');
@@ -3071,15 +3074,7 @@ class Home extends CI_Controller
             $data['address_type'] = $this->input->post('address_type');
             $data['avenue'] = $this->input->post('avenue');
             $data['floor_no'] = $this->input->post('floor_no');
-            //$data['address2'] = $this->input->post('address2');
-            //$data['phone'] = $this->input->post('phone');
-            //$data['city'] = $this->input->post('city');
-            //$data['state'] = $this->input->post('state');
-            //$data['skype'] = $this->input->post('skype');
-            //$data['google_plus'] = $this->input->post('google_plus');
-            //$data['facebook'] = $this->input->post('facebook');
-            //$data['zip'] = $this->input->post('zip');
-
+            
             $this->db->where('user_id', $id);
             $this->db->update('address', $data);
             echo '<script>alert("Updated Successfully")</script>';

@@ -69,7 +69,7 @@
 								<div class="account-div">
 									<ul class="account-ul">
 										<li><a href="<?=base_url().'home/profile/info'?>">My Profile</a></li>
-										<li><a href="my-order.html">My Order</a></li>
+										<li><a href="<?=base_url().'home/order_listed'?>">My Order</a></li>
 										<li><a href="my-favourite.html">My Favourite</a></li>
 										<li><a href="<?=base_url().'home/profile/update_info'?>">My Address</a></li>
 										<li><a href="<?=base_url().'home/profile/update_profile'?>">Change Password</a></li>

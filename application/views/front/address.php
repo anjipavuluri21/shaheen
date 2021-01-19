@@ -43,7 +43,13 @@
                                                                     <?php 
                                                                     foreach($address_data as $row){ ?>
 									<div class="profiledata">
-										<div class="form-group">
+									<div class="form-group">
+											<label>Name </label><p><?php echo $row['first_name'];?> </p>
+										</div>
+                                                                            <div class="form-group">
+											<label>Mobile</label><p><?php echo $row['mobile'];?> </p>
+										</div>
+                                                                            <div class="form-group">
 											<label>Area </label><p><?php echo $row['area'];?> </p>
 										</div>
 										<div class="form-group">
@@ -71,9 +77,17 @@
                                             'enctype' => 'multipart/form-data'
                                         ));
                                     ?>
-										<div class="form-group">
+										
+                                                                        <div class="form-group">
+                                                                                    <div class="inputbox"><input type="text" name="first_name" value="<?php echo $row['first_name'];?>" placeholder="name" class="form-control"></div>
+										</div>
+                                                                        <div class="form-group">
+                                                                                    <div class="inputbox"><input type="text" name="mobile" value="<?php echo $row['mobile'];?>" placeholder="mobile" class="form-control"></div>
+										</div>
+                                                                        <div class="form-group">
                                                                                     <div class="inputbox"><input type="text" name="area" value="<?php echo $row['area'];?>" placeholder="Area" class="form-control"></div>
 										</div>
+                                                                        
 										
 										<div class="form-group">
                                                                                     <div class="inputbox"><input type="text" name="street" value="<?php echo $row['street'];?>" placeholder="Street" class="form-control"></div>
@@ -93,6 +107,20 @@
 										<div class="form-group">
                                                                                     <div class="inputbox"><input type="text" name="floor_no" value="<?php echo $row['floor_no'];?>" placeholder="Floor No" class="form-control"></div>
 										</div>
+                                                                        <div class="col-12">
+			<div class="form-group">
+				<ul class="unstyled">
+					<li class="black">
+						<input class="styled-checkbox" id="a_aparment" name="address_type" type="radio" value="Aparment">
+						<label for="a_aparment"><span>Aparment</span></label>
+					</li>
+					<li class="white">
+						<input class="styled-checkbox" id="a_house" name="address_type" type="radio" value="House">
+						<label for="a_house"><span>House</span></label>
+					</li>
+				</ul>
+			</div>
+		</div>
 										<div class="change-div"><button class="button" type="submit">UPDATE</button> <a href="javascript:void(0);" class="button closebutton">CLOSE</a></div>
                                                                         </form>
                                                                         </div>
