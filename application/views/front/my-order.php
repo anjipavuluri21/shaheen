@@ -40,36 +40,46 @@ $this->load->view('front/includes/header');
                                             <div class="shopping-box ord-hstr-div">
                                                      <?php 
 	$i = 0;
-	foreach ($orders as $row1) {
+	foreach ($orders as $row) {
 		$i++;
+                $vat= $row['vat'];
+           $shipping=$row['shipping'];
 ?>
                                            
                                                     
 							 <div class="order-histotry">
                                                              
-							<a href="javascript:void(0);" class="order-tab active"><span class="order-crumb"><?php echo $i; ?>. Order</span><span class="order-date"><?php echo date('d M Y',$row1['sale_datetime']); ?></span></a>
+							<a href="javascript:void(0);" class="order-tab active"><span class="order-crumb"><?php echo $i; ?>. Order</span><span class="order-date"><?php echo date('d M Y',$row['sale_datetime']); ?></span></a>
 							<div class="order-histotry-sub">
 								<div class="product-my-cart">
+                                                                    <?php
+                        $product_details = json_decode($row['product_details'], true);
+                  
+                        $total = 0;
+                        foreach ($product_details as $row1) {
+                         
+                    ?>
 									<div class="cart-row">
 										<div class="product-thumb">
 											<div class="product-holder">
-												<div class="product-img"><img src="images/product-1.jpg" alt="product"/></div>
+												<div class="product-img"><img src="<?php echo $row1['image']; ?>" alt="product"/></div>
 												<div class="favourite-addtocart">
-													<a href="javascript:void(0);" data-src="images/product-1.jpg" data-fancybox title="Large"><img src="images/view.svg" alt="Large"></a>
+													<a href="javascript:void(0);" data-src="<?php echo $row1['image']; ?>" data-fancybox title="Large"><img src="<?=base_url()?>template/front/images/view.svg" alt="Large"></a>
 												</div>										
 											</div>								
 										</div>
 										<div class="cart-dtl">
 											<div class="product-dtl">
-												<h2>Calathea Orbifolia</h2>
+												<h2><?php echo $row1['name']; ?></h2>
 												<ul>
-													<li><label>Price</label><div>12.500 KWD</div></li>
-													<li><label>Quantity</label><div>1</div></li>
-													<li><label>Sub Total</label><div><strong>12.500 KWD</strong></div></li>
+													<li><label>Price</label><div><?php echo currency($row1['price']); ?></div></li>
+													<li><label>Quantity</label><div><?php echo $row1['qty']; ?></div></li>
+													<li><label>Sub Total</label><div><strong><?php echo currency($row1['subtotal']); $total += $row1['subtotal']; ?></strong></div></li>
 												</ul>
 											</div>
 										</div>
 									</div>
+                        <?php } ?>
 									
 								</div>
 								<div class="row">
@@ -78,23 +88,23 @@ $this->load->view('front/includes/header');
 											<ul class="summary-detail">
 												<li>
 													<label>Subtotal</label>
-													<div class="summary-dtl">37.500 KWD</div>
+													<div class="summary-dtl"><?php echo currency($total);?></div>
 												</li>
-												<li>
+<!--												<li>
 													<label>Discount</label>
 													<div class="summary-dtl">-2.000 KWD</div>
-												</li>
+												</li>-->
 												<li>
 													<label>Taxes</label>
-													<div class="summary-dtl">1.000 KWD</div>
+													<div class="summary-dtl"><?php echo currency($vat);?></div>
 												</li>
 												<li>
 													<label>Delivery Chanrges</label>
-													<div class="summary-dtl">5.000 KWD</div>
+													<div class="summary-dtl"><?php echo currency($shipping);?></div>
 												</li>
 												<li>
 													<label><strong>Total</strong></label>
-													<div class="summary-dtl"><strong>41.500 KWD</strong></div>
+													<div class="summary-dtl"><strong><?php echo currency($row['grand_total']);?></strong></div>
 												</li>
 											</ul>
 										</div>
@@ -104,7 +114,7 @@ $this->load->view('front/includes/header');
 											<div class="item-summery">
 												<div class="item-title">Order ID</div>
 												<div class="item-detail">
-													SNAFCO448455
+													<?php echo $row['sale_code']; ?>
 												</div>
 											</div>							
 											<div class="item-summery">
@@ -116,36 +126,19 @@ $this->load->view('front/includes/header');
 											<div class="item-summery">
 												<div class="item-title">Date &amp; Time</div>
 												<div class="item-detail">
-													15/10/2020 | Time: 10:45
+                                                                                                    <?php echo date('d M, Y | h:m',$row['sale_datetime'] );?>
 												</div>
 											</div>
 											<div class="item-summery">
 												<div class="item-title">Payment Method</div>
 												<div class="item-detail">
-													K-NET
+													<?php echo ucfirst(str_replace('_', ' ', $row['payment_type'])); ?>
 												</div>
 											</div>
 											<div class="item-summery discount-clr">
 												<div class="item-title">Payment status</div>
 												<div class="item-detail">
-													<strong><?php 
-				$payment_status = json_decode($row1['payment_status'],true); 
-				foreach ($payment_status as $dev) {
-			?>
-
-			<span class="label label-<?php if($dev['status'] == 'paid'){ ?>success<?php } else { ?>danger<?php } ?>" style="margin:2px;">
-			<?php
-					if(isset($dev['vendor'])){
-						echo $this->crud_model->get_type_name_by_id('vendor', $dev['vendor'], 'display_name').' ('.translate('vendor').') : '.$dev['status'];
-					} else if(isset($dev['admin'])) {
-						echo translate('admin').' : '.$dev['status'];
-					}
-			?>
-			</span>
-			<br>
-			<?php
-				}
-			?></strong>
+													<strong><?php echo translate($this->crud_model->sale_payment_status($row['sale_id'])); ?></strong>
 												</div>
 											</div>
 											<div class="item-summery">

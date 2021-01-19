@@ -1354,6 +1354,9 @@ class Home extends CI_Controller
 
     function order_listed($para2 = '')
     {
+        if ($this->session->userdata('user_login') != "yes") {
+            redirect(base_url(), 'refresh');
+        }
         $this->load->library('Ajax_pagination');
 
         $id = $this->session->userdata('user_id');
@@ -3398,31 +3401,7 @@ class Home extends CI_Controller
 
     }
 
-    /* FUNCTION: Loads Cart Checkout Page*/
-    function cart_checkout($para1 = "")
-    {
-        $carted = $this->cart->contents();
-        if (count($carted) <= 0) {
-            redirect(base_url() . 'home/', 'refresh');
-        }
-
-        if ($para1 == "orders") {
-            $this->load->view('front/shopping_cart/order_set');
-        } elseif ($para1 == "delivery_address") {
-            $this->load->view('front/shopping_cart/delivery_address');
-        } elseif ($para1 == "payments_options") {
-            $this->load->view('front/shopping_cart/payments_options');
-        } else {
-            $page_data['logger'] = $para1;
-            $page_data['page_name'] = "shopping_cart";
-            $page_data['asset_page'] = "shopping_cart";
-            $page_data['page_title'] = translate('my_cart');
-            $page_data['carted'] = $this->cart->contents();
-            $this->load->view('front/index', $page_data);
-        }
-    }
-
-
+   
     /* FUNCTION: Loads Cart Checkout Page*/
     function coupon_check()
     {
