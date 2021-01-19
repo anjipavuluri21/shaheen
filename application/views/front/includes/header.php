@@ -47,9 +47,7 @@
                 <div class="row">
                     <div class="col-12">
                         <a href="<?php echo base_url();?>" class="SNAFCO wow fadeInLeft"><img src="<?php echo base_url(); ?>uploads/logo_image/logo_<?php echo $home_top_logo; ?>.png" alt="SNAFCO"></a>
-                         <p style="color:white">
-                                <?php // echo $this->session->flashdata('alert');?>
-                                </p>
+                        
                         <div class="language-search">
                             <div class="search-area wow fadeInRight">
                                 <div class="search-imain">

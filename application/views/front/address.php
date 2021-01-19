@@ -34,15 +34,14 @@
 						<div class="shopping-box ord-hstr-div">
 							 <div class="checkout-sub address-sub-div">
                                                              <?php 
-                                       $account_data = $this->db->get_where('address', array('user_id' => $this->session->userdata('user_id')))->result_array();
-//                                       print_r($account_data);exit;
+                                       $address_data = $this->db->get_where('address', array('user_id' => $this->session->userdata('user_id')))->result_array();
                                        
                                        ?>
 								<h3>Shipping Address</h3>
                                                                 
 								<div class="myprofile-main">
                                                                     <?php 
-                                                                    foreach($account_data as $row){ ?>
+                                                                    foreach($address_data as $row){ ?>
 									<div class="profiledata">
 										<div class="form-group">
 											<label>Area </label><p><?php echo $row['area'];?> </p>
