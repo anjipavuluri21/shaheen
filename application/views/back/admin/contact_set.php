@@ -4,8 +4,10 @@
             $contact_address =  $this->db->get_where('general_settings',array('type' => 'contact_address'))->row()->value;
             $contact_phone =  $this->db->get_where('general_settings',array('type' => 'contact_phone'))->row()->value;
             $contact_email =  $this->db->get_where('general_settings',array('type' => 'contact_email'))->row()->value;
-            $contact_website =  $this->db->get_where('general_settings',array('type' => 'contact_website'))->row()->value;
-            $contact_about =  $this->db->get_where('general_settings',array('type' => 'contact_about'))->row()->value;
+            $contact_telephone =  $this->db->get_where('general_settings',array('type' => 'contact_telephone'))->row()->value;
+            $contact_fax =  $this->db->get_where('general_settings',array('type' => 'contact_fax'))->row()->value;
+            $contact_wholesale_divison =  $this->db->get_where('general_settings',array('type' => 'contact_wholesale_divison'))->row()->value;
+            
             $lat_lang =  $this->db->get_where('general_settings',array('type' => 'contact_lat_lang'))->row()->value;
         ?>
         <script>
@@ -60,24 +62,38 @@
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="demo-hor-inputemail">
-                        <?php echo translate('contact_website'); ?>
+                        <?php echo translate('contact_telephone'); ?>
                     </label>
                     <div class="col-sm-8">
                         <div class="col-sm-">
-                            <input type="text" name="contact_website" value="<?php echo $contact_website; ?>" class="form-control" >
+                            <input type="text" name="contact_telephone" value="<?php echo $contact_telephone; ?>" class="form-control" >
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="demo-hor-inputemail">
+                        <?php echo translate('contact_fax'); ?>
+                    </label>
+                    <div class="col-sm-8">
+                        <div class="col-sm-">
+                            <input type="text" name="contact_fax" value="<?php echo $contact_fax; ?>" class="form-control" >
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="demo-hor-inputemail">
-                        <?php echo translate('contact_about'); ?>
+                        <?php echo translate('contact_wholesale_divison'); ?>
                     </label>
                     <div class="col-sm-8">
                         <div class="col-sm-">
-                            <textarea class="summernotes" data-height='400' data-name='contact_about'><?php echo $contact_about; ?></textarea>
+                            <input type="text" name="contact_wholesale_divison" value="<?php echo $contact_wholesale_divison; ?>" class="form-control" >
                         </div>
                     </div>
                 </div>
+                
+                
+                
                 
             </div>
             <div class="panel-footer text-right">

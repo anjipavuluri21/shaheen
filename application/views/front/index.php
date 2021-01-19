@@ -26,7 +26,7 @@
 										<div class="banner-logo"><img src="<?=base_url()?>template/front/images/banner-SNAFCO.jpg" alt="SNAFCO"></div>
 										<div class="discount"><?php echo $row['text1'];?></div>
                                                                                 <h1><span><?php echo $row['text2'];?></span><div><?php echo $row['text3']; ?></div></h1>
-										<a href="listing.php" class="button">Shop now</a>
+										<a href="<?=base_url()?><?php echo $row['button_link'];?>" class="button">Shop now</a>
 
 									</div>
 								</div>
