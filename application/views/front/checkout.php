@@ -21,6 +21,8 @@ if($this->session->userdata('user_login')== "yes"){
     $langlat    = $user_data->langlat; 
     $address    = $address1.$address2;
     $zip        = $user_data->zip; 
+    $address_data = $this->db->get_where('address', array('user_id' => $this->session->userdata('user_id')))->result_array();
+
   } 
 ?>
 <div class="inner-banner-main parallaxcont wow fadeInUp">
@@ -55,124 +57,64 @@ if($this->session->userdata('user_login')== "yes"){
                 <h1 class="wow fadeInLeft" data-wow-duration="1.5s">Checkout</h1>
                 <div class="row wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
                     <div class="col-lg-4 col-md-4 col-sm-12 checkout-leftcol">
-                        <h2>Delivery Address</h2>
-                        <?php 
-                        $account_data = $this->db->get_where('user', array('user_id' => $this->session->userdata('user_id')))->result_array();
-//                        print_r($account_data);exit;
-                        
-                        ?>
-                        <div class="address-contents">
-                            <ul class="unstyled store-list">
-                                <li>
-                                    <div class="store-radio">
-                                        <input class="styled-checkbox" id="address1" name="address" type="radio" value="">
-                                        <label for="address1"><span>Select</span></label>
-                                    </div>
-                                    <?php 
-                                    foreach($account_data as $row){ ?>
-                            <h3><?php echo $row['address_type'];?></h3>
-                            <p>Bldg. <?php echo $row['building_no'];?>, Block <?php echo $row['block'];?>, <?php echo $row['address1'];?>, floor no.<?php echo $row['avenue'];?>, <?php echo $row['floor_no'];?>,  <?php echo $row['country'];?>.</p>
-
-                        <?php }
-                                    ?>
-                                    
-                                    <div class="checkout-address">
-                                        <div class="myprofile-main">
-                                            <div class="profiledata add-new-adddress">
-                                                <div class="change-div"><a href="javascript:void(0);" class="button change-btn">Edit Address</a></div>
-                                            </div>
-                                            <div class="profileform">
-                                                <?php
-                                        echo form_open(base_url() . 'home/registration/update_info/', array(
-                                            'class' => 'form-login',
-                                            'method' => 'post',
-                                            'enctype' => 'multipart/form-data'
-                                        ));
-                                    ?>
-                                                <div class="form-group">
-                                                    <ul class="unstyled">
-                                                        <li><input type="radio" name="address_type" class="styled-checkbox" checked id="apartment" name="residence" value="<?php echo $row['address_type'];?>">
-                                                            <label for="apartment">
-                                                                Office
-                                                            </label>
-                                                        </li>
-                                                        <li><input type="radio" name="address_type" class="styled-checkbox" id="home" name="residence" value="<?php echo $row['address_type'];?>">
-                                                            <label for="home">
-                                                                Home
-                                                            </label>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-<!--                                                <div class="form-group">
-                                                    <div class="double"><input type="text" value="" placeholder="Title" class="form-control"></div>
-                                                    <div class="double"><input type="text" value="" placeholder="Governorate" class="form-control"></div>
-                                                </div>-->
-                                                <div class="form-group">
-                                                    <div class="double"><input type="text" value="<?php echo $row['country'];?>" name="country" placeholder="Area" class="form-control"></div>
-                                                    <div class="double"><input type="text" value="<?php echo $row['block'];?>" name="block" placeholder="Block" class="form-control"></div>
-                                                </div>
-<div class="form-group"><input type="text" value="<?php echo $row['address1'];?>" name="address1" placeholder="Street" class="form-control"></div>
-                                                <div class="form-group">
-                                                    <div class="double"><input type="text" value="<?php echo $row['building_no'];?>" name="building_no" placeholder="Building No" class="form-control"></div>
-                                                    <div class="double"><input type="text" value="<?php echo $row['floor_no'];?>" name="floor_no" placeholder="Floor No" class="form-control"></div>
-                                                </div>
-<div class="form-group"><input type="text" value="<?php echo $row['avenue'];?>" name="avenue" placeholder="Flat No" class="form-control"></div>
-                                                <div class="change-div"><button class="button" type="submit">Add Address</button> <a href="javascript:void(0);" class="button closebutton">Close</a></div>
-                                            </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                
-                                <li>
-                                    <div class="store-radio">
-                                        <input class="styled-checkbox" id="address3" name="address" type="radio" value="">
-                                        <label for="address3"><span>Select</span></label>
-                                    </div>
-                                    <h3>New Address</h3>
-                                    <p></p>
-                                    <div class="checkout-address">
-                                        <div class="myprofile-main">
-                                            <div class="profiledata add-new-adddress">
-                                                <div class="change-div"><a href="javascript:void(0);" class="button change-btn">Add New Address</a></div>
-                                            </div>
-                                            <div class="profileform">
-                                                <div class="form-group">
-                                                    <ul class="unstyled">
-                                                        <li><input type="radio" class="styled-checkbox" id="apartment3" name="residence" value="">
-                                                            <label for="apartment3">
-                                                                Apartment
-                                                            </label>
-                                                        </li>
-                                                        <li><input type="radio" class="styled-checkbox" id="home3" name="residence" value="">
-                                                            <label for="home3">
-                                                                Home
-                                                            </label>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="double"><input type="text" value="" placeholder="Title" class="form-control"></div>
-                                                    <div class="double"><input type="text" value="" placeholder="Governorate" class="form-control"></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="double"><input type="text" value="" placeholder="Area" class="form-control"></div>
-                                                    <div class="double"><input type="text" value="" placeholder="Block" class="form-control"></div>
-                                                </div>
-                                                <div class="form-group"><input type="text" value="" placeholder="Street" class="form-control"></div>
-                                                <div class="form-group">
-                                                    <div class="double"><input type="text" value="" placeholder="Building No" class="form-control"></div>
-                                                    <div class="double"><input type="text" value="" placeholder="Floor No" class="form-control"></div>
-                                                </div>
-                                                <div class="form-group"><input type="text" value="" placeholder="Flat No" class="form-control"></div>
-                                                <div class="change-div"><button class="button" type="submit">Add Address</button> <a href="javascript:void(0);" class="button closebutton">Close</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+						<h2>Delivery Address</h2>
+						<div class="address-contents">
+							<ul class="unstyled store-list">
+                                                            <?php 
+                                       $address_data = $this->db->get_where('address', array('user_id' => $this->session->userdata('user_id')))->result_array();
+                                       foreach($address_data as $row){
+                                       ?>
+									<li>
+										<div class="store-radio">
+											<input class="styled-checkbox" id="address<?php echo $row['id'];?>" name="address" type="radio" value="">
+											<label for="address<?php echo $row['id'];?>"><span>Select</span></label>
+										</div>	
+										<h3><?php echo $row['address_type'];?></h3>
+										<p>Bldg. 116, Block 2, Salem Al Mubarak St., 5th Floor, Opp.  Olympia Towers, Salmiya, Kuwait.</p>
+										<div class="checkout-address">
+											<div class="myprofile-main">
+												<div class="profiledata add-new-adddress">
+													<div class="change-div"><a href="javascript:void(0);" class="button change-btn">Edit Address</a></div>
+												</div>
+												<div class="profileform">
+													<div class="form-group">
+														<ul class="unstyled">
+															<li><input type="radio" class="styled-checkbox" checked id="apartment" name="residence" value="">
+																<label for="apartment">
+																	Apartment
+																</label>
+															</li>
+															<li><input type="radio" class="styled-checkbox" id="home" name="residence" value="">
+																<label for="home">
+																	Home
+																</label>
+															</li>
+														</ul>
+													</div>
+													<div class="form-group">
+														<div class="double"><input type="text" value="" placeholder="Title" class="form-control"></div>
+														<div class="double"><input type="text" value="" placeholder="Governorate" class="form-control"></div>
+													</div>
+													<div class="form-group">
+														<div class="double"><input type="text" value="" placeholder="Area" class="form-control"></div>
+														<div class="double"><input type="text" value="" placeholder="Block" class="form-control"></div>
+													</div>
+													<div class="form-group"><input type="text" value="" placeholder="Street" class="form-control"></div>
+													<div class="form-group">
+														<div class="double"><input type="text" value="" placeholder="Building No" class="form-control"></div>
+														<div class="double"><input type="text" value="" placeholder="Floor No" class="form-control"></div>
+													</div>
+													<div class="form-group"><input type="text" value="" placeholder="Flat No" class="form-control"></div>
+													<div class="change-div"><button class="button" type="submit">Add Address</button> <a href="javascript:void(0);" class="button closebutton">Close</a></div>
+												</div>
+											</div>
+										</div>
+									</li>
+                                       <?php } ?>
+									
+								</ul>
+						</div>
+					</div>
                     <div class="col-lg-8 col-md-8 col-sm-12 checkout-rightcol">
                         <h2>Cart Summary</h2>
                         <div class="summary-right">
