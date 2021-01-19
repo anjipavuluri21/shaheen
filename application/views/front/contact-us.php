@@ -1,5 +1,13 @@
 <?php 
     $this->load->view('front/includes/header');
+    
+    $contact_address =  $this->db->get_where('general_settings',array('type' => 'contact_address'))->row()->value;
+    $contact_phone =  $this->db->get_where('general_settings',array('type' => 'contact_phone'))->row()->value;
+    $contact_email =  $this->db->get_where('general_settings',array('type' => 'contact_email'))->row()->value;
+    $contact_telephone =  $this->db->get_where('general_settings',array('type' => 'contact_telephone'))->row()->value;
+    $contact_fax =  $this->db->get_where('general_settings',array('type' => 'contact_fax'))->row()->value;
+    $contact_wholesale_divison =  $this->db->get_where('general_settings',array('type' => 'contact_wholesale_divison'))->row()->value;
+
 ?>
 <div class="inner-banner-main parallaxcont wow fadeInUp">
 	<div class="container">
@@ -38,25 +46,25 @@
 							<div class="contact-icon"><img src="<?=base_url()?>template/front/images/icon-address.svg" alt="Address"/></div>
 							<div class="contact-dtl">
 								<h5>Address</h5>
-								<p>Al Shaheen Nurseries Agriculture & Food Co., Kuwait City, Kuwait</p>
+								<p><?php echo $contact_address;?></p>
 							</div>
 						</div>
 						<div class="contact-row">
 							<div class="contact-icon"><img src="<?=base_url()?>template/front/images/icon-phone.svg" alt="Telephone"/></div>
 							<div class="contact-dtl">
 								<h5>Telephone, Mobile</h5>
-								<p><a href="tel:+96524740140">+965 24740140</a>, <a href="tel:+96524761631">+965 24761631</a></p>
+								<p><a href="tel:+96524740140"><?php echo $contact_telephone?></a>, <a href="tel:+96524761631"><?php echo $contact_phone;?></a></p>
 								<h5>Fax</h5>
-								<p>+965 24713823</p>
+								<p><?php echo $contact_fax;?></p>
 								<h5>Wholesale Division</h5>
-								<p><a href="tel:+96599448122">+965 99448122</a></p>
+								<p><a href="tel:+96599448122"><?php echo $contact_wholesale_divison; ?></a></p>
 							</div>
 						</div>
 						<div class="contact-row">
 							<div class="contact-icon"><img src="<?=base_url()?>template/front/images/icon-email.svg" alt="email"/></div>
 							<div class="contact-dtl">
 								<h5>Email</h5>
-								<p><a href="mailto:info@alshaheen.com.kw">info@alshaheen.com.kw</a></p>
+								<p><a href="mailto:info@alshaheen.com.kw"><?php echo $contact_email;?></a></p>
 							</div>
 						</div>
 					</div>

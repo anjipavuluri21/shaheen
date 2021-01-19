@@ -5180,13 +5180,17 @@ class Admin extends CI_Controller
             $this->db->update('general_settings', array(
                 'value' => $this->input->post('contact_phone')
             ));
-            $this->db->where('type', "contact_website");
+            $this->db->where('type', "contact_telephone");
             $this->db->update('general_settings', array(
-                'value' => $this->input->post('contact_website')
+                'value' => $this->input->post('contact_telephone')
             ));
-            $this->db->where('type', "contact_about");
+            $this->db->where('type', "contact_fax");
             $this->db->update('general_settings', array(
-                'value' => $this->input->post('contact_about')
+                'value' => $this->input->post('contact_fax')
+            ));
+            $this->db->where('type', "contact_wholesale_divison");
+            $this->db->update('general_settings', array(
+                'value' => $this->input->post('contact_wholesale_divison')
             ));
             
         }
