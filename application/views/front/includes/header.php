@@ -141,7 +141,7 @@
                                                 
                                             </ul>
                                         </li>
-                                        <li class="main-link"><a href="new-arrivals.php">New Arrivals</a></li>
+                                        <li class="main-link"><a href="<?php echo base_url().'home/new_arrivals'?>">New Arrivals</a></li>
                                         <li class="main-link"><a href="top-sellers.php">Top Sellers</a></li>
                                         <li class="main-link"><a href="<?php echo base_url().'home/promotions'?>">Promotions</a></li>
                                         <li class="main-link"><a href="<?php echo base_url().'home/contact'?>">Contact Us</a></li>

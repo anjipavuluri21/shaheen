@@ -1,12 +1,9 @@
 <?php 
 //echo "comming";exit;
     $this->load->view('front/includes/header');
+                    
+    $promotions=$this->db->query("SELECT * FROM `ui_settings` WHERE `type` LIKE '%promotion_banner%'")->result();
     
-    
-    $promotions = $this->db->select('*');
-                   $this->db->from('ui_settings'); 
-                   $this->db->like('type','promotion_banner','match','both')->get();
-                  
 //                print_r($promotions);exit;   
                    
     
@@ -42,14 +39,22 @@
 			<div class="col-12">
 				<h1 class="wow fadeInLeft" data-wow-duration="1.5s">Promotions</h1>
 				<div class="row listing-item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
-					<div class="col-lg-3 col-md-3 col-sm-6">
+                                    <?php 
+                                    foreach ($promotions as $row){ ?>
+                                    
+                                    <div class="col-lg-3 col-md-3 col-sm-6">
 						<div class="promotions-thumb wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.5s">
 							<div class="product-holder">
-								<div class="product-img"><img src="<?=base_url()?>template/front/images/promotions1.jpg" alt="promotion"/></div>
+								<div class="product-img"><img src="<?php echo base_url(); ?>uploads/logo_image/logo_<?php echo $row->value; ?>.png" alt="promotion"/></div>
 								<a href="javascript:void(0);" class="quick-link-btn" data-src="#promotions_1"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Read More"></span><span class="quick-text">Read More</span></a>
 							</div>
 						</div>
 					</div>
+                                        
+                                    <?php }
+                                    
+                                    ?>
+					
 					
 				
 					

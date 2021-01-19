@@ -96,9 +96,8 @@
 		<div class="object texture-7 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="2s"><img src="<?=base_url()?>template/front/images/texture7.png" alt="texture"></div>
 		<div class="container">
                      <?php
-					$box_style =  $this->db->get_where('ui_settings',array('ui_settings_id' => 29))->row()->value;
-					$limit =  $this->db->get_where('ui_settings',array('ui_settings_id' => 20))->row()->value;
-                    $featured=$this->crud_model->product_list_set('featured',$limit);
+					$latest = $this->crud_model->product_list_set('latest',5);
+
                     
                 ?>
               
@@ -110,7 +109,7 @@
 						<div class="arriaval-container swiper-container">
 							<div class="swiper-wrapper">
                                                             <?php 
-                                                            foreach($featured as $row){ ?>
+                                                            foreach($latest as $row){ ?>
                                                             <div class="swiper-slide">
 									<div class="product-thumb">
 										<div class="product-holder">

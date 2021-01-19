@@ -26,7 +26,7 @@
 	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url();?>">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:void(0);">Categories</a></li>
 				<li class="breadcrumb-item active" aria-current="page"><?=$cat['category_name']?></li>
 			</ol>
@@ -73,7 +73,7 @@
 								</div>
 							</div>
 							<div class="product-dtl">
-                                                            <h2><a href="<?=base_url().'Home/product_view/1';?>"> <?php echo $row['title'];?></a></h2>
+                                                            <h2><a href="<?php echo $this->crud_model->product_link($row['product_id']); ?>"> <?php echo $row['title'];?></a></h2>
 								<div class="pot-size">Size : <?php echo $row['size'];?> </div>
 								<div class="made-by">Type : <?php echo $row['tag'];?></div>
 								<p><?php echo currency($this->crud_model->get_product_price($row['product_id']));?></p>
