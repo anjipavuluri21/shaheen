@@ -25,6 +25,13 @@ if($this->session->userdata('user_login')== "yes"){
 
   } 
 ?>
+ <?php
+                                        echo form_open('', array(
+                                            'method' =>
+                                            'post', 'id' => 'coupon_set'));
+                                        ?> 
+                                        <input type="hidden" id="coup_frm" name="code">
+                                        </form>
 <div class="inner-banner-main parallaxcont wow fadeInUp">
     <div class="container">
         <div class="row">
@@ -53,23 +60,28 @@ if($this->session->userdata('user_login')== "yes"){
     </div>
     <div class="container">
         <div class="row">
+            <?php
+echo form_open(base_url() . 'Product/cart_finish/go', array(
+            'method' => 'post', 
+            'enctype' => 'multipart/form-data', 
+            'id' => 'cart_form' 
+        )
+    );
+?>
             <div class="col-12">
                 <h1 class="wow fadeInLeft" data-wow-duration="1.5s">Checkout</h1>
                 <div class="row wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
+                    
                     <div class="col-lg-4 col-md-4 col-sm-12 checkout-leftcol">
 						<h2>Delivery Address</h2>
-						<div class="address-contents">
+						 <div class="address-contents">
 							<ul class="unstyled store-list">
-                                                            <?php 
-                                       $address_data = $this->db->get_where('address', array('user_id' => $this->session->userdata('user_id')))->result_array();
-                                       foreach($address_data as $row){
-                                       ?>
 									<li>
 										<div class="store-radio">
-											<input class="styled-checkbox" id="address<?php echo $row['id'];?>" name="address" type="radio" value="">
-											<label for="address<?php echo $row['id'];?>"><span>Select</span></label>
+											<input class="styled-checkbox" id="address1" name="address" type="radio" value="">
+											<label for="address1"><span>Select</span></label>
 										</div>	
-										<h3><?php echo $row['address_type'];?></h3>
+										<h3>Home</h3>
 										<p>Bldg. 116, Block 2, Salem Al Mubarak St., 5th Floor, Opp.  Olympia Towers, Salmiya, Kuwait.</p>
 										<div class="checkout-address">
 											<div class="myprofile-main">
@@ -110,11 +122,101 @@ if($this->session->userdata('user_login')== "yes"){
 											</div>
 										</div>
 									</li>
-                                       <?php } ?>
-									
+									<li>
+										<div class="store-radio">
+											<input class="styled-checkbox" id="address2" name="address" type="radio" value="">
+											<label for="address2"><span>Select</span></label>
+										</div>	
+										<h3>Office</h3>
+										<p>Bldg. 116, Block 2, Salem Al Mubarak St., 5th Floor, Opp.  Olympia Towers, Salmiya, Kuwait.</p>
+										<div class="checkout-address">
+											<div class="myprofile-main">
+												<div class="profiledata add-new-adddress">
+													<div class="change-div"><a href="javascript:void(0);" class="button change-btn">Edit Address</a></div>
+												</div>
+												<div class="profileform">
+													<div class="form-group">
+														<ul class="unstyled">
+															<li><input type="radio" class="styled-checkbox" id="apartment2" name="residence" value="">
+																<label for="apartment2">
+																	Apartment
+																</label>
+															</li>
+															<li><input type="radio" class="styled-checkbox" id="home2" name="residence" value="">
+																<label for="home2">
+																	Home
+																</label>
+															</li>
+														</ul>
+													</div>
+													<div class="form-group">
+														<div class="double"><input type="text" value="" placeholder="Title" class="form-control"></div>
+														<div class="double"><input type="text" value="" placeholder="Governorate" class="form-control"></div>
+													</div>
+													<div class="form-group">
+														<div class="double"><input type="text" value="" placeholder="Area" class="form-control"></div>
+														<div class="double"><input type="text" value="" placeholder="Block" class="form-control"></div>
+													</div>
+													<div class="form-group"><input type="text" value="" placeholder="Street" class="form-control"></div>
+													<div class="form-group">
+														<div class="double"><input type="text" value="" placeholder="Building No" class="form-control"></div>
+														<div class="double"><input type="text" value="" placeholder="Floor No" class="form-control"></div>
+													</div>
+													<div class="form-group"><input type="text" value="" placeholder="Flat No" class="form-control"></div>
+													<div class="change-div"><button class="button" type="submit">Add Address</button> <a href="javascript:void(0);" class="button closebutton">Close</a></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="store-radio">
+											<input class="styled-checkbox" id="address3" name="address" type="radio" value="">
+											<label for="address3"><span>Select</span></label>
+										</div>
+										<h3>New Address</h3>
+										<p></p>
+										<div class="checkout-address">
+											<div class="myprofile-main">
+												<div class="profiledata add-new-adddress">
+													<div class="change-div"><a href="javascript:void(0);" class="button change-btn">Add New Address</a></div>
+												</div>
+												<div class="profileform">
+													<div class="form-group">
+														<ul class="unstyled">
+															<li><input type="radio" class="styled-checkbox" id="apartment3" name="residence" value="">
+																<label for="apartment3">
+																	Apartment
+																</label>
+															</li>
+															<li><input type="radio" class="styled-checkbox" id="home3" name="residence" value="">
+																<label for="home3">
+																	Home
+																</label>
+															</li>
+														</ul>
+													</div>
+													<div class="form-group">
+														<div class="double"><input type="text" value="" placeholder="Title" class="form-control"></div>
+														<div class="double"><input type="text" value="" placeholder="Governorate" class="form-control"></div>
+													</div>
+													<div class="form-group">
+														<div class="double"><input type="text" value="" placeholder="Area" class="form-control"></div>
+														<div class="double"><input type="text" value="" placeholder="Block" class="form-control"></div>
+													</div>
+													<div class="form-group"><input type="text" value="" placeholder="Street" class="form-control"></div>
+													<div class="form-group">
+														<div class="double"><input type="text" value="" placeholder="Building No" class="form-control"></div>
+														<div class="double"><input type="text" value="" placeholder="Floor No" class="form-control"></div>
+													</div>
+													<div class="form-group"><input type="text" value="" placeholder="Flat No" class="form-control"></div>
+													<div class="change-div"><button class="button" type="submit">Add Address</button> <a href="javascript:void(0);" class="button closebutton">Close</a></div>
+												</div>
+											</div>
+										</div>
+									</li>
 								</ul>
 						</div>
-					</div>
+		   </div>
                     <div class="col-lg-8 col-md-8 col-sm-12 checkout-rightcol">
                         <h2>Cart Summary</h2>
                         <div class="summary-right">
@@ -191,21 +293,8 @@ if($this->session->userdata('user_login')== "yes"){
                                                 <p id="coupon_report"></p>
                                             </ul>
                                         </div>
-                                        <?php
-                                        echo form_open('', array(
-                                            'method' =>
-                                            'post', 'id' => 'coupon_set'));
-                                        ?> 
-                                        <input type="hidden" id="coup_frm" name="code">
-                                        </form>
-                                        <?php
-echo form_open(base_url() . 'Product/cart_finish/go', array(
-            'method' => 'post', 
-            'enctype' => 'multipart/form-data', 
-            'id' => 'cart_form' 
-        )
-    );
-?>
+                                       
+
                                         <div class="payment-method">
                                             <div class="payment-lbl">Payment Method</div>
                                             <div class="payment-detail">
@@ -224,14 +313,16 @@ echo form_open(base_url() . 'Product/cart_finish/go', array(
                                                 <!--<a href="javascript:void(0);" class="button fullwidth disabled" id="order_place_btn" onclick="cart_submission(this);">Pay Now</a>-->
                                             </div>
                                         </div>
-                                         </form>
+                                        
                                     </div>
                                 </div>		
                             </div>	
                         </div>
                     </div>
+                  
                 </div>
-            </div>
+            </div>  
+        </form>
         </div>
     </div>
 </section>

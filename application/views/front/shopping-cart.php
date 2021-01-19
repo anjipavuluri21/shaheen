@@ -1,6 +1,5 @@
-<?php
-include 'includes/header.php';
-?>
+<?php $this->load->view('front/includes/header');?>
+
 <div class="inner-banner-main parallaxcont wow fadeInUp">
     <div class="container">
         <div class="row">
@@ -34,68 +33,37 @@ include 'includes/header.php';
                 <div class="row wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
                     <div class="col-lg-8 col-md-7 col-sm-12">
                         <div class="shopping-box">
-                            <div class="cart-row">
+                             <?php foreach ($carted as $items) { ?> 
+                            <div class="cart-row" data-rowid="<?php echo $items['rowid']; ?>">
                                 <div class="product-thumb">
                                     <div class="product-holder">
-                                        <div class="product-img"><img src="products/seeds/th/image00014.jpg" alt="product"/></div>
-                                        <a href="javascript:void(0);" class="quick-link-btn" data-src="products/seeds/image00014.jpg" data-fancybox="product1"><span class="quick-img"><img src="images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-                                        <a href="javascript:void(0);" class="none" data-src="products/seeds/image00015.jpg" data-fancybox="product1"></a>
+                                        <div class="product-img"><img src="<?php echo $items['image']; ?>" alt="product"/></div>
+                                        <a href="javascript:void(0);" class="quick-link-btn" data-src="<?php echo $items['image']; ?>" data-fancybox="product1"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
                                         <div class="favourite-addtocart">
-                                            <a href="javascript:void(0);" class="favourite-anchor" title="Move to Faviourite"><img src="images/faviourite.svg" alt="faviourite"></a>
+                                            <a href="javascript:void(0);" class="favourite-anchor" data-pid="<?=$row['product_id']?>" title="Move to Faviourite"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="cart-dtl">
                                     <div class="product-dtl">
-                                        <h2>BIO ROCALBA butternut</h2>
-                                        <p>KWD 12.500</p>
+                                        <h2><?php echo $items['name']; ?></h2>
+                                        <p><?php echo currency($items['price']); ?></p>
                                     </div>
                                     <div class="quantity-div">
                                         <div class="quantity-sub">
                                             <label>Quantity :</label>
                                             <div class="quantity-control-div plus-minus">
-                                                <a href="javascript:void(0);" class="minus-btn minusBtn">-</a>
-                                                <div class="quantity-control"><input type="text" class="form-control noValue" value="1"></div>
-                                                <a href="javascript:void(0);" class="plus-btn plusBtn">+</a>
+                                                <a href="javascript:void(0);" class="minus-btn minusBtn plus-minus-btn">-</a>
+                                                <div class="quantity-control"><input type="text" class="form-control noValue" value="1" name="quantity"></div>
+                                                <a href="javascript:void(0);" class="plus-btn plusBtn plus-minus-btn">+</a>
                                             </div>
                                         </div>	
                                     </div>
-                                    <div class="pq-detail"><strong class="price-amount">12.500 KD</strong></div>
-                                    <div class="remove-item"><a href="javascript:void(0);" class="remove-item-btn">Remove Item</a></div>
+                                    <div class="pq-detail"><strong class="price-amount"><?php echo currency($items['subtotal']); ?></strong></div>
+                                    <div class="remove-item"><a href="javascript:void(0);" class="remove-item-btn remove-anchor remove_one" data-pid="<?=$row['product_id']?>">Remove Item</a></div>
                                 </div>
                             </div>
-                            <div class="cart-row">
-                                <div class="product-thumb">
-                                    <div class="product-holder">
-                                        <div class="product-img"><img src="products/tools/th/70403.jpg" alt="product"/></div>
-                                        <a href="javascript:void(0);" class="quick-link-btn" data-src="products/tools/70403.jpg" data-fancybox="product71"><span class="quick-img"><img src="images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-                                        <a href="javascript:void(0);" class="none" data-src="products/tools/70403-.jpg" data-fancybox="product71"></a>
-                                        <div class="favourite-addtocart">
-                                            <a href="javascript:void(0);" class="favourite-anchor" title="Move to Faviourite"><img src="images/faviourite.svg" alt="faviourite"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cart-dtl">
-                                    <div class="product-dtl">
-                                        <h2>Shovel Steel Small</h2>
-                                        <div class="pot-size">Size : Small</div>
-                                        <div class="made-by">Type : Steel</div>
-                                        <p>KWD 12.500</p>
-                                    </div>
-                                    <div class="quantity-div">
-                                        <div class="quantity-sub">
-                                            <label>Quantity :</label>
-                                            <div class="quantity-control-div plus-minus">
-                                                <a href="javascript:void(0);" class="minus-btn minusBtn">-</a>
-                                                <div class="quantity-control"><input type="text" class="form-control noValue" value="2"></div>
-                                                <a href="javascript:void(0);" class="plus-btn plusBtn">+</a>
-                                            </div>
-                                        </div>	
-                                    </div>
-                                    <div class="pq-detail"><strong class="price-amount">25.000 KD</strong></div>
-                                    <div class="remove-item"><a href="javascript:void(0);" class="remove-item-btn">Remove Item</a></div>
-                                </div>
-                            </div>
+                             <?php } ?>
                         </div>	
                     </div>
                     <div class="col-lg-4 col-md-5 col-sm-12">
@@ -105,29 +73,29 @@ include 'includes/header.php';
                                     <ul class="summary-detail">
                                         <li>
                                             <label>Subtotal</label>
-                                            <div class="summary-dtl">37.500 KWD</div>
+                                            <div class="summary-dtl" id="total">37.500 KWD</div>
                                         </li>
                                         <li>
                                             <label>Taxes</label>
-                                            <div class="summary-dtl">1.000 KWD</div>
+                                            <div class="summary-dtl" id="tax">1.000 KWD</div>
                                         </li>
                                         <li>
                                             <label>Delivery Chanrges</label>
-                                            <div class="summary-dtl">5.000 KWD</div>
+                                            <div class="summary-dtl" id="shipping">5.000 KWD</div>
                                         </li>
                                         <li>
                                             <label><strong>Total</strong></label>
-                                            <div class="summary-dtl"><strong>43.500 KWD</strong></div>
+                                            <div class="summary-dtl" id="grand"><strong>43.500 KWD</strong></div>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="row cspo-btn">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <a href="listing.php" class="button fullwidth">Continue Shopping</a>
+                                    <a href="<?=base_url()?>" class="button fullwidth">Continue Shopping</a>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <a href="checkout.php" class="button fullwidth">Place Order</a>
+                                    <a href="<?=base_url()?>product/cart_checkout" class="button fullwidth">Place Order</a>
                                 </div>
                             </div>
                         </div>
@@ -137,6 +105,4 @@ include 'includes/header.php';
         </div>
     </div>
 </section>
-<?php
-include 'includes/footer.php';
-?>
+<?php $this->load->view('front/includes/footer');?>

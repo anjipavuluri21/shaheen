@@ -2721,7 +2721,7 @@ class Product extends CI_Controller
 
         if ($para1 == "added_list") {
             $page_data['carted'] = $this->cart->contents();
-            $this->load->view('front/added_list', $page_data);
+            $this->load->view('front/shopping-cart', $page_data);
         }
 
         if ($para1 == "empty") {
@@ -2851,6 +2851,9 @@ class Product extends CI_Controller
     /* FUNCTION: Loads Cart Checkout Page*/
     function cart_checkout($para1 = "")
     {
+        if ($this->session->userdata('user_login') != "yes") {
+            redirect(base_url(), 'refresh');
+        }
         $carted = $this->cart->contents();
         if (count($carted) <= 0) {
             redirect(base_url() . 'home/', 'refresh');

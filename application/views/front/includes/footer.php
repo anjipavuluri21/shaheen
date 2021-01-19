@@ -385,7 +385,7 @@ echo form_open(base_url() . 'home/registration/add_info/', array(
                     });
                     if (count > 0) {
                             cart_checkout_section += "<div class=\"total-amt\"><p>Total : <strong class=\"shopping-cart__total\">" + currency + total.toFixed(2) + "</strong></p></div>"
-                                    + "<a href=\"shopping-cart.php\" class=\"button\">Show Cart</a>"
+                                    + "<a href=\"" + base_url + "product/cart/added_list\" class=\"button\">Show Cart</a>"
                                     + "<a href=\"" + base_url + "product/cart_checkout\" class=\"button\">Checkout</a>";
 
                         } else {
@@ -428,6 +428,14 @@ echo form_open(base_url() . 'home/registration/add_info/', array(
                         console.log(e)
                     }
                 });
+            });
+            
+             $('.plus-minus-btn').click(function (e) {
+                e.preventDefault();
+                
+                var qty = $("input[name=quantity]").val();
+                alert(qty);
+
             });
             $('.favourite-anchor').click(function (e) {
                 e.preventDefault();
