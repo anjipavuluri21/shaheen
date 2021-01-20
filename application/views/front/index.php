@@ -12,7 +12,7 @@
 <div class="main">
 	<div class="banner-main parallaxcont wow fadeInUp">
 		<div class="container">
-			<div class="row">
+				<div class="row">
 				<div class="col-12">
 					<div class="carousel-main">
 						<div class="slideshow-container swiper-container">
@@ -21,19 +21,20 @@
                                                             
                                         foreach($slides as $row){ ?>
                                             <div class="swiper-slide">
-									<div class="slideshow-img<?php echo $i; ?>"><img src="<?php echo $this->crud_model->file_view('slides',$row['slides_id'],'100','','no','src','','','.jpg') ?>" data-src="" alt="" /></div>
+									<div class="slideshow-img"><img src="<?php echo $this->crud_model->file_view('slides',$row['slides_id'],'100','','no','src','','','.jpg') ?>" alt="slide"/></div>
 									<div class="slideshow-contents">
 										<div class="banner-logo"><img src="<?=base_url()?>template/front/images/banner-SNAFCO.jpg" alt="SNAFCO"></div>
 										<div class="discount"><?php echo $row['text1'];?></div>
-                                                                                <h1><span><?php echo $row['text2'];?></span><div><?php echo $row['text3']; ?></div></h1>
-										<a href="<?=base_url()?><?php echo $row['button_link'];?>" class="button">Shop now</a>
+										<h1><span><?php echo $row['text2'];?></span><div><?php echo $row['text3'];?></div></h1>
+										<a href="<?php echo $row['button_link'];?>" class="button">Shop now</a>
 
 									</div>
 								</div>
-                                                            
-                                        <?php }
-                                        
-                                                            ?>
+                                            
+                                            
+                                            
+                                        <?php }?>
+								
 								
 								
 								
