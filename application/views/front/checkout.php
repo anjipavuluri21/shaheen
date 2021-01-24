@@ -61,11 +61,12 @@ if ($this->session->userdata('user_login') == "yes") {
                             <ul class="unstyled store-list">
                                 <?php
                                 $address_data = $this->db->get_where('address', array('user_id' => $this->session->userdata('user_id')))->result_array();
+                                $no=1;
                                 foreach ($address_data as $row) {
                                     ?>
                                     <li>
                                         <div class="store-radio">
-                                            <input class="styled-checkbox" id="address<?php echo $row['id']; ?>" name="address" type="radio" value="">
+                                            <input class="styled-checkbox delivery_address" id="address<?php echo $row['id']; ?>" name="address" type="radio" value="<?php echo $row['id']; ?>" <?php if($no==1){echo "checked";}?>/>
                                             <label for="address<?php echo $row['id']; ?>"><span>Select</span></label>
                                         </div>	
                                         <h3><?php echo $row['address_type']; ?></h3>
@@ -118,7 +119,8 @@ if ($this->session->userdata('user_login') == "yes") {
                                             </div>
                                         </div>
                                     </li>
-                                <?php } ?>
+                                <?php $no++; } 
+                                ?>
                                     <li>
                                         <div class="checkout-sub address-sub-div">
 								<div class="myprofile-main"><a href="#newAddressModel" data-fancybox class="button add-newadddress">Add New Address</a></div>					
@@ -311,9 +313,10 @@ if ($this->session->userdata('user_login') == "yes") {
                                         <div class="payment-method">
                                             <div class="payment-lbl">Payment Method</div>
                                             <div class="payment-detail">
+                                                <input type="text" name="selected_address" id="selected_address" value=""/>
                                                 <ul class="unstyled">
                                                     <li><input type="radio" class="styled-checkbox" id="knet" name="payment_type" value="k_net"><label for="knet" title="K-Net"><img src="<?= base_url() ?>template/front/images/k-net.png" alt="k net"></label><div>k net</div></li>
-                                                    <li><input type="radio" class="styled-checkbox" id="visa" name="payment_type" value="cash_on_delivery"><label for="visa" title="Credit Card"><img src="<?= base_url() ?>template/front/images/cash.jpg" alt="Credit Card"></label><div>Cash On Delivery</div></li>
+                                                    <li><input type="radio" class="styled-checkbox" id="visa" name="payment_type" value="cash_on_delivery" checked><label for="visa" title="Credit Card"><img src="<?= base_url() ?>template/front/images/cash.jpg" alt="Credit Card"></label><div>Cash On Delivery</div></li>
                                                     <!--<li><input type="radio" class="styled-checkbox" id="visa" name="payment_type" value="cash_on_delivery"><label for="visa" title="Credit Card" onclick="radio_check('cod')"><img src="<?= base_url() ?>template/front/images/cash.jpg" alt="Credit Card"></label><div>Credit Card</div></li>-->
                                                 </ul> 
 

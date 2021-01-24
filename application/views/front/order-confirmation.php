@@ -44,11 +44,15 @@ $this->load->view('front/includes/header');
 							<p>Please check your email for reciept. Thank you for shopping at the Al Shaheen Nurseries Agriculture & Food Co.</p>
 							<p><strong>We have received your order and details are as follows.</strong></p>
                                                         <?php
-                        $info = json_decode($row['shipping_address'],true);?>
+                        $info = json_decode($row['shipping_address'],true);
+                        $address_data = $this->db->get_where('address', array('user_id' => $this->session->userdata('user_id'),'id'=>$info['selected_address']))->result_array();
+
+                                    ?>
                    
 							<p><strong>Shipping Address</strong></p>
-							<p>116, Salem Al Mubarak Street, 5th Floor, Opp Olympia Towers Salmiya, Kuwait. Phone: +(965) - 25753210 / 25753202 / 25753155.</p>
-							<div class="final-summery">
+                                        <p>Name: <?php foreach ($address_data as $address) { echo $address['first_name']; ?>, Email: <?php echo $address['email']; ?>, Phone: <?php echo $address['mobile']; ?>, Bldg. <?php echo $address['building_no']; ?>, Block: <?php echo $address['block']; ?>, Apartment no: <?php echo $address['apartment_no']; ?>,  Floor: <?php echo $address['floor_no']; ?>, <?php echo $address['street']; ?>,  <?php echo $address['area']; ?>.</p>
+<?php } ?>
+                                                        <div class="final-summery">
 								<div class="item-summery">
 									<div class="item-title">Order ID</div>
 									<div class="item-detail">
@@ -88,7 +92,7 @@ $this->load->view('front/includes/header');
 							</div>
 							<div class="no-print">
 								<a href="javascript:void(0);" class="button print-link">Print</a>
-								<a href="listing.html" class="button">Continue Shopping</a>
+								<a href="<?php echo base_url();?>" class="button">Continue Shopping</a>
 							</div>
 						</div>
 					</div>

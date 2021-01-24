@@ -285,9 +285,15 @@ echo form_open(base_url() . 'home/registration/add_info/', array(
     <script type="text/javascript" src="<?= base_url() ?>template/front/js/parallaxscroll.js"></script>	
     <script type="text/javascript" src="<?= base_url() ?>template/front/js/custom.js"></script>
     <script>
+        $('.delivery_address').click(function() {
+ var address=$('.delivery_address:checked').val();
+                $('#selected_address').val(address);
+});
             $(document).ready(function () {
                 reload_header_cart();
                 update_calc_cart();
+                var address=$('.delivery_address:checked').val();
+                $('#selected_address').val(address);
                 $('body').on('click', '.remove_one', function () {
                     var here = $(this);
                     var rowid = here.data('pid');
@@ -644,6 +650,7 @@ function check_ok(element){
                             });
                         }
                     });
+                    
     </script>
 
 <?php
