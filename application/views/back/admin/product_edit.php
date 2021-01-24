@@ -102,7 +102,7 @@
                                 <div class="col-sm-6">
                                     <?php 
                                         $images = $this->crud_model->file_view('product',$row['product_id'],'','','thumb','src','multi','all');
-                                        if($images){
+if($images){
                                             foreach ($images as $row1){
                                                 $a = explode('.', $row1);
                                                 $a = $a[(count($a)-2)];
@@ -113,7 +113,7 @@
                                         <div class="delete-div-wrap">
                                             <span class="close">&times;</span>
                                             <div class="inner-div">
-                                                <img class="img-responsive" width="100" src="<?php echo $row1; ?>" data-id="<?php echo $i.'_'.$p; ?>" alt="User_Image" >
+                                                <img class="img-responsive" width="100" src="<?php echo $row1.'?rand='.rand(1,2000); ?>" data-id="<?php echo $i.'_'.$p; ?>" alt="User_Image" >
                                             </div>
                                         </div>
                                     <?php 

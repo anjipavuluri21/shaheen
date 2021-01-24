@@ -115,7 +115,7 @@ class Admin extends CI_Controller
             $this->db->where('category_id', $id);
             $this->db->update('category', $data_banner);
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } else if ($para1 == 'edit') {
             $page_data['category_data'] = $this->db->get_where('category', array(
                 'category_id' => $para2
@@ -135,13 +135,13 @@ class Admin extends CI_Controller
                 $this->db->update('category', $data_banner);
             }
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == 'delete') {
             unlink("uploads/category_image/" .$this->crud_model->get_type_name_by_id('category',$para2,'banner'));
             $this->db->where('category_id', $para2);
             $this->db->delete('category');
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == 'list') {
             $this->db->order_by('category_id', 'desc');
             $this->db->where('digital=',NULL);
@@ -178,7 +178,7 @@ class Admin extends CI_Controller
             $this->db->update('category', $data_banner);
             $this->crud_model->set_category_data(0);
             
-            recache();
+            // recache();
         } else if ($para1 == 'edit') {
             $page_data['category_data'] = $this->db->get_where('category', array(
                 'category_id' => $para2
@@ -197,13 +197,13 @@ class Admin extends CI_Controller
                 $this->db->update('category', $data_banner);
             }
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == 'delete') {
             unlink("uploads/category_image/" .$this->crud_model->get_type_name_by_id('category',$para2,'banner'));
             $this->db->where('category_id', $para2);
             $this->db->delete('category');
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == 'list') {
             $this->db->order_by('category_id', 'desc');
             $this->db->where('digital=','ok');
@@ -228,7 +228,7 @@ class Admin extends CI_Controller
         if ($para1 == 'do_add') {
             $data['name'] = $this->input->post('name');
             $this->db->insert('blog_category', $data);
-            recache();
+            // recache();
         } else if ($para1 == 'edit') {
             $page_data['blog_category_data'] = $this->db->get_where('blog_category', array(
                 'blog_category_id' => $para2
@@ -238,11 +238,11 @@ class Admin extends CI_Controller
             $data['name'] = $this->input->post('name');
             $this->db->where('blog_category_id', $para2);
             $this->db->update('blog_category', $data);
-            recache();
+            // recache();
         } elseif ($para1 == 'delete') {
             $this->db->where('blog_category_id', $para2);
             $this->db->delete('blog_category');
-            recache();
+            // recache();
         } elseif ($para1 == 'list') {
             $this->db->order_by('blog_category_id', 'desc');
             $page_data['all_categories'] = $this->db->get('blog_category')->result_array();
@@ -278,7 +278,7 @@ class Admin extends CI_Controller
             $this->db->insert('slides', $data);
             $id = $this->db->insert_id();
             $this->crud_model->file_up("img", "slides", $id, '', '', '.jpg');
-            recache();
+            // recache();
         } elseif ($para1 == "update") {
             $data['text1']              = $this->input->post('text1');
             $data['text1_ar']              = $this->input->post('text1_ar');
@@ -290,12 +290,12 @@ class Admin extends CI_Controller
             $this->db->where('slides_id', $para2);
             $this->db->update('slides', $data);
             $this->crud_model->file_up("img", "slides", $para2, '', '', '.jpg');
-            recache();
+            // recache();
         } elseif ($para1 == 'delete') {
             $this->crud_model->file_dlt('slides', $para2, '.jpg');
             $this->db->where('slides_id', $para2);
             $this->db->delete('slides');
-            recache();
+            // recache();
         } elseif ($para1 == 'multi_delete') {
             $ids = explode('-', $param2);
             $this->crud_model->multi_delete('slides', $ids);
@@ -318,7 +318,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('slides_id', $slides_id);
             $this->db->update('slides', $data);
-            recache();
+            // recache();
         }
         elseif ($para1 == 'vendor') {
             if ($this->crud_model->get_type_name_by_id('general_settings','58','value') !== 'ok') {
@@ -360,7 +360,7 @@ class Admin extends CI_Controller
             $this->db->insert('blog', $data);
             $id = $this->db->insert_id();
             $this->crud_model->file_up("img", "blog", $id, '', '', '.jpg');
-            recache();
+            // recache();
         } else if ($para1 == 'edit') {
             $page_data['blog_data'] = $this->db->get_where('blog', array(
                 'blog_id' => $para2
@@ -376,12 +376,12 @@ class Admin extends CI_Controller
             $this->db->where('blog_id', $para2);
             $this->db->update('blog', $data);
             $this->crud_model->file_up("img", "blog", $para2, '', '', '.jpg');
-            recache();
+            // recache();
         } elseif ($para1 == 'delete') {
             $this->crud_model->file_dlt('blog', $para2, '.jpg');
             $this->db->where('blog_id', $para2);
             $this->db->delete('blog');
-            recache();
+            // recache();
         } elseif ($para1 == 'list') {
             $this->db->order_by('blog_id', 'desc');
             $page_data['all_blogs'] = $this->db->get('blog')->result_array();
@@ -428,7 +428,7 @@ class Admin extends CI_Controller
             $this->db->update('sub_category', $data_banner);
             $this->crud_model->set_category_data(0);
             
-            recache();
+            // recache();
         } else if ($para1 == 'edit') {
             $page_data['sub_category_data'] = $this->db->get_where('sub_category', array(
                 'sub_category_id' => $para2
@@ -459,13 +459,13 @@ class Admin extends CI_Controller
                 $this->db->update('sub_category', $data_banner);
             }
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == 'delete') {
             unlink("uploads/sub_category_image/" .$this->crud_model->get_type_name_by_id('sub_category',$para2,'banner'));
             $this->db->where('sub_category_id', $para2);
             $this->db->delete('sub_category');
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == 'list') {
             $this->db->order_by('sub_category_id', 'desc');
             $this->db->where('digital=',NULL);
@@ -506,7 +506,7 @@ class Admin extends CI_Controller
             $this->db->update('sub_category', $data_banner);
             $this->crud_model->set_category_data(0);
             
-            recache();
+            // recache();
         } else if ($para1 == 'edit') {
             $page_data['sub_category_data'] = $this->db->get_where('sub_category', array(
                 'sub_category_id' => $para2
@@ -530,13 +530,13 @@ class Admin extends CI_Controller
                 $this->db->update('sub_category', $data_banner);
             }
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == 'delete') {
             unlink("uploads/sub_category_image/" .$this->crud_model->get_type_name_by_id('sub_category',$para2,'banner'));
             $this->db->where('sub_category_id', $para2);
             $this->db->delete('sub_category');
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == 'list') {
             $this->db->order_by('sub_category_id', 'desc');
             $this->db->where('digital=','ok');
@@ -574,7 +574,7 @@ class Admin extends CI_Controller
             $this->db->where('brand_id', $id);
             $this->db->update('brand', $data_banner);
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == "update") {
             $data['name']        = $this->input->post('name');
             $this->db->where('brand_id', $para2);
@@ -588,13 +588,13 @@ class Admin extends CI_Controller
                 $this->db->update('brand', $data_logo);
             }
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == 'delete') {
             unlink("uploads/brand_image/" .$this->crud_model->get_type_name_by_id('brand',$para2,'logo'));
             $this->db->where('brand_id', $para2);
             $this->db->delete('brand');
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == 'multi_delete') {
             $ids = explode('-', $param2);
             $this->crud_model->multi_delete('brand', $ids);
@@ -787,7 +787,7 @@ class Admin extends CI_Controller
             $this->benchmark->mark_time();
             $this->crud_model->file_up("images", "product", $id, 'multi');
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } else if ($para1 == "update") {
             $options = array();
             if ($_FILES["images"]['name'][0] == '') {
@@ -844,7 +844,7 @@ class Admin extends CI_Controller
             $this->db->update('product', $data);
             $this->crud_model->set_category_data(0);
 
-//            recache();
+//            // recache();
 
         } else if ($para1 == 'edit') {
             $page_data['product_data'] = $this->db->get_where('product', array(
@@ -864,7 +864,7 @@ class Admin extends CI_Controller
             $this->db->where('product_id', $para2);
             $this->db->delete('product');
             $this->crud_model->set_category_data(0);
-//            recache();
+//            // recache();
         } elseif ($para1 == 'list') {
             $this->db->order_by('product_id', 'desc');
             $this->db->where('download=',NULL);
@@ -908,7 +908,7 @@ class Admin extends CI_Controller
                              'options'      => ''
                           );
 
-                $res['image']  = '<img class="img-sm" style="height:auto !important; border:1px solid #ddd;padding:2px; border-radius:2px !important;" src="'.$this->crud_model->file_view('product',$row['product_id'],'','','thumb','src','multi','one').'"  />';
+                $res['image']  = '<img class="img-sm" style="height:auto !important; border:1px solid #ddd;padding:2px; border-radius:2px !important;" src="'.$this->crud_model->file_view('product',$row['product_id'],'','','thumb','src','multi','one').'?rand='.rand(1,2000).'"  />';
                 $res['title']  = $row['title'];
                 $res['added_by']  = $this->crud_model->product_by($row['product_id']);
 
@@ -968,7 +968,7 @@ class Admin extends CI_Controller
         } else if ($para1 == 'dlt_img') {
             $a = explode('_', $para2);
             $this->crud_model->file_dlt('product', $a[0], '.jpg', 'multi', $a[1]);
-//            recache();
+//            // recache();
         } elseif ($para1 == 'sub_by_cat') {
             echo $this->crud_model->select_html('sub_category', 'sub_category', 'sub_category_name', 'add', 'demo-chosen-select required', '', 'category', $para2, 'get_brnd');
         } elseif ($para1 == 'brand_by_sub') {
@@ -1005,7 +1005,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('product_id', $product);
             $this->db->update('product', $data);
-//            recache();
+//            // recache();
         } elseif ($para1 == 'product_deal_set') {
             $product = $para2;
             if ($para3 == 'true') {
@@ -1015,7 +1015,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('product_id', $product);
             $this->db->update('product', $data);
-//            recache();
+//            // recache();
         } elseif ($para1 == 'product_publish_set') {
             $product = $para2;
             if ($para3 == 'true') {
@@ -1026,7 +1026,7 @@ class Admin extends CI_Controller
             $this->db->where('product_id', $product);
             $this->db->update('product', $data);
             $this->crud_model->set_category_data(0);
-//            recache();
+//            // recache();
         } elseif ($para1 == 'add_discount_set') {
             $product               = $this->input->post('product');
             $data['discount']      = $this->input->post('discount');
@@ -1034,7 +1034,7 @@ class Admin extends CI_Controller
             $this->db->where('product_id', $product);
             $this->db->update('product', $data);
             $this->crud_model->set_category_data(0);
-//            recache();
+//            // recache();
         } else {
             $page_data['page_name']   = "product";
             $page_data['all_product'] = $this->db->get('product')->result_array();
@@ -1182,7 +1182,7 @@ class Admin extends CI_Controller
         $this->db->insert('product', $product_data);
         $product_id = $this->db->insert_id();
         $this->crud_model->set_category_data(0);
-        recache();
+        // recache();
 
         if($product_data['current_stock'] > 0){
             $product_stock_data['type']         = 'add';
@@ -1223,7 +1223,7 @@ class Admin extends CI_Controller
             $this->db->where('customer_product_id', $para2);
             $this->db->delete('customer_product');
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == 'list') {
             $this->db->order_by('customer_product_id', 'desc');
             $page_data['all_product'] = $this->db->get('customer_product')->result_array();
@@ -1298,7 +1298,7 @@ class Admin extends CI_Controller
         } else if ($para1 == 'dlt_img') {
             $a = explode('_', $para2);
             $this->crud_model->file_dlt('customer_product', $a[0], '.jpg', 'multi', $a[1]);
-            recache();
+            // recache();
         } elseif ($para1 == 'sub_by_cat') {
             echo $this->crud_model->select_html('sub_category', 'sub_category', 'sub_category_name', 'add', 'demo-chosen-select required', '', 'category', $para2, 'get_brnd');
         } elseif ($para1 == 'brand_by_sub') {
@@ -1325,7 +1325,7 @@ class Admin extends CI_Controller
             $this->db->where('customer_product_id', $product);
             $this->db->update('customer_product', $data);
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } else {
             $page_data['page_name']   = "customer_products";
             $page_data['all_product'] = $this->db->get('customer_product')->result_array();
@@ -1351,7 +1351,7 @@ class Admin extends CI_Controller
             $this->db->where('package_payment_id', $para2);
             $this->db->delete('package_payment');
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         }elseif ($para1 == 'list') {
             $this->db->order_by('package_payment_id', 'desc');
             $page_data['all_product'] = $this->db->get('package_payment')->result_array();
@@ -1542,7 +1542,7 @@ class Admin extends CI_Controller
                 $this->db->update('product',$data_vdo); 
             }
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } else if ($para1 == "update") {
             $options = array();
             if ($_FILES["images"]['name'][0] == '') {
@@ -1653,7 +1653,7 @@ class Admin extends CI_Controller
             }
             
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } else if ($para1 == 'edit') {
             $page_data['product_data'] = $this->db->get_where('product', array(
                 'product_id' => $para2
@@ -1687,7 +1687,7 @@ class Admin extends CI_Controller
             $this->db->where('product_id', $para2);
             $this->db->delete('product');
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == 'list') {
             $this->db->order_by('product_id', 'desc');
             $this->db->where('download=','ok');
@@ -1780,7 +1780,7 @@ class Admin extends CI_Controller
         } else if ($para1 == 'dlt_img') {
             $a = explode('_', $para2);
             $this->crud_model->file_dlt('product', $a[0], '.jpg', 'multi', $a[1]);
-            recache();
+            // recache();
         } elseif ($para1 == 'sub_by_cat') {
             echo $this->crud_model->select_html('sub_category', 'sub_category', 'sub_category_name', 'add', 'demo-chosen-select required', '', 'category', $para2, '');
         } elseif ($para1 == 'product_by_sub') {
@@ -1805,7 +1805,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('product_id', $product);
             $this->db->update('product', $data);
-            recache();
+            // recache();
         } elseif ($para1 == 'product_deal_set') {
             $product = $para2;
             if ($para3 == 'true') {
@@ -1815,7 +1815,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('product_id', $product);
             $this->db->update('product', $data);
-            recache();
+            // recache();
         } elseif ($para1 == 'product_publish_set') {
             $product = $para2;
             if ($para3 == 'true') {
@@ -1826,7 +1826,7 @@ class Admin extends CI_Controller
             $this->db->where('product_id', $product);
             $this->db->update('product', $data);
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         } elseif ($para1 == 'add_discount_set') {
             $product               = $this->input->post('product');
             $data['discount']      = $this->input->post('discount');
@@ -1834,7 +1834,7 @@ class Admin extends CI_Controller
             $this->db->where('product_id', $product);
             $this->db->update('product', $data);
             $this->crud_model->set_category_data(0);
-            recache();
+            // recache();
         }elseif ($para1 == 'video_preview') {
             if($para2 == 'youtube'){
                 echo '<iframe width="400" height="300" src="https://www.youtube.com/embed/'.$para3.'" frameborder="0"></iframe>';
@@ -1876,7 +1876,7 @@ class Admin extends CI_Controller
             $data1['current_stock'] = $prev_quantity + $data['quantity'];
             $this->db->where('product_id', $data['product']);
             $this->db->update('product', $data1);
-            recache();
+            // recache();
         } else if ($para1 == 'do_destroy') {
             $data['type']         = 'destroy';
             $data['category']     = $this->input->post('category');
@@ -1895,7 +1895,7 @@ class Admin extends CI_Controller
             $data1['current_stock'] = $current;
             $this->db->where('product_id', $data['product']);
             $this->db->update('product', $data1);
-            recache();
+            // recache();
         } elseif ($para1 == 'delete') {
             $quantity = $this->crud_model->get_type_name_by_id('stock', $para2, 'quantity');
             $product  = $this->crud_model->get_type_name_by_id('stock', $para2, 'product');
@@ -1907,7 +1907,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('stock_id', $para2);
             $this->db->delete('stock');
-            recache();
+            // recache();
         } elseif ($para1 == 'list') {
             $this->db->order_by('stock_id', 'desc');
             $page_data['all_stock'] = $this->db->get('stock')->result_array();
@@ -1979,7 +1979,7 @@ class Admin extends CI_Controller
             $id = $this->db->insert_id();
             $this->benchmark->mark_time();
             $this->crud_model->file_up("images", "product", $id, 'multi');
-            recache();
+            // recache();
         } elseif ($para1 == 'add') {
             $this->load->view('back/admin/product_bundle_add');
         } else if ($para1 == 'edit') {
@@ -2026,12 +2026,12 @@ class Admin extends CI_Controller
             
             $this->db->where('product_id', $para2);
             $this->db->update('product', $data);
-            recache();
+            // recache();
         } elseif ($para1 == 'delete') {
             $this->crud_model->file_dlt('product', $para2, '.jpg', 'multi');
             $this->db->where('product_id', $para2);
             $this->db->delete('product');
-            recache();
+            // recache();
         } else if ($para1 == 'view') {
             $page_data['product_bundle_data'] = $this->db->get_where('product', array(
                 'product_id' => $para2
@@ -2143,7 +2143,7 @@ class Admin extends CI_Controller
             $data['discount_type'] = $this->input->post('discount_type');
             $this->db->where('product_id', $product_bundle);
             $this->db->update('product', $data);
-            recache();
+            // recache();
         } elseif ($para1 == 'add_stock') {
             $data['product_bundle'] = $para2;
             $this->load->view('back/admin/product_bundle_stock_add', $data);
@@ -2159,7 +2159,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('product_id', $product_bundle);
             $this->db->update('product', $data);
-            recache();
+            // recache();
         } elseif ($para1 == 'bundle_featured_set') {
             $product_bundle = $para2;
             if ($para3 == 'true') {
@@ -2169,7 +2169,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('product_id', $product_bundle);
             $this->db->update('product', $data);
-            recache();
+            // recache();
         } elseif ($para1 == 'bundle_deal_set') {
             $product_bundle = $para2;
             if ($para3 == 'true') {
@@ -2179,11 +2179,11 @@ class Admin extends CI_Controller
             }
             $this->db->where('product_id', $product_bundle);
             $this->db->update('product', $data);
-            recache();
+            // recache();
         } else if ($para1 == 'dlt_img') {
             $a = explode('_', $para2);
             $this->crud_model->file_dlt('product', $a[0], '.jpg', 'multi', $a[1]);
-            recache();
+            // recache();
         } elseif ($para1 == 'sub_by_cat') {
             echo $this->crud_model->select_html('sub_category', 'sub_category[]', 'sub_category_name', 'add', 'demo-chosen-select required', '', 'category', $para2, 'get_brnd');
         } elseif ($para1 == 'brand_by_sub') {
@@ -2246,7 +2246,7 @@ class Admin extends CI_Controller
             $data1['current_stock'] = $prev_quantity + $data['quantity'];
             $this->db->where('product_id', $data['product_bundle']);
             $this->db->update('product', $data1);
-            recache();
+            // recache();
         } else if ($para1 == 'do_destroy') {
             $data['type']         = 'destroy';
             $data['product_bundle']      = $this->input->post('product_bundle');
@@ -2263,7 +2263,7 @@ class Admin extends CI_Controller
             $data1['current_stock'] = $current;
             $this->db->where('product_id', $data['product_bundle']);
             $this->db->update('product', $data1);
-            recache();
+            // recache();
         } else {
             $page_data['page_name'] = "bundle_stock";
             
@@ -2293,7 +2293,7 @@ class Admin extends CI_Controller
             }
             $this->db->empty_table('category');
             $this->db->empty_table('sub_category');
-            recache();
+            // recache();
         } else {
             $page_data['page_name'] = "delete_all_categories";
             $this->load->view('back/index', $page_data);
@@ -2316,7 +2316,7 @@ class Admin extends CI_Controller
             // $this->db->delete('product');
             $this->db->empty_table('product');
             //echo $this->db->last_query();
-            recache();
+            // recache();
         } else {
             $page_data['page_name'] = "delete_all_products";
             $this->load->view('back/index', $page_data);
@@ -2337,7 +2337,7 @@ class Admin extends CI_Controller
                     unlink($file);
             }
             $this->db->empty_table('brand');
-            recache();
+            // recache();
         } else {
             $page_data['page_name'] = "delete_all_brands";
             $this->load->view('back/index', $page_data);
@@ -2358,7 +2358,7 @@ class Admin extends CI_Controller
                     unlink($file);
             }
             $this->db->empty_table('customer_product');
-            recache();
+            // recache();
         } else {
             $page_data['page_name'] = "delete_all_classified";
             $this->load->view('back/index', $page_data);
@@ -2383,7 +2383,7 @@ class Admin extends CI_Controller
             $this->db->where('banner_id', $para2);
             $this->db->update('banner', $data);
             $this->crud_model->file_up("img", "banner", $para2);
-            recache();
+            // recache();
         } else if ($para1 == 'banner_publish_set') {
             if ($para3 == 'true') {
                 $data['status'] = 'ok';
@@ -2392,7 +2392,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('banner_id', $para2);
             $this->db->update('banner', $data);
-            recache();
+            // recache();
         }
     }
     
@@ -2620,7 +2620,7 @@ class Admin extends CI_Controller
             $this->db->where('vendor_id', $para2);
             $this->db->delete('vendor');
             
-            recache();
+            // recache();
         } else if ($para1 == 'list') {
             $this->db->order_by('vendor_id', 'desc');
             $page_data['all_vendors'] = $this->db->get('vendor')->result_array();
@@ -2652,7 +2652,7 @@ class Admin extends CI_Controller
             $this->db->where('vendor_id', $vendor);
             $this->db->update('vendor', $data);
             $this->email_model->status_email('vendor', $vendor);
-            recache();
+            // recache();
         } elseif ($para1 == 'pay') {
             $vendor         = $para2;
             $method         = $this->input->post('method');
@@ -2953,7 +2953,7 @@ class Admin extends CI_Controller
             $this->db->where('wallet_load_id', $wallet_load);
             $this->db->update('wallet_load', $data);
             //$this->email_model->status_email('wallet_load', $wallet_load);
-            recache();
+            // recache();
         } elseif ($para1 == 'pay') {
             $wallet_load         = $para2;
             $method         = $this->input->post('method');
@@ -3198,7 +3198,7 @@ class Admin extends CI_Controller
         $this->db->update('business_settings', array(
             'value' => $this->input->post('vendor_commission')
         ));
-        recache();
+        // recache();
         
     }
     
@@ -3459,7 +3459,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('slider_id', $para2);
             $this->db->delete('slider');
-            recache();
+            // recache();
         } else if ($para1 == 'serial') {
             $this->db->order_by('serial', 'desc');
             $this->db->order_by('slider_id', 'desc');
@@ -3485,7 +3485,7 @@ class Admin extends CI_Controller
                 $this->db->where('slider_id', $row);
                 $this->db->update('slider', $data1);
             }
-            recache();
+            // recache();
         } else if ($para1 == 'slider_publish_set') {
             $slider = $para2;
             if ($para3 == 'true') {
@@ -3496,7 +3496,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('slider_id', $slider);
             $this->db->update('slider', $data);
-            recache();
+            // recache();
         } else if ($para1 == 'edit') {
             $page_data['slider_data'] = $this->db->get_where('slider', array(
                 'slider_id' => $para2
@@ -3539,7 +3539,7 @@ class Admin extends CI_Controller
             foreach ($elements['images'] as $image) {
                 move_uploaded_file($_FILES[$image]['tmp_name'], 'uploads/slider_image/' . $id . '_' . $image . '.png');
             }
-            recache();
+            // recache();
         } elseif ($para1 == 'update') {
             $data['style'] = $this->input->post('style_id');
             $data['title'] = $this->input->post('title');
@@ -3575,7 +3575,7 @@ class Admin extends CI_Controller
             foreach ($elements['images'] as $image) {
                 move_uploaded_file($_FILES[$image]['tmp_name'], 'uploads/slider_image/' . $para2 . '_' . $image . '.png');
             }
-            recache();
+            // recache();
         } else {
             $page_data['page_name'] = "slider";
             $this->load->view('back/index', $page_data);
@@ -3637,7 +3637,7 @@ class Admin extends CI_Controller
                 'exchange_rate_def' => '1'
             ));
         } 
-        recache();
+        // recache();
         
     }
     
@@ -3654,7 +3654,7 @@ class Admin extends CI_Controller
                 $this->db->update('ui_settings', array(
                     'value' => $this->input->post('home_page')
                 ));
-                recache();
+                // recache();
             }
             elseif ($para2 == 'home_vendor') {
                 if ($this->crud_model->get_type_name_by_id('general_settings','58','value') !== 'ok') {
@@ -3671,7 +3671,7 @@ class Admin extends CI_Controller
                 if($_FILES["par"]['tmp_name']){
                     move_uploaded_file($_FILES["par"]['tmp_name'], 'uploads/others/parralax_vendor.jpg');
                 }
-                recache();
+                // recache();
             }
             elseif ($para2 == 'home_search') {
                 $this->db->where('type', "parallax_search_title");
@@ -3681,7 +3681,7 @@ class Admin extends CI_Controller
                 if($_FILES["par3"]['tmp_name']){
                     move_uploaded_file($_FILES["par3"]['tmp_name'], 'uploads/others/parralax_search.jpg');
                 }
-                recache();
+                // recache();
             }
             elseif ($para2 == 'home_blog') {
                 $this->db->where('type', "parallax_blog_title");
@@ -3695,7 +3695,7 @@ class Admin extends CI_Controller
                 if($_FILES["par2"]['tmp_name']){
                     move_uploaded_file($_FILES["par2"]['tmp_name'], 'uploads/others/parralax_blog.jpg');
                 }
-                recache();
+                // recache();
             }
             elseif ($para2 == 'top_slide_categories') {
                 $this->db->where('type', "top_slide_categories");
@@ -3707,14 +3707,14 @@ class Admin extends CI_Controller
                 $this->db->update('ui_settings', array(
                     'value' => $this->input->post('deal_no')
                 ));
-                recache();
+                // recache();
             }
             elseif ($para2 == 'home_brand') {
                 $this->db->where('type', "no_of_brands");
                 $this->db->update('ui_settings', array(
                     'value' => $this->input->post('brand_no')
                 ));
-                recache();
+                // recache();
             }
             elseif ($para2 == 'todays_deal') {
                 $this->db->where('type', "no_of_deal_products");
@@ -3726,7 +3726,7 @@ class Admin extends CI_Controller
                 $this->db->update('ui_settings', array(
                     'value' => $this->input->post('deal_pro_box')
                 ));
-                recache();
+                // recache();
             }
             elseif ($para2 == 'home_featured') {
                 $this->db->where('type', "no_of_featured_products");
@@ -3738,7 +3738,7 @@ class Admin extends CI_Controller
                 $this->db->update('ui_settings', array(
                     'value' => $this->input->post('fea_pro_box')
                 ));
-                recache();
+                // recache();
             }
             elseif ($para2 == 'product_bundle') {
                 $this->db->where('type', "no_of_product_bundle");
@@ -3750,14 +3750,14 @@ class Admin extends CI_Controller
                 $this->db->update('ui_settings', array(
                     'value' => $this->input->post('fea_pro_box')
                 ));
-                recache();
+                // recache();
             }
             elseif ($para2 == 'customer_product') {
                 $this->db->where('type', "no_of_customer_product");
                 $this->db->update('ui_settings', array(
                     'value' => $this->input->post('customer_product_no')
                 ));
-                recache();
+                // recache();
             }
             else if ($para2 == 'feature_publish_set') {
                 if ($para4 == 'true') {
@@ -3767,7 +3767,7 @@ class Admin extends CI_Controller
                 }
                 $this->db->where('ui_settings_id', $para3);
                 $this->db->update('ui_settings', $data);
-                recache();
+                // recache();
             }
             else if ($para2 == 'product_bundle_publish_set') {
                 if ($para4 == 'true') {
@@ -3777,7 +3777,7 @@ class Admin extends CI_Controller
                 }
                 $this->db->where('ui_settings_id', $para3);
                 $this->db->update('ui_settings', $data);
-                recache();
+                // recache();
             }
             else if ($para2 == 'customer_product_publish_set') {
                 if ($para4 == 'true') {
@@ -3787,7 +3787,7 @@ class Admin extends CI_Controller
                 }
                 $this->db->where('ui_settings_id', $para3);
                 $this->db->update('ui_settings', $data);
-                recache();
+                // recache();
             }
             else if ($para2 == '_set') {
                 if ($para4 == 'true') {
@@ -3797,7 +3797,7 @@ class Admin extends CI_Controller
                 }
                 $this->db->where('ui_settings_id', $para3);
                 $this->db->update('ui_settings', $data);
-                recache();
+                // recache();
             }
             elseif ($para2 == 'home1_category') {
                 $category = $this->input->post('category');
@@ -3821,7 +3821,7 @@ class Admin extends CI_Controller
                 $this->db->update('ui_settings', array(
                     'value' => $this->input->post('box_style')
                 ));
-                recache();
+                // recache();
             }
             elseif ($para2 == 'home2_category') {
                 //$box = $this->input->post('box');
@@ -3842,7 +3842,7 @@ class Admin extends CI_Controller
                 $data['value'] = json_encode($result);
                 $this->db->where('type', 'home_categories');
                 $this->db->update('ui_settings', $data);
-                recache();
+                // recache();
             }
             elseif ($para2 == 'home3_category') {
                 //$box = $this->input->post('box');
@@ -3863,7 +3863,7 @@ class Admin extends CI_Controller
                 $data['value'] = json_encode($result);
                 $this->db->where('type', 'home3_categories');
                 $this->db->update('ui_settings', $data);
-                recache();
+                // recache();
             }
             elseif ($para2 == 'cat_colors') {
                 var_dump($para3);
@@ -3874,7 +3874,7 @@ class Admin extends CI_Controller
             $this->db->update('ui_settings', array(
                 'value' => $this->input->post('email_theme')
             ));
-            recache();
+            // recache();
         }
         elseif ($para1 == "ui_category") {
             if ($para2 == 'update') {
@@ -3882,7 +3882,7 @@ class Admin extends CI_Controller
                 $this->db->update('ui_settings', array(
                     'value' => $this->input->post('side_bar_pos')
                 ));
-                recache();
+                // recache();
             }
         }
         elseif ($para1 == 'sub_by_cat') {
@@ -4124,7 +4124,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('logo_id', $para2);
             $this->db->delete('logo');
-            recache();
+            // recache();
         } elseif ($para1 == "set_logo") {
 
             $type    = $this->input->post('type');
@@ -4133,7 +4133,7 @@ class Admin extends CI_Controller
             $this->db->update('ui_settings', array(
                 'value' => $logo_id
             ));
-            recache();
+            // recache();
         } elseif ($para1 == "show_all") {
             $page_data['logo'] = $this->db->get('logo')->result_array();
             if ($para2 == "") {
@@ -4177,7 +4177,7 @@ class Admin extends CI_Controller
             'value' =>$ext
         ));
         move_uploaded_file($_FILES['img']['tmp_name'], 'uploads/others/favicon.'.$ext);
-        recache();
+        // recache();
     }
     
     /* Manage Frontend Facebook Login Credentials */
@@ -4377,7 +4377,7 @@ class Admin extends CI_Controller
                 'word_id' => $word_id
             ))->row()->word;
             add_translation($word, $language, $translation);
-            recache();
+            // recache();
         } elseif ($para1 == 'do_add_lang') {
             $data['name']   = $this->input->post('language');
             $this->db->insert('language_list',$data);
@@ -4394,14 +4394,14 @@ class Admin extends CI_Controller
             ));
 
             add_language($language);
-            recache();
+            // recache();
         } elseif ($para1 == 'do_edit_lang') {
             $this->db->where('language_list_id', $para2);
             $this->db->update('language_list', array(
                 'name' => $this->input->post('language')
             ));
             $this->crud_model->file_up("icon", "language_list", $para2, '', '', '.jpg');
-            recache();
+            // recache();
         } else if ($para1 == "lang_set") {
             $val = '';
             if ($para3 == 'true') {
@@ -4414,7 +4414,7 @@ class Admin extends CI_Controller
             $this->db->update('language_list', array(
                 'status' => $val
             ));
-            recache();
+            // recache();
         } elseif ($para1 == 'check_existed') {
             echo lang_check_exists($para2);
         } elseif ($para1 == 'lang_select') {
@@ -4425,11 +4425,11 @@ class Admin extends CI_Controller
             $this->db->delete('language_list');
             $this->load->dbforge();
             $this->dbforge->drop_column('language', $para2);
-            recache();
+            // recache();
         } elseif ($para1 == 'dlt_word') {
             $this->db->where('word_id', $para2);
             $this->db->delete('language');
-            recache();
+            // recache();
         } else {
             $page_data['page_name'] = "language";
             $this->load->view('back/index', $page_data);
@@ -4454,7 +4454,7 @@ class Admin extends CI_Controller
             $this->db->update('business_settings', array(
                 'value' => $val
             ));
-            recache();
+            // recache();
         }
         else if ($para1 == "paypal_set") {
             $val = '';
@@ -4468,7 +4468,7 @@ class Admin extends CI_Controller
             $this->db->update('business_settings', array(
                 'value' => $val
             ));
-            recache();
+            // recache();
         }
         else if ($para1 == "stripe_set") {
             $val = '';
@@ -4482,7 +4482,7 @@ class Admin extends CI_Controller
             $this->db->update('business_settings', array(
                 'value' => $val
             ));
-            recache();
+            // recache();
         }
         else if ($para1 == "c2_set") {
             $val = '';
@@ -4496,7 +4496,7 @@ class Admin extends CI_Controller
             $this->db->update('business_settings', array(
                 'value' => $val
             ));
-            recache();
+            // recache();
         }
         else if ($para1 == "vp_set") {
             $val = '';
@@ -4510,7 +4510,7 @@ class Admin extends CI_Controller
             $this->db->update('business_settings', array(
                 'value' => $val
             ));
-            recache();
+            // recache();
         }
         else if ($para1 == "pum_set") {
             $val = '';
@@ -4524,7 +4524,7 @@ class Admin extends CI_Controller
             $this->db->update('business_settings', array(
                 'value' => $val
             ));
-            recache();
+            // recache();
         }
         else if ($para1 == "ssl_set") {
             $val = '';
@@ -4538,7 +4538,7 @@ class Admin extends CI_Controller
             $this->db->update('business_settings', array(
                 'value' => $val
             ));
-            recache();
+            // recache();
         }
         else if ($para1 == "cur_set") {
             $val = '';
@@ -4551,7 +4551,7 @@ class Admin extends CI_Controller
             $data['status']    = $val;
             $this->db->where('currency_settings_id', $para2);
             $this->db->update('currency_settings', $data);
-            recache();
+            // recache();
         }
         else if ($para1 == "vendor_set") {
             $val = '';
@@ -4570,7 +4570,7 @@ class Admin extends CI_Controller
                 'value' => $val
             ));
             
-            recache();
+            // recache();
            
         }
         else if ($para1 == "wallet_system_set") {
@@ -4586,7 +4586,7 @@ class Admin extends CI_Controller
                 'value' => $val
             ));
             
-            recache();
+            // recache();
            
         }
         else if ($para1 == "guest_checkout_set") {
@@ -4602,7 +4602,7 @@ class Admin extends CI_Controller
                 'value' => $val
             ));
             
-            recache();
+            // recache();
            
         }
         else if ($para1 == "product_affiliation_set") {
@@ -4618,7 +4618,7 @@ class Admin extends CI_Controller
                 'value' => $val
             ));
 
-            recache();
+            // recache();
 
         }
         else if ($para1 == "vendor_commission_set") {
@@ -4634,7 +4634,7 @@ class Admin extends CI_Controller
                 'value' => $val
             ));
             
-            recache();
+            // recache();
            
         }
         else if ($para1 == "vendor_package_set") {
@@ -4650,7 +4650,7 @@ class Admin extends CI_Controller
                 'value' => $val
             ));
             
-            recache();
+            // recache();
            
         }
         else if ($para1 == "show_vendor_set") {
@@ -4665,7 +4665,7 @@ class Admin extends CI_Controller
             $this->db->update('general_settings', array(
                 'value' => $val
             ));
-            recache();
+            // recache();
         }
         else if ($para1 == "physical_product_set") {
             $val = '';
@@ -4679,7 +4679,7 @@ class Admin extends CI_Controller
             $this->db->update('general_settings', array(
                 'value' => $val
             ));
-            recache();
+            // recache();
         }
         else if ($para1 == "digital_product_set") {
             $val = '';
@@ -4693,7 +4693,7 @@ class Admin extends CI_Controller
             $this->db->update('general_settings', array(
                 'value' => $val
             ));
-            recache();
+            // recache();
         }
         else if ($para1 == "bundle_product_set") {
             $val = '';
@@ -4707,7 +4707,7 @@ class Admin extends CI_Controller
             $this->db->update('general_settings', array(
                 'value' => $val
             ));
-            recache();
+            // recache();
         }
         else if ($para1 == "customer_product_set") {
             $val = '';
@@ -4721,7 +4721,7 @@ class Admin extends CI_Controller
             $this->db->update('general_settings', array(
                 'value' => $val
             ));
-            recache();
+            // recache();
         }
         else if ($para1 == 'set') {
             echo $this->input->post('stripe_set');
@@ -4851,7 +4851,7 @@ class Admin extends CI_Controller
             $this->db->update('general_settings', array(
                 'value' => $this->input->post('vendor_system')
             ));
-            recache();
+            // recache();
         }else if($para1 =='set_3'){
             $data['exchange_rate']    = $this->input->post('exchange');
             $this->db->where('currency_settings_id', $para2);
@@ -4887,7 +4887,7 @@ class Admin extends CI_Controller
             'value' => $this->input->post('no_of_decimals')
         ));
         
-        recache();
+        // recache();
     }
     
     /* Manage Admin Settings */
@@ -4954,7 +4954,7 @@ class Admin extends CI_Controller
             $data['parts']  = json_encode($parts);
             $data['status'] = '';
             $this->db->insert('page', $data);
-            recache();
+            // recache();
         } else if ($para1 == 'edit') {
             $page_data['page_data'] = $this->db->get_where('page', array(
                 'page_id' => $para2
@@ -4981,11 +4981,11 @@ class Admin extends CI_Controller
             $data['parts'] = json_encode($parts);
             $this->db->where('page_id', $para2);
             $this->db->update('page', $data);
-            recache();
+            // recache();
         } elseif ($para1 == 'delete') {
             $this->db->where('page_id', $para2);
             $this->db->delete('page');
-            recache();
+            // recache();
         } elseif ($para1 == 'list') {
             $page_data['all_page'] = $this->db->get('page')->result_array();
             $this->load->view('back/admin/page_list', $page_data);
@@ -4998,7 +4998,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('page_id', $page);
             $this->db->update('page', $data);
-            recache();
+            // recache();
         } elseif ($para1 == 'view') {
             $page_data['page_data'] = $this->db->get_where('page', array(
                 'page_id' => $para2
@@ -5253,7 +5253,7 @@ class Admin extends CI_Controller
         }
         
         
-        recache();
+        // recache();
     }
 
     function smtp_settings($para1 = "", $para2 = "")
@@ -5336,7 +5336,7 @@ class Admin extends CI_Controller
             ));
             redirect(base_url() . 'admin/site_settings/social_links/', 'refresh');
         }
-        recache();
+        // recache();
     }
     /* Manage SEO relateds */
     function seo_settings($para1 = "")
@@ -5362,7 +5362,7 @@ class Admin extends CI_Controller
             $this->db->update('general_settings', array(
                 'value' => $this->input->post('revisit_after')
             ));
-            recache();
+            // recache();
         }
         else {
             require_once (APPPATH . 'libraries/SEOstats/bootstrap.php');
@@ -5455,7 +5455,7 @@ class Admin extends CI_Controller
         $this->db->update('general_settings', array(
             'value' => $this->input->post('api_key')
         ));
-        recache();
+        // recache();
     }
 
     function google_analytics_key($para1 = ""){
@@ -5466,7 +5466,7 @@ class Admin extends CI_Controller
         $this->db->update('general_settings', array(
             'value' => $this->input->post('tracking_id')
         ));
-        recache();
+        // recache();
 
     }
 
@@ -5489,7 +5489,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('currency_settings_id', $para2);
             $this->db->update('currency_settings', $data);
-            recache();
+            // recache();
         }
     }
 
@@ -5500,7 +5500,7 @@ class Admin extends CI_Controller
         }
         if($para1 == "set_images"){
             move_uploaded_file($_FILES[$para2]['tmp_name'], 'uploads/'.$para2.'/default.jpg');
-            recache();
+            // recache();
         }
         $page_data['default_list'] = array('product_image','digital_logo_image','category_image','sub_category_image','brand_image','blog_image','banner_image','user_image','vendor_logo_image','vendor_banner_image','membership_image','slides_image');
         $page_data['page_name'] = "default_images";
