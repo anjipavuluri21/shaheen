@@ -77,10 +77,10 @@
 
                                                         <button data-target="#product_category" type="button" class="btn btn-primary"
                                                                 data-toggle="modal"><?php echo translate("Category ID List") ?></button>
-                                                        <button data-target="#product_sub_category" type="button" class="btn btn-primary"
+<!--                                                        <button data-target="#product_sub_category" type="button" class="btn btn-primary"
                                                                 data-toggle="modal"><?php echo translate("Sub Category ID List") ?></button>
                                                         <button data-target="#product_brand" type="button" class="btn btn-primary"
-                                                                data-toggle="modal"><?php echo translate("Brand ID List") ?></button>
+                                                                data-toggle="modal"><?php echo translate("Brand ID List") ?></button>-->
 
                                                         <div id="product_category" class="modal fade bd-example-modal-lg" tabindex="-1"
                                                              role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
