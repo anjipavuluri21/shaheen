@@ -843,7 +843,7 @@ class Admin extends CI_Controller
             $this->db->where('product_id', $para2);
             $this->db->update('product', $data);
             $this->crud_model->set_category_data(0);
-            recache();
+//            recache();
         } else if ($para1 == 'edit') {
             $page_data['product_data'] = $this->db->get_where('product', array(
                 'product_id' => $para2
@@ -859,7 +859,7 @@ class Admin extends CI_Controller
             $this->db->where('product_id', $para2);
             $this->db->delete('product');
             $this->crud_model->set_category_data(0);
-            recache();
+//            recache();
         } elseif ($para1 == 'list') {
             $this->db->order_by('product_id', 'desc');
             $this->db->where('download=',NULL);
@@ -963,7 +963,7 @@ class Admin extends CI_Controller
         } else if ($para1 == 'dlt_img') {
             $a = explode('_', $para2);
             $this->crud_model->file_dlt('product', $a[0], '.jpg', 'multi', $a[1]);
-            recache();
+//            recache();
         } elseif ($para1 == 'sub_by_cat') {
             echo $this->crud_model->select_html('sub_category', 'sub_category', 'sub_category_name', 'add', 'demo-chosen-select required', '', 'category', $para2, 'get_brnd');
         } elseif ($para1 == 'brand_by_sub') {
@@ -1000,7 +1000,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('product_id', $product);
             $this->db->update('product', $data);
-            recache();
+//            recache();
         } elseif ($para1 == 'product_deal_set') {
             $product = $para2;
             if ($para3 == 'true') {
@@ -1010,7 +1010,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('product_id', $product);
             $this->db->update('product', $data);
-            recache();
+//            recache();
         } elseif ($para1 == 'product_publish_set') {
             $product = $para2;
             if ($para3 == 'true') {
@@ -1021,7 +1021,7 @@ class Admin extends CI_Controller
             $this->db->where('product_id', $product);
             $this->db->update('product', $data);
             $this->crud_model->set_category_data(0);
-            recache();
+//            recache();
         } elseif ($para1 == 'add_discount_set') {
             $product               = $this->input->post('product');
             $data['discount']      = $this->input->post('discount');
@@ -1029,7 +1029,7 @@ class Admin extends CI_Controller
             $this->db->where('product_id', $product);
             $this->db->update('product', $data);
             $this->crud_model->set_category_data(0);
-            recache();
+//            recache();
         } else {
             $page_data['page_name']   = "product";
             $page_data['all_product'] = $this->db->get('product')->result_array();

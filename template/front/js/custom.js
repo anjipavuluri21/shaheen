@@ -245,25 +245,7 @@ $(document).ready(function(){
 		//closeCart();
     });
 	
-	$('.minusBtn').click(function(){
-		no_of_bottle = parseInt($(this).parent('.plus-minus').find('.noValue').val());		
-		if(no_of_bottle > 1){
-			no_of_bottle = no_of_bottle - 1;
-			$(this).parent('.plus-minus').find('.noValue').val(no_of_bottle);
-		}
-	});
-	$('.plusBtn').click(function(){
-		no_of_bottle =  parseInt($(this).parent('.plus-minus').find('.noValue').val());
-		no_of_bottle = no_of_bottle + 1;
-		$(this).parent('.plus-minus').find('.noValue').val(no_of_bottle);
-	});
-	$(".noValue").on("keypress keyup blur",function (event) {
-		"use strict";
-	   $(this).val($(this).val().replace(/[^\d].+/, ""));
-		if ((event.which < 48 || event.which > 57)) {
-			event.preventDefault();
-		}
-	});
+	
 	$('.change-btn').click(function () {
         $(this).parents('.myprofile-main').find('.profiledata').slideUp();
         $(this).parents('.myprofile-main').find('.profileform').slideDown();
