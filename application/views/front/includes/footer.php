@@ -1,5 +1,12 @@
 <?php
 $footer_text = $this->db->get_where('general_settings', array('type' => 'footer_text'))->row()->value;
+
+        $facebook =  $this->db->get_where('social_links',array('type' => 'facebook'))->row()->value;
+	$googleplus =  $this->db->get_where('social_links',array('type' => 'google-plus'))->row()->value;
+	$twitter =  $this->db->get_where('social_links',array('type' => 'twitter'))->row()->value;
+	$skype =  $this->db->get_where('social_links',array('type' => 'skype'))->row()->value;
+	$youtube =  $this->db->get_where('social_links',array('type' => 'youtube'))->row()->value;
+	$pinterest =  $this->db->get_where('social_links',array('type' => 'pinterest'))->row()->value;
 ?>
 <footer class="parallaxcont">
     <div class="container">
@@ -12,10 +19,10 @@ $footer_text = $this->db->get_where('general_settings', array('type' => 'footer_
                                 <div class="banner-logo"><a href="index.php"><img src="<?= base_url() ?>template/front/images/banner-SNAFCO.jpg" alt="SNAFCO"></a></div>
                                 <h3>Socialize with us</h3>
                                 <ul class="social-media">
-                                    <li><a href="javascript:void(0);"><img src="<?= base_url() ?>template/front/images/twitter.svg" alt="twitter"></a></li>
+                                    <li><a href="<?php echo $twitter;?>" target="_blank"><img src="<?= base_url() ?>template/front/images/twitter.svg" alt="twitter"></a></li>
                                     <li><a href="javascript:void(0);"><img src="<?= base_url() ?>template/front/images/linkedin.svg" alt="linkedin"></a></li>
                                     <li><a href="javascript:void(0);"><img src="<?= base_url() ?>template/front/images/instagram.svg" alt="instagram"></a></li>
-                                    <li><a href="javascript:void(0);"><img src="<?= base_url() ?>template/front/images/youtube.svg" alt="youtube"></a></li>
+                                    <li><a href="<?php echo $youtube;?>" target="_blank"><img src="<?= base_url() ?>template/front/images/youtube.svg" alt="youtube"></a></li>
                                 </ul>
                             </div>
                             <div class="col-lg-7 col-md-6 col-sm-6 foot-address wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.5s">

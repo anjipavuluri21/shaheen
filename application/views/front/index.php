@@ -12,7 +12,7 @@
 <div class="main">
 	<div class="banner-main parallaxcont wow fadeInUp">
 		<div class="container">
-			<div class="row">
+				<div class="row">
 				<div class="col-12">
 					<div class="carousel-main">
 						<div class="slideshow-container swiper-container">
@@ -21,19 +21,20 @@
                                                             
                                         foreach($slides as $row){ ?>
                                             <div class="swiper-slide">
-									<div class="slideshow-img<?php echo $i; ?>"><img src="<?php echo $this->crud_model->file_view('slides',$row['slides_id'],'100','','no','src','','','.jpg') ?>" data-src="" alt="" /></div>
+									<div class="slideshow-img"><img src="<?php echo $this->crud_model->file_view('slides',$row['slides_id'],'100','','no','src','','','.jpg') ?>" alt="slide"/></div>
 									<div class="slideshow-contents">
 										<div class="banner-logo"><img src="<?=base_url()?>template/front/images/banner-SNAFCO.jpg" alt="SNAFCO"></div>
 										<div class="discount"><?php echo $row['text1'];?></div>
-                                                                                <h1><span><?php echo $row['text2'];?></span><div><?php echo $row['text3']; ?></div></h1>
-										<a href="<?=base_url()?><?php echo $row['button_link'];?>" class="button">Shop now</a>
+										<h1><span><?php echo $row['text2'];?></span><div><?php echo $row['text3'];?></div></h1>
+										<a href="<?php echo $row['button_link'];?>" class="button">Shop now</a>
 
 									</div>
 								</div>
-                                                            
-                                        <?php }
-                                        
-                                                            ?>
+                                            
+                                            
+                                            
+                                        <?php }?>
+								
 								
 								
 								
@@ -103,7 +104,7 @@
               
 			<div class="row">
 				<div class="col-12">
-					<h1 class="wow fadeInLeft" data-wow-duration="1.5s">New Arrivals <a href="new-arrivals.php" class="button pos-right">View all</a></h1>
+					<h1 class="wow fadeInLeft" data-wow-duration="1.5s">New Arrivals <a href="<?php echo base_url().'home/new_arrivals'?>" class="button pos-right">View all</a></h1>
                                         
 					<div class="carousel-main">
 						<div class="arriaval-container swiper-container">
@@ -160,14 +161,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h1 class="wow fadeInLeft" data-wow-duration="1.5s">Top Sellers <a href="top-sellers.php" class="button pos-right">View all</a></h1>
+					<h1 class="wow fadeInLeft" data-wow-duration="1.5s">Top Sellers <a href="<?php echo base_url().'home/top_sellers'?>" class="button pos-right">View all</a></h1>
 					<div class="carousel-main">
 						<div class="topsellers-container swiper-container">
 							<div class="swiper-wrapper">
-								<div class="swiper-slide">
+                                                            <?php 
+                                                            $most_viewed=$this->crud_model->product_list_set('most_viewed',6);
+                                                            foreach ($most_viewed as $row){ ?>
+                                                                <div class="swiper-slide">
 									<div class="product-thumb">
 										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/indoor-plants/th/10155.jpg" alt="product"/></div>
+											<div class="product-img"><img src="<?php echo $this->crud_model->file_view('product',$row['product_id'],'100','','thumb','src','multi','one');?>" alt="product"/></div>
 											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/indoor-plants/10155.jpg" data-fancybox="product8"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
 											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/indoor-plants/10155-2.jpg" data-fancybox="product8"></a>
 											<div class="favourite-addtocart">
@@ -176,132 +180,16 @@
 											</div>
 										</div>
 										<div class="product-dtl">
-											<h2>Cordyline Mixed</h2>
-											<div class="pot-size">Size : Pot-12cm, H-40cm</div>
+											<h2><?php echo $row['title']; ?></h2>
+											<div class="pot-size">Size : <?php echo $row['size']; ?></div>
 											<div class="made-by">Type : Indoor Plants</div>
-											<p>3.000 KD</p>
+											<p><?php echo currency($row['sale_price']); ?></p>
 										</div>
 									</div>
 								</div>
-								<div class="swiper-slide">
-									<div class="product-thumb wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.5s">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/seeds/th/image00019.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/seeds/image00019.jpg" data-fancybox="product5"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/seeds/image00020.jpg" data-fancybox="product5"></a>
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>BIO ROCALBA Rondo Pea</h2>
-											<p>1.5 KD</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-thumb wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.5s">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/fertilizers/th/image00008.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/fertilizers/image00008.jpg" data-fancybox="product4"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/fertilizers/image00009.jpg" data-fancybox="product4"></a>
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>Tomato & Vegetable Plant food (Old truck) - 5-3-3- 1Kg/USA</h2>
-											<p>6.000 KD</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-thumb wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.5s">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/pots/th/12339.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/pots/12339.jpg" data-fancybox="product85"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/pots/12339(1).jpg" data-fancybox="product85"></a>
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>Flower pot woode - 393x370mm</h2>
-											<p>2.500 KD</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-thumb wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1.5s">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/tools/th/10755.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/tools/10755.jpg" data-fancybox="product20"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<!--<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/tools/no-image.jpg" data-fancybox="product"></a>-->
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>KS Drop Forged Hedge Shear - 9-Dia-0.6cm</h2>
-											<p>15.500 KD</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-thumb">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/seeds/th/BIO-ROCALBA-Cauliflower-Napoletano.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/seeds/BIO-ROCALBA-Cauliflower-Napoletano.jpg" data-fancybox="product6"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/seeds/BIO-ROCALBA-Cauliflower-Napoletano-2.jpg" data-fancybox="product6"></a>
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>BIO ROCALBA Cauliflower Napoletano</h2>
-											<p>1.5 KD</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-thumb">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/pots/th/no-image.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/pots/no-image.jpg" data-fancybox="product3"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<!--<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/pots/no-image.jpg" data-fancybox="product3"></a>-->
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>Nergiz Wall Pot - 275x140x150mm</h2>
-											<p>1.000 KD</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-thumb">
-										<div class="product-holder">
-											<div class="product-img"><img src="<?=base_url()?>template/front/products/seeds/th/BIO-ROCALBA-Radish-SAXA-2.jpg" alt="product"/></div>
-											<a href="javascript:void(0);" class="quick-link-btn" data-src="<?=base_url()?>template/front/products/seeds/BIO-ROCALBA-Radish-SAXA-2.jpg" data-fancybox="product7"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-											<a href="javascript:void(0);" class="none" data-src="<?=base_url()?>template/front/products/seeds/BIO-ROCALBA-Radish-SAXA-2-2.jpg" data-fancybox="product7"></a>
-											<div class="favourite-addtocart">
-												<a href="javascript:void(0);" class="favourite-anchor"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-												<a href="javascript:void(0);" class="addtocart-anchor"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-											</div>
-										</div>
-										<div class="product-dtl">
-											<h2>BIO ROCALBA Radish SAXA 2</h2>
-											<p>1.5 KD</p>
-										</div>
-									</div>
-								</div>
+                                                            <?php }
+                                                            ?>
+								
 								
 
 							</div>

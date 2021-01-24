@@ -169,16 +169,7 @@
                                 }
                             ?> 
                             </div>
-                            <div class="form-group btm_border">
-                                <label class="col-sm-4 control-label" for="demo-hor-17"></label>
-                                <div class="col-sm-6">
-                                        <h4 class="pull-left">
-                                            <i><?php echo translate('if_you_need_more_field_for_your_product_,_please_click_here_for_more...');?></i>
-                                        </h4>
-                                        <div id="more_btn" class="btn btn-primary btn-labeled fa fa-plus pull-right">
-                                        <?php echo translate('add_more_fields');?></div>
-                                </div>
-                            </div>
+                            
                             
                         </div>
 
