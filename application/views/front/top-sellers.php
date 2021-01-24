@@ -1,4 +1,10 @@
-<?php include 'includes/header.php'; ?>
+<?php 
+
+$this->load->view('front/includes/header');
+	$most_viewed=$this->crud_model->product_list_set('most_viewed',4);
+//        print_r($most_viewed);exit;
+
+?>
 <div class="inner-banner-main parallaxcont wow fadeInUp">
 	<div class="container">
 		<div class="row">
@@ -20,7 +26,7 @@
 	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item"><a href="index.php">Home</a></li>
+				<li class="breadcrumb-item"><a href="<?php echo base_url();?>">Home</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Top Sellers</li>
 			</ol>
 		</nav>
@@ -30,83 +36,39 @@
 			<div class="col-12">
 				<h1 class="wow fadeInLeft" data-wow-duration="1.5s">Top Sellers</h1>
 				<div class="row listing-item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
-					<div class="col-lg-3 col-md-3 col-sm-6 loadmore-th">
-						<div class="product-thumb">
+					
+                                            <?php 
+                                            foreach($most_viewed as $row){?>
+                                    <div class="col-lg-3 col-md-3 col-sm-6 loadmore-th">
+                                                <div class="product-thumb">
 							<div class="product-holder">
-								<div class="product-img"><img src="products/indoor-plants/th/10151-1.jpg" alt="product"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="products/indoor-plants/10151-1.jpg" data-fancybox="product6"><span class="quick-img"><img src="images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
+								<div class="product-img"><img src="<?php echo $this->crud_model->file_view('product',$row['product_id'],'100','','thumb','src','multi','one');?>" alt="product"/></div>
+								<a href="javascript:void(0);" class="quick-link-btn" data-src="products/indoor-plants/10151-1.jpg" data-fancybox="product6"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
 								<a href="javascript:void(0);" class="none" data-src="products/indoor-plants/10151-2.jpg" data-fancybox="product6"></a>
 								<div class="favourite-addtocart">
-									<a href="javascript:void(0);" class="remove-anchor" title="Remove Item"><img src="images/close.svg" alt="Remove Item"></a>
-									<a href="javascript:void(0);" class="addtocart-anchor" title="Add to Cart"><img src="images/cart.svg" alt="cart"></a>
+									<a href="javascript:void(0);" class="favourite-anchor" data-pid="<?=$row['product_id']?>"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
+									<a href="javascript:void(0);" class="addtocart-anchor" data-pid="<?=$row['product_id']?>"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
 								</div>
 							</div>
 							<div class="product-dtl">
-								<h2>Bonsai Mixed Broom Ball</h2>
-								<div class="made-by">Size : P-15cm, H-25cm</div>
-								<p>8.750 KD</p>
+								<h2><?php echo $row['title']; ?></h2>
+								<div class="made-by">Size : <?php echo $row['size']; ?></div>
+								<p><?php echo currency($row['sale_price']); ?></p>
 							</div>
 						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6 loadmore-th">
-						<div class="product-thumb">
-							<div class="product-holder">
-								<div class="product-img"><img src="products/seeds/th/BIO-ROCALBA-Black-Beauty-Zucchini.jpg" alt="product"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="products/seeds/BIO-ROCALBA-Black-Beauty-Zucchini.jpg" data-fancybox="product4"><span class="quick-img"><img src="images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-								<a href="javascript:void(0);" class="none" data-src="products/seeds/BIO-ROCALBA-Black-Beauty-Zucchini-2.jpg" data-fancybox="product4"></a>
-								<div class="favourite-addtocart">
-									<a href="javascript:void(0);" class="remove-anchor" title="Remove Item"><img src="images/close.svg" alt="Remove Item"></a>
-									<a href="javascript:void(0);" class="addtocart-anchor" title="Add to Cart"><img src="images/cart.svg" alt="cart"></a>
-								</div>
-							</div>
-							<div class="product-dtl">
-								<h2>BIO ROCALBA Black Beauty Zucchini</h2>
-								<p>1.5 KD</p>
-							</div>	
-						</div>
-					</div>
-					 <div class="col-lg-3 col-md-3 col-sm-6 loadmore-th">
-						<div class="product-thumb">
-							<div class="product-holder">
-								<div class="product-img"><img src="products/pots/th/11923-1.jpg" alt="product"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="products/pots/11923-1.jpg" data-fancybox="favproduct62"><span class="quick-img"><img src="images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-								<a href="javascript:void(0);" class="none" data-src="products/pots/11923.jpg" data-fancybox="favproduct62"></a>
-								<a href="javascript:void(0);" class="none" data-src="products/pots/11923E28093.jpg" data-fancybox="favproduct62"></a>
-								<div class="favourite-addtocart">
-									<a href="javascript:void(0);" class="remove-anchor" title="Remove Item"><img src="images/close.svg" alt="Remove Item"></a>
-									<a href="javascript:void(0);" class="addtocart-anchor" title="Add to Cart"><img src="images/cart.svg" alt="cart"></a>
-								</div>
-							</div>
-							<div class="product-dtl">
-								<h2>Fulya Pot With Plate</h2>
-								<div class="pot-size">Size : 295X260mm, W/MB/DG/TB/Grey</div>
-								<div class="made-by">Type : Pots</div>
-								<p>2.750 KD</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6 loadmore-th">
-						<div class="product-thumb">
-							<div class="product-holder">
-								<div class="product-img"><img src="products/indoor-plants/th/10148.jpg" alt="product"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="products/indoor-plants/10148.jpg" data-fancybox="favproduct19"><span class="quick-img"><img src="images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-								<a href="javascript:void(0);" class="none" data-src="products/indoor-plants/10148-2.jpg" data-fancybox="favproduct19"></a>
-								<a href="javascript:void(0);" class="none" data-src="products/indoor-plants/10148-3.jpg" data-fancybox="favproduct19"></a>
-								<div class="favourite-addtocart">
-									<a href="javascript:void(0);" class="remove-anchor" title="Remove Item"><img src="images/close.svg" alt="Remove Item"></a>
-									<a href="javascript:void(0);" class="addtocart-anchor" title="Add to Cart"><img src="images/cart.svg" alt="cart"></a>
-								</div>
-							</div>
-							<div class="product-dtl">
-								<h2>Asplenium Campio - Air So Pure</h2>
-								<div class="made-by">Size : Pot-12cm, H-30cm</div>
-								<p>2.750 KD</p>
-							</div>
-						</div>
-					</div>
+                                        </div>
+                                            <?php }
+                                            
+                                            ?>
+						
+					
+					
+				
 				</div>
 			</div>
 		</div>	
 	</div>	
 </section>
-<?php include 'includes/footer.php'; ?>
+<?php 
+$this->load->view('front/includes/footer');
+?>

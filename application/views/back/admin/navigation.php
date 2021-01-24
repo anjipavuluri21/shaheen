@@ -324,8 +324,14 @@ if ($physical_check == 'ok' && $digital_check !== 'ok') {
                                                 </a>
                                             </li>
                                             <?php
-                                        } if ($this->crud_model->admin_permission('product_bulk_upload')) {
-                                            ?>
+                                        } if ($this->crud_model->admin_permission('product_bulk_upload')) { ?>
+                                            <li <?php if($page_name=="product_bulk_upload"){?> class="active-link" <?php } ?> >
+                                                <a href="<?php echo base_url(); ?>admin/product_bulk_upload">
+                                                    <i class="fa fa-circle fs_i"></i>
+                                                    <?php echo translate('Product bulk upload');?>
+                                                </a>
+                                            </li>
+                                           
 
             <?php
         } if ($this->crud_model->admin_permission('product_bundle') && $bundle_check == 'ok') {

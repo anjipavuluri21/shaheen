@@ -4829,6 +4829,11 @@ class Home extends CI_Controller
         $this->load->view('front/new-arrivals');
     }
     
+    function top_sellers()
+    {
+        $this->load->view('front/top-sellers');
+    }
+    
     function bundled_product()
     {
         $page_data['product_type'] = "";

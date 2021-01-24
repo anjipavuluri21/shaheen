@@ -844,11 +844,19 @@ class Admin extends CI_Controller
             $this->db->update('product', $data);
             $this->crud_model->set_category_data(0);
             recache();
+//            $this->output->delete_cache('http://localhost/shaheen/admin/product');
+//            $this->output->delete_cache('product/update');
+            
+
+
         } else if ($para1 == 'edit') {
             $page_data['product_data'] = $this->db->get_where('product', array(
                 'product_id' => $para2
             ))->result_array();
             $this->load->view('back/admin/product_edit', $page_data);
+            
+
+
         } else if ($para1 == 'view') {
             $page_data['product_data'] = $this->db->get_where('product', array(
                 'product_id' => $para2
