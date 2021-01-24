@@ -56,15 +56,16 @@
 							<?php echo $row['features']; ?>
 						</div>	
 						<div class="quantity-div">
-							<div class="quantity-sub">
-								<label>Quantity :</label>
-								<div class="quantity-control-div plus-minus">
-									<a href="javascript:void(0);" class="minus-btn minusBtn">-</a>
-									<div class="quantity-control"><input type="text" class="form-control noValue" value="1"></div>
-									<a href="javascript:void(0);" class="plus-btn plusBtn">+</a>
-								</div>
-							</div>	
-						</div>
+										<div class="quantity-sub">
+											<label>Quantity :</label>
+											<div class="quantity-control-div ">
+                                                                                            
+												<a href="javascript:void(0);" class="minus-btn minusBtn minus quantity-button" data-name='minus'>-</a>
+												<div class="quantity-control"><input type="text" class="form-control noValue quantity_field" data-rowid="<?php echo $items['rowid']; ?>" min="1" max="<?php echo $row['current_stock']; ?>" data-limit='no' name='qty' value="<?php if($a = $this->crud_model->is_added_to_cart($row['product_id'],'qty')){echo $a;} else {echo '1';} ?>" id='qty' onblur="check_ok(this);"></div>
+												<a href="javascript:void(0);" class="plus-btn plusBtn plus quantity-button" data-name='plus'>+</a>
+											</div>
+										</div>	
+									</div>	
                                                 <div class="pq-detail"><strong class="price-amount">
                                                     
                                                          <?php if($row['discount'] > 0){ ?> 
@@ -89,7 +90,17 @@
                             </ins> 
                         <?php }?>
                                                     </strong></div>
-                                                
+                                                <?php
+                    if($row['current_stock'] > 0){
+                ?>
+                    <?php // echo $row['current_stock'].' '.$row['unit'].translate('_available');?>
+                <?php
+                    }else{
+                ?>
+                    <?php echo translate('out_of_stock');?>
+                <?php
+                     }
+                ?>
 						<div class="save-to-fav"><a href="javascript:void(0);" class="save-to-fav-link favourite-anchor" data-pid="<?=$row['product_id']?>"><img src="<?=base_url()?>template/front/images/faviourite-flat.svg" alt="faviourite"> Add to Favourite</a></div>
 					<div c class="btn-div"><a href="javascript:void(0);" class="button addtocart-anchor" data-pid="<?=$row['product_id']?>">Add To Cart</a></div>
 					</div>

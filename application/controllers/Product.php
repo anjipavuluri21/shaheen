@@ -2720,6 +2720,9 @@ class Product extends CI_Controller
         }
 
         if ($para1 == "added_list") {
+             if ($this->session->userdata('user_login') != "yes") {
+            redirect(base_url(), 'refresh');
+        }
             $page_data['carted'] = $this->cart->contents();
             $this->load->view('front/shopping-cart', $page_data);
         }

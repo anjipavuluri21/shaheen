@@ -412,9 +412,11 @@ echo form_open(base_url() . 'home/registration/add_info/', array(
             }
 
             $(".addtocart-anchor").click(function () {
-                //  alert( "Handler for .click() called." );
                 var product = $(this).data('pid');
-                var qty = 1;
+                var qty = $(".quantity_field").val();
+                if(qty == null){
+                    var qty="1";
+                }
                 $.ajax({
                     url: base_url + 'Product/cart/add/' + product + '/' + qty,
                     type: 'GET', // form submit method get/post
@@ -427,7 +429,6 @@ echo form_open(base_url() . 'home/registration/add_info/', array(
                     success: function (data) {
                         alert(data);
                         reload_header_cart();
-                        //                        location.reload();
 
 
                     },
@@ -437,13 +438,7 @@ echo form_open(base_url() . 'home/registration/add_info/', array(
                 });
             });
             
-             $('.plus-minus-btn').click(function (e) {
-                e.preventDefault();
-                
-                var qty = $("input[name=quantity]").val();
-                alert(qty);
-
-            });
+           
             $('.favourite-anchor').click(function (e) {
                 e.preventDefault();
                 //$j('#modalAddToWishlist').modal("toggle");		
@@ -593,6 +588,69 @@ alert();
         $( "#cod" ).prop( "checked", false );
         $( "#"+id ).prop( "checked", true );
     }
+
+
+function others_count(){
+                            update_prices();
+
+                        update_calc_cart();
+                    }
+
+//quntity control and cart update
+
+function check_ok(element){
+                        var here = $(element);
+                        here.find('.minus').click();
+                        here.find('.plus').click();
+                    }
+
+                    $('body').on('click','.quantity-button', function(){
+                        var here = $(this);
+                        var quantity = here.closest('div').find('.quantity_field').val();
+                        var limit = here.closest('div').find('.quantity_field').data('limit');
+                       
+                       
+                        if(here.data('name')=='minus'){
+                            quantity = quantity-1;
+                        } else if (here.data('name')=='plus'){
+                            //if(limit == 'no'){
+                                quantity = Number(quantity)+1;
+                           // }
+                        }
+//                        alert(quantity);
+                         if(quantity >= 1){
+                            here.closest('div').find('.quantity_field').val(quantity);
+
+                            var rowid = here.closest('div').find('.quantity_field').data('rowid');
+                            var list1 = here.closest('div').find('.sub_total');
+
+                            $.ajax({
+                                url: base_url+'product/cart/quantity_update/'+rowid+'/'+quantity,
+                                beforeSend: function() {
+                                    list1.html('...'); 
+                                },
+                                success: function(data) {
+                                    list1.html('...'); 
+                                    var res = data.split("---")
+                                    list1.html(res[0]).fadeIn();
+                                    update_calc_cart();
+                            reload_header_cart();
+                            update_prices();
+                                    if(res[1] !== 'not_limit'){
+                                        here.closest('div').find('.plus').hide();
+                                        here.closest('div').find('.quantity_field').data('limit','yes');
+                                        here.closest('div').find('.quantity_field').val(res[1]);
+                                    } else {
+                                        here.closest('div').find('.plus').show();
+                                        here.closest('div').find('.quantity_field').data('limit','no');
+                                    }
+                                },
+                                error: function(e) {
+                                    console.log(e)
+                                }
+                            });
+                        }
+                    });
     </script>
 
 <?php
