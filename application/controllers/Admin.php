@@ -1049,17 +1049,11 @@ class Admin extends CI_Controller
         }
 
         $physical_categories =  $this->db->where('digital',null)->or_where('digital','')->get('category')->result_array();
-        $physical_sub_categories =  $this->db->where('digital',null)->or_where('digital','')->get('sub_category')->result_array();
-        $digital_categories =  $this->db->where('digital','ok')->get('category')->result_array();
-        $digital_sub_categories =  $this->db->where('digital','ok')->get('sub_category')->result_array();
-        $brands =  $this->db->get('brand')->result_array();
+        
 
         $page_data['page_name'] = "product_bulk_upload";
         $page_data['physical_categories'] = $physical_categories;
-        $page_data['physical_sub_categories'] = $physical_sub_categories;
-        $page_data['digital_categories'] = $digital_categories;
-        $page_data['digital_sub_categories'] = $digital_sub_categories;
-        $page_data['brands'] = $brands;
+        
 
         $this->load->view('back/index', $page_data);
         
@@ -1109,6 +1103,7 @@ class Admin extends CI_Controller
 
         if(!empty($products)){
             foreach ($products as $product){
+//                print_r($products);exit;
                 $this->product_bulk_upload_save_single($product);
             }
         }
@@ -1121,7 +1116,8 @@ class Admin extends CI_Controller
 
     public function product_bulk_upload_save_single($product)
     {
-        $image_urls = array();
+//        print_r($product);exit;
+//        $image_urls = array();
         $product_stock_data = array();
         $product_data['num_of_imgs'] = 0;
         if (!empty($product['images'])) {
@@ -1129,13 +1125,11 @@ class Admin extends CI_Controller
             $product_data['num_of_imgs'] = count($image_urls);
         }
 
+        $product_data['category'] = $product['category'];
         $product_data['title'] = $product['title'];
+        $product_data['title_ar'] = $product['title_ar'];
         $product_data['description'] = $product['description'];
-        $product_data['category'] = is_numeric($product['category']) ? $product['category'] : 0;
-        $product_data['sub_category'] = is_numeric($product['sub_category']) ? $product['sub_category'] : 0;
-        $product_data['brand'] = is_numeric($product['brand']) ? $product['brand'] : 0;
-
-        $product_data['purchase_price'] = is_numeric($product['purchase_price']) ? $product['purchase_price'] : 0;
+        $product_data['description_ar'] = $product['description_ar'];
         $product_data['sale_price'] = is_numeric($product['sale_price']) ? $product['sale_price']: 0;
 
         $product_data['add_timestamp'] = time();
@@ -1143,6 +1137,7 @@ class Admin extends CI_Controller
         $product_data['featured'] = 'no';
         $product_data['status'] = $product['published'] == 'yes' ? 'ok' : 0;
         $product_data['rating_user'] = '[]';
+       
 
         if (strpos($product['tax'], '%') !== false) {
             $tax = str_replace("%", "", $product['tax']);
@@ -1199,9 +1194,9 @@ class Admin extends CI_Controller
             $this->db->insert('stock', $product_stock_data);
         }
 
-        if(!empty($image_urls)){
-            $this->crud_model->file_up_from_urls($image_urls,"product", $product_id);
-        }
+//        if(!empty($image_urls)){
+//            $this->crud_model->file_up_from_urls($image_urls,"product", $product_id);
+//        }
 
     }
 
