@@ -26,8 +26,8 @@ $this->load->view('front/includes/header');
 	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item"><a href="<?php echo base_url();?>">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Top Sellers</li>
+				<li class="breadcrumb-item"><a href="<?php echo base_url();?>"><?php echo translate('home');?></a></li>
+				<li class="breadcrumb-item active" aria-current="page"><?php echo translate('top_sellers');?></li>
 			</ol>
 		</nav>
 	</div>

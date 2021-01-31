@@ -1,11 +1,11 @@
 @charset "utf-8";
-body{direction:rtl;font-family:'Almarai',sans-serif;}
-ul, ol, li, pre, form, blockquote, fieldset, input, p, select, label, button, textarea, section, a,.wsmenu-list > li.main-link > a,h1, h2, h3, h4, h5, h6,.button, .reverse-button, .dark-button,.category-holder h2,footer h2, footer h3, footer h4, footer h5{font-family:'Almarai',sans-serif;}
+body,.popup-hidden{direction:rtl;font-family:'Almarai',sans-serif;}
+ul, ol, li, pre, form, blockquote, fieldset, input, p, select, label, button, textarea, section, a,.wsmenu-list > li.main-link > a,h1, h2, h3, h4, h5, h6,.button, .reverse-button, .dark-button,.category-holder h2,footer h2, footer h3, footer h4, footer h5,.detail-main h4,.product-thumb h2{font-family:'Almarai',sans-serif;}
 .language-link{font-weight:normal;font-size:17px;}
-.SNAFCO,.payment-method-sub li,.rights,.menu-link-div{float:right}
+.SNAFCO,.payment-method-sub li,.rights,.menu-link-div,.inner-img,.contact-icon,.cart-row .product-thumb,.summary-detail li label,.cart-dtl ul li label,.discount-lbl,.item-title, .item-detail,.profiledata .form-group label{float:right}
 .language-search,.payment-method-sub,.design-by{float:left;}
-.search-area, .login-cart,.slideshow-container>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{text-align:left}
-.h1, h1,.product-thumb h2,.product-thumb p,.made-by, .pot-size,.foot-left,.wsmenu-submenu li a,.cart-main h3{text-align:right}
+.search-area, .login-cart,.slideshow-container>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction,.summary-detail li .summary-dtl,.item-title{text-align:left}
+.h1, h1,.product-thumb h2,.product-thumb p,.made-by, .pot-size,.foot-left,.wsmenu-submenu li a,.cart-main h3,.inner-contents h2,.inner-contents p,.inner-contents h3,.detail-main h4,.contact-dtl h5,.detail-main p,.inputbox,.cart-row .product-dtl h2,.cart-row .product-dtl p,.quantity-div,.pq-detail,.summary-detail li label,.store-list.unstyled li h3,.address-contents p,.change-div,.unstyled,.h2, h2,.cart-dtl ul li label,.cart-dtl ul li div,.discount-lbl,.account-ul li a,.credintial-contents p,.item-detail,.dashboard-main h3,.profile-links li a,.profiledata .form-group label,.profiledata .form-group p,.order-tab,.address-sub-div h3,.address-sub-div,.modelbox p,.product-detail-sub p,.listing li,.save-to-fav,.btn-div{text-align:right}
 .search-input {margin-right:0px;margin-left:58px;}
 .search-btn{left:0;right:auto}
 .cart-div{margin-left:0px;margin-right:15px;}
@@ -32,6 +32,7 @@ h1 .pos-right{right:auto;left:0}
 	.menu-main-sub.showbg::after{left:0;right:auto}
 	header.small-header .language-link {font-size:18px;}
 }
+.unstyled li{margin-right:0px;margin-left:25px }
 .wsmenu-list li > .wsmenu-submenu{left:auto;right:0}
 .mCS-dir-rtl>.mCSB_inside>.mCSB_container {margin-right:0;margin-left:0px;}
 /*.cart-main-sub .quick-link-btn {left:auto;right:7px;}
@@ -54,4 +55,38 @@ h1 .pos-right{right:auto;left:0}
 .favourite-addtocart{right:auto;left:15px}
 .quick-link-btn{float:right;left:auto;right:15px}
 .favourite-addtocart a{margin-left:0px;margin-right:10px}
-.cart-main{left:0;right:auto}
+.cart-main,.filter{left:0;right:auto}
+select.form-control{background:url("../images/down-arrow.svg") left center no-repeat;background-size:auto 25px}
+.inner-img{margin:0 0px 20px 30px}
+.contact-dtl{margin-left:0px;margin-right:70px;padding:0 30px 0 0}
+.cart-row .cart-dtl{margin-left:0px;margin-right:350px;}
+.minus-btn, .plus-btn{line-height:36px}
+.remove-item{left:auto;right:365px}
+.summary-detail li .summary-dtl{margin:0 150px 0 0}
+.store-radio{right:auto;left:15px}
+.styled-checkbox + label::before{margin-right:1px;margin-left:10px}
+.styled-checkbox:checked + label::after{left:auto;right:6px}
+.store-list.unstyled li .styled-checkbox:checked + label::after{right:9px;left:auto;}
+.store-list.unstyled .profileform li + li{margin-left:0px;margin-right:15px;}
+.checkout-leftcol h2,.checkout-rightcol h2{padding-bottom:5px}
+.summary-right .cart-row .cart-dtl{margin-right:200px;margin-left:0px;}
+.cart-dtl ul li div{margin-left:0px;margin-right:90px;}
+.discount-input .button{right:auto;left:0}
+.discount-input .form-control{padding-right:.75rem;padding-left:100px}
+.discount-input{margin-left:0px;margin-right:160px}
+.account-link{padding:0px 5px 0px 30px;background:url(../images/down-arrow-grey.png) left center no-repeat;}
+.account-ul::before{right:auto;left:10px}
+.account-main{margin-right:0;margin-left:15px;padding-right:0px;padding-left:10px;border-right:0px solid rgba(255,255,255,0.3);border-left: 1px solid rgba(255,255,255,0.3);}
+.item-detail{padding-left:0px;padding-right:10px}
+.item-title::after{left:-6px;right:auto}
+.profile-links li a{padding:12px 50px 12px 10px}
+.profile-links li a::after{left:auto;right:10px}
+.profiledata .form-group p{margin-left:0;margin-right:220px}
+.order-tab .order-crumb{margin-right:0px;margin-left:25px}
+.order-tab::after{left:15px;right:auto;border-left:1px solid #000;border-right:0px solid #000;border-bottom:1px solid #000;border-top:0px solid #000;transform:rotate(45deg);}
+.order-tab.active::after{transform:rotate(-45deg);}
+.product-my-cart .cart-row .cart-dtl {margin-left:0px;margin-right: 250px;}
+.menu-main{left:auto;right:0}
+.product-detail-sub{padding: 0px 30px 0 0;}
+.listing li{padding:7px 35px 7px 0}
+.listing li::after{left:auto;right:0}

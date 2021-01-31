@@ -20,8 +20,8 @@
 	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:void(0);">Categories</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>"><?php echo translate('home');?></a></li>
+				<li class="breadcrumb-item"><a href="javascript:void(0);"><?php echo translate('categories');?></a></li>
 				<li class="breadcrumb-item"><a href="<?php echo base_url(); ?>home/category/<?php echo $row['category']; ?>"><?php echo $this->crud_model->get_type_name_by_id('category',$row['category'],'category_name');?></a></li>
 				<li class="breadcrumb-item active" aria-current="page"><?php echo $row['title'];?></li>
 			</ol>

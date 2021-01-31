@@ -313,7 +313,7 @@ if ($this->session->userdata('user_login') == "yes") {
                                         <div class="payment-method">
                                             <div class="payment-lbl">Payment Method</div>
                                             <div class="payment-detail">
-                                                <input type="text" name="selected_address" id="selected_address" value=""/>
+                                                <input type="hidden" name="selected_address" id="selected_address" value=""/>
                                                 <ul class="unstyled">
                                                     <li><input type="radio" class="styled-checkbox" id="knet" name="payment_type" value="k_net"><label for="knet" title="K-Net"><img src="<?= base_url() ?>template/front/images/k-net.png" alt="k net"></label><div>k net</div></li>
                                                     <li><input type="radio" class="styled-checkbox" id="visa" name="payment_type" value="cash_on_delivery" checked><label for="visa" title="Credit Card"><img src="<?= base_url() ?>template/front/images/cash.jpg" alt="Credit Card"></label><div>Cash On Delivery</div></li>

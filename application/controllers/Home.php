@@ -74,15 +74,23 @@ class Home extends CI_Controller
         $page_data['asset_page'] = "home";
         $page_data['page_title'] = translate('home');
         $this->benchmark->mark('code_start');
-                $this->load->view('front/includes/header');
+         $this->load->view('front/includes/header');
+        
 
         $this->load->view('front/index', $page_data);
         $this->load->view('front/includes/footer');
+         
+             
+        
 
         // Some code happens here
 
         $this->benchmark->mark('code_end');
 
+    }
+    function payment_process()
+    {
+        print_r($_REQUEST);
     }
     
 
@@ -2397,6 +2405,8 @@ class Home extends CI_Controller
         $this->session->set_userdata('language', $lang);
         $page_data['page_name'] = "home";
         recache();
+        redirect(base_url().'Home', 'refresh');
+        
     }
 
     /* FUNCTION: Setting Frontend Language */
