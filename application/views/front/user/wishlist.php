@@ -30,6 +30,11 @@
 				<h1 class="wow fadeInLeft" data-wow-duration="1.5s">My Favourite</h1>
 				<div class="row listing-item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
 					<div class="col-lg-12 col-md-12 col-sm-12">
+                                            <?php 
+                    if(count($query) <= 0){
+                        echo "No items in cart";
+                    }else{
+                    ?>
 						<div class="row listing-item">
                                                     <?php 
     $i = 0;
@@ -43,7 +48,7 @@
 										<a href="javascript:void(0);" class="quick-link-btn" data-src="<?php echo $this->crud_model->file_view('product',$row1['product_id'],'','','thumb','src','multi','one'); ?>" data-fancybox="favproduct62"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
 										<a href="javascript:void(0);" class="none" data-src="<?php echo $this->crud_model->file_view('product',$row1['product_id'],'','','thumb','src','multi','one'); ?>" data-fancybox="favproduct62"></a>
 										<div class="favourite-addtocart">
-											<a href="javascript:void(0);" class="remove-anchor" title="Remove Item" data-pid="<?php echo $row1['product_id'];?>"><img src="<?=base_url()?>template/front/images/close.svg" alt="Remove Item"></a>
+											<a href="javascript:void(0);" class="remove-anchor remove_from_wish" title="Remove Item" data-pid="<?php echo $row1['product_id'];?>"><img src="<?=base_url()?>template/front/images/close.svg" alt="Remove Item"></a>
 											<a href="javascript:void(0);" class="addtocart-anchor" title="Add to Cart"data-pid="<?php echo $row1['product_id'];?>"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
 										</div>
 									</div>
@@ -58,6 +63,7 @@
     <?php } ?>
 							
 						</div>
+                    <?php } ?>
 					</div>
 					
 				</div>

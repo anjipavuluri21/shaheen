@@ -33,7 +33,13 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="wow fadeInLeft" data-wow-duration="1.5s">Shopping Cart</h1>
+                 <?php 
+                    if(count($carted) <= 0){
+                        echo "No items in cart";
+                    }else{
+                    ?>
                 <div class="row wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
+                   
                     <div class="col-lg-8 col-md-7 col-sm-12">
                         <div class="shopping-box">
                              <?php foreach ($carted as $items) { 
@@ -80,7 +86,7 @@
                 <?php
                      }
                 ?>
-                                    <div class="remove-item"><a href="javascript:void(0);" class="remove-item-btn remove-anchor remove_one" data-pid="<?=$row['product_id']?>">Remove Item</a></div>
+                                    <div class="remove-item"><a href="javascript:void(0);" class="remove-item-btn remove-anchor remove_one" data-pid="<?=$items['rowid']?>" data-page="main_cart">Remove Item</a></div>
                                 </div>
                             </div>
                              <?php } ?>
@@ -121,6 +127,7 @@
                         </div>
                     </div>
                 </div>
+                    <?php } ?>
             </div>
         </div>
     </div>
