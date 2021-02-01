@@ -34,6 +34,13 @@
         <link href="<?=base_url()?>template/front/css/webslidemenu.css" rel="stylesheet" type="text/css" media="all" />	
         <link href="<?=base_url()?>template/front/css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link href="<?=base_url()?>template/front/css/responsive.css" rel="stylesheet" type="text/css" media="all" />	
+        <?php 
+        
+         if($this->session->userdata('language') == 'arabic'){
+        ?>
+        <link href="<?=base_url()?>template/front/css/style-ar.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<?=base_url()?>template/front/css/responsive-ar.css" rel="stylesheet" type="text/css" media="all" />	
+         <?php } ?>
     </head>
 
     <body>
@@ -52,10 +59,31 @@
                             <div class="search-area wow fadeInRight">
                                 <div class="search-imain">
                                     <a href="javascript:void(0);" class="search-link"><span></span></a>
-                                    <div class="search-div"><div class="search-input"><input class="form-control" name="" id="" placeholder="Search" value=""></div><button class="search-btn">Go</button></div>
+                                    <div class="search-div"><div class="search-input"><input class="form-control" name="" id="" placeholder="<?php echo translate('search');?>" value=""></div><button class="search-btn"><?php echo translate('go');?></button></div>
                                 </div>
-                               
-                                <a href="index-ar.html" class="language-link"> العربية</a>
+                                <?php
+                            if($set_lang = $this->session->userdata('language')){} else {
+                                $set_lang = $this->db->get_where('general_settings',array('type'=>'language'))->row()->value;
+                            }
+                            $lid = $this->db->get_where('language_list',array('db_field'=>$set_lang))->row()->language_list_id;
+                            $lnm = $this->db->get_where('language_list',array('db_field'=>$set_lang))->row()->name;
+                        ?>
+                               <?php
+                                $langs = $this->db->get_where('language_list',array('status'=>'ok'))->result_array();
+                                foreach ($langs as $row)
+                                {
+                            ?>
+                      
+                                <a class="language-link"  <?php if($set_lang == $row['db_field']){ ?> style="display:none;" <?php } ?> href="<?php echo base_url(); ?>home/set_language/<?php echo $row['db_field']; ?>">
+                                        <?php echo $row['name']; ?>
+                                        
+                                    </a>
+                           
+                            <?php
+                                }
+                            ?>
+                                <!--<a href="index-ar.html" class="language-link"> العربية</a>-->
+                                
                                 <p><?php // echo $this->session->userdata('user_login');?></p>
                             </div>
                             <div class="login-cart wow fadeInRight" data-wow-delay="0.2s">
@@ -63,17 +91,17 @@
                                 
         
                                 <div class="account-navi">
-							<span class="welcome">Welcome :</span>
+							<span class="welcome"><?php echo translate('welcome');?> :</span>
 							<div class="account-main">
 								<a href="javascript:void(0);" class="account-link"><?=$this->session->userdata('user_name')?></a>
 								<div class="account-div">
 									<ul class="account-ul">
-										<li><a href="<?=base_url().'home/profile/info'?>">My Profile</a></li>
-										<li><a href="<?=base_url().'home/order_listed'?>">My Order</a></li>
-										<li><a href="my-favourite.html">My Favourite</a></li>
-										<li><a href="<?=base_url().'home/profile/update_info'?>">My Address</a></li>
-										<li><a href="<?=base_url().'home/profile/update_profile'?>">Change Password</a></li>
-										<li><a href="<?=base_url().'home/logout'?>">Logout</a></li>
+										<li><a href="<?=base_url().'home/profile/info'?>"><?php echo translate('my_profile');?></a></li>
+										<li><a href="<?=base_url().'home/order_listed'?>"><?php echo translate('my_order');?></a></li>
+										<li><a href="my-favourite.html"><?php echo translate('my_favourite');?></a></li>
+										<li><a href="<?=base_url().'home/profile/update_info'?>"><?php echo translate('my_order');?></a></li>
+										<li><a href="<?=base_url().'home/profile/update_profile'?>"><?php echo translate('change_password');?></a></li>
+										<li><a href="<?=base_url().'home/logout'?>"><?php echo translate('logout');?></a></li>
 									</ul>
 								</div>
 							</div>
@@ -85,13 +113,13 @@
                                 </div>
                                 <?php } else { ?>
                                 <div class="log-reg">
-                                    <a href="javascript:void(0);" data-src="#loginModel" data-fancybox class="login-link">Login</a>
-                                    <a href="javascript:void(0);" data-src="#registerModel" data-fancybox class="register-link">Register</a>
+                                    <a href="javascript:void(0);" data-src="#loginModel" data-fancybox class="login-link"><?php echo translate('login');?></a>
+                                    <a href="javascript:void(0);" data-src="#registerModel" data-fancybox class="register-link"><?php echo translate('register');?></a>
                                 </div>
                                 <?php } ?>
                                 
                                 <div class="cart-div">
-                                    <a href="javascript:void(0);" class="cart-link docmenu-link"><span class="cart-img"><img src="<?=base_url()?>template/front/images/cart-white.svg" alt="cart"></span>Cart ( <span class="cart-text cart_num"></span> )</a>
+                                    <a href="javascript:void(0);" class="cart-link docmenu-link"><span class="cart-img"><img src="<?=base_url()?>template/front/images/cart-white.svg" alt="cart"></span><?php echo translate('cart');?> ( <span class="cart-text cart_num"></span> )</a>
                                     <div class="cart-main">
                                         <div class="shopping-main">
                                             <h3>Shopping Cart</h3>
@@ -125,26 +153,26 @@
                             <div class="wsmain">
                                 <nav class="wsmenu clearfix">								
                                     <ul class="mobile-sub wsmenu-list" id="menu">
-                                        <li class="main-link"><a href="<?php echo base_url(); ?>" class="nav-active">Home</a></li>
-                                        <li class="main-link"><a href="<?php echo base_url().'home/about_us'?>">About Us</a></li>
+                                        <li class="main-link"><a href="<?php echo base_url(); ?>" class="nav-active"><?php echo translate('home');?></a></li>
+                                        <li class="main-link"><a href="<?php echo base_url().'home/about_us'?>"><?php echo translate('about_us');?></a></li>
                                         <?php 
                                         $categories=$this->db->get('category')->result_array();
                                         ?>
-                                        <li class="main-link"><a href="javascript:void(0);">Categories</a>
+                                        <li class="main-link"><a href="javascript:void(0);"><?php echo translate('categories');?> </a>
                                             <ul class="wsmenu-submenu">
                                                 <?php 
                                                     foreach ($categories as $row){ ?>
-                                                        <li><a href="<?php echo base_url(); ?>product/category/<?php echo $row['category_id']; ?>"><?php echo $row['category_name'];?></a></li>
+                                                        <li><a href="<?php echo base_url(); ?>product/category/<?php echo $row['category_id']; ?>"><?php echo ($set_lang=="english")?$row['category_name']:$row['category_name_ar'];?></a></li>
                                                    <?php  }
                                                 ?>
                                                 
                                                 
                                             </ul>
                                         </li>
-                                        <li class="main-link"><a href="<?php echo base_url().'home/new_arrivals'?>">New Arrivals</a></li>
-                                        <li class="main-link"><a href="<?php echo base_url().'home/top_sellers'?>">Top Sellers</a></li>
-                                        <li class="main-link"><a href="<?php echo base_url().'home/promotions'?>">Promotions</a></li>
-                                        <li class="main-link"><a href="<?php echo base_url().'home/contact'?>">Contact Us</a></li>
+                                        <li class="main-link"><a href="<?php echo base_url().'home/new_arrivals'?>"><?php echo translate('new_arrivals');?></a></li>
+                                        <li class="main-link"><a href="<?php echo base_url().'home/top_sellers'?>"><?php echo translate('top_sellers');?></a></li>
+                                        <li class="main-link"><a href="<?php echo base_url().'home/promotions'?>"><?php echo translate('promotions');?></a></li>
+                                        <li class="main-link"><a href="<?php echo base_url().'home/contact'?>"><?php echo translate('contact_us');?></a></li>
                                     </ul>
                                 </nav>
                             </div>

@@ -87,6 +87,7 @@
                      }
                 ?>
                                     <div class="remove-item"><a href="javascript:void(0);" class="remove-item-btn remove-anchor remove_one" data-pid="<?=$items['rowid']?>" data-page="main_cart">Remove Item</a></div>
+
                                 </div>
                             </div>
                              <?php } ?>

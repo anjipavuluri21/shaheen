@@ -24,9 +24,9 @@
 									<div class="slideshow-img"><img src="<?php echo $this->crud_model->file_view('slides',$row['slides_id'],'100','','no','src','','','.jpg') ?>" alt="slide"/></div>
 									<div class="slideshow-contents">
 										<div class="banner-logo"><img src="<?=base_url()?>template/front/images/banner-SNAFCO.jpg" alt="SNAFCO"></div>
-										<div class="discount"><?php echo $row['text1'];?></div>
-										<h1><span><?php echo $row['text2'];?></span><div><?php echo $row['text3'];?></div></h1>
-										<a href="<?php echo $row['button_link'];?>" class="button">Shop now</a>
+										<div class="discount"><?php echo ($set_lang=="english")?$row['text1']:$row['text1_ar'];?></div>
+										<h1><span><?php echo ($set_lang=="english")?$row['text2']:$row['text2_ar'];?></span><div><?php echo ($set_lang=="english")?$row['text3']:$row['text3_ar'];?></div></h1>
+										<a href="<?php echo $row['button_link'];?>" class="button"><?php echo translate('shop_now');?></a>
 
 									</div>
 								</div>
@@ -48,7 +48,7 @@
 					</div>
 					<div class="payment-method">
 						<ul class="payment-method-sub">
-							<li>We Accept</li>
+							<li><?php echo translate('we_accept');?></li>
 							<li><img src="<?=base_url()?>template/front/images/k-net.png" alt="k-net"></li>
 							<li><img src="<?=base_url()?>template/front/images/visa.png" alt="visa card"></li>
 							<li><img src="<?=base_url()?>template/front/images/master-card.png" alt="master card"></li>
@@ -62,7 +62,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h1 class="wow fadeInLeft">Categories</h1>
+					<h1 class="wow fadeInLeft"><?php echo translate('categories');?></h1>
 					<div class="carousel-main">
 						<div class="categories-container swiper-container">
 							<div class="swiper-wrapper">
@@ -71,7 +71,7 @@
                                                                 <div class="swiper-slide">
 									<div class="category-holder wow fadeInUp" data-wow-delay="0.2s" onClick="location.href='<?php echo base_url(); ?>home/category/<?php echo $row['category_id']; ?>">
 										<div class="category-img"><img src="<?php echo base_url();?>uploads/category_image/<?php echo $row['banner']; ?>" alt="Indoor Plants"/></div>
-                                                                                <a href="<?php echo base_url(); ?>product/category/<?php echo $row['category_id']; ?>"><h2><?php echo $row['category_name'];?></h2></a>
+                                                                                <a href="<?php echo base_url(); ?>product/category/<?php echo $row['category_id']; ?>"><h2><?php echo ($set_lang=="english")?$row['category_name']:$row['category_name_ar'];?></h2></a>
 									</div>
 								</div>
                                                             <?php }
@@ -104,7 +104,7 @@
               
 			<div class="row">
 				<div class="col-12">
-					<h1 class="wow fadeInLeft" data-wow-duration="1.5s">New Arrivals <a href="<?php echo base_url().'home/new_arrivals'?>" class="button pos-right">View all</a></h1>
+					<h1 class="wow fadeInLeft" data-wow-duration="1.5s"><?php echo translate('new_arrivals');?> <a href="<?php echo base_url().'home/new_arrivals'?>" class="button pos-right"><?php echo translate('view_all');?></a></h1>
                                         
 					<div class="carousel-main">
 						<div class="arriaval-container swiper-container">
@@ -128,7 +128,7 @@
 											</div>
 										</div>
 										<div class="product-dtl">
-											<h2><?php echo $row['title'];?></h2>
+											<h2><?php echo ($set_lang=="english")?$row['title']:$row['title_ar'];?></h2>
 											<div class="pot-size">Size : <?php echo $row['size'];?></div>
 											<div class="made-by">Type : <?php echo $row['category'];?></div>
 											<p><?php echo currency($this->crud_model->get_product_price($row['product_id']));?></p>
@@ -161,7 +161,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h1 class="wow fadeInLeft" data-wow-duration="1.5s">Top Sellers <a href="<?php echo base_url().'home/top_sellers'?>" class="button pos-right">View all</a></h1>
+					<h1 class="wow fadeInLeft" data-wow-duration="1.5s"><?php echo translate('top_sellers');?> <a href="<?php echo base_url().'home/top_sellers'?>" class="button pos-right"><?php echo translate('view_all');?></a></h1>
 					<div class="carousel-main">
 						<div class="topsellers-container swiper-container">
 							<div class="swiper-wrapper">
@@ -180,7 +180,7 @@
 											</div>
 										</div>
 										<div class="product-dtl">
-											<h2><?php echo $row['title']; ?></h2>
+											<h2><?php echo ($set_lang=="english")?$row['title']:$row['title_ar'];?></h2>
 											<div class="pot-size">Size : <?php echo $row['size']; ?></div>
 											<div class="made-by">Type : Indoor Plants</div>
 											<p><?php echo currency($row['sale_price']); ?></p>
@@ -217,7 +217,7 @@
                 <div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h1 class="wow fadeInLeft" data-wow-duration="1.5s">Promotions</h1>
+					<h1 class="wow fadeInLeft" data-wow-duration="1.5s"><?php echo translate('promotions');?></h1>
 					<div class="row">
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 							<a href="javascript:void(0);" class="offer-link wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.5s"><img src="<?php echo base_url(); ?>uploads/logo_image/logo_<?php echo $promotion_banner_one; ?>.png" alt="offer"></a>

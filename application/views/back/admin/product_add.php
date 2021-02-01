@@ -33,6 +33,13 @@
                             </div>
 
                             <div class="form-group btm_border">
+                                <label class="col-sm-4 control-label" for="demo-hor-1"><?php echo translate('sku_number');?></label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="sku_number" id="demo-hor-1" placeholder="<?php echo translate('sku_number');?>" class="form-control required">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group btm_border">
                                 <label class="col-sm-4 control-label" for="demo-hor-1"><?php echo translate('product_title');?></label>
                                 <div class="col-sm-6">
                                     <input type="text" name="title" id="demo-hor-1" placeholder="<?php echo translate('product_title');?>" class="form-control required">
@@ -134,16 +141,16 @@
                                 <span class="btn unit_set"></span>
                             </div>
                             
-                            <div class="form-group btm_border">
+<!--                            <div class="form-group btm_border">
                                 <label class="col-sm-4 control-label" for="demo-hor-7"><?php echo translate('purchase_price');?></label>
                                 <div class="col-sm-4">
                                     <input type="number" name="purchase_price" id="demo-hor-7" min='0' step='.01' placeholder="<?php echo translate('purchase_price');?>" class="form-control required">
                                 </div>
                                 <span class="btn"><?php echo currency('','def'); ?> / </span>
                                 <span class="btn unit_set"></span>
-                            </div>
+                            </div>-->
                             
-                            <div class="form-group btm_border">
+<!--                            <div class="form-group btm_border">
                                 <label class="col-sm-4 control-label" for="demo-hor-8"><?php echo translate('shipping_cost');?></label>
                                 <div class="col-sm-4">
                                     <input type="number" name="shipping_cost" id="demo-hor-8" min='0' step='.01' placeholder="<?php echo translate('shipping_cost');?>" class="form-control">
@@ -151,8 +158,8 @@
                                 <span class="btn"><?php echo currency('','def'); ?> / </span>
                                 <span class="btn unit_set"></span>
                             </div>
-                            
-                            <div class="form-group btm_border">
+                            -->
+<!--                            <div class="form-group btm_border">
                                 <label class="col-sm-4 control-label" for="demo-hor-9"><?php echo translate('product_tax');?></label>
                                 <div class="col-sm-4">
                                     <input type="number" name="tax" id="demo-hor-9" min='0' step='.01' placeholder="<?php echo translate('product_tax');?>" class="form-control">
@@ -164,7 +171,7 @@
                                     </select>
                                 </div>
                                 <span class="btn unit_set"></span>
-                            </div>
+                            </div>-->
                             
                             <div class="form-group btm_border">
                                 <label class="col-sm-4 control-label" for="demo-hor-10"><?php echo translate('product_discount');?></label>

@@ -26,15 +26,15 @@ $latest = $this->crud_model->product_list_set('latest',3);
 	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item"><a href="<?php echo base_url() ?>">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page">New Arrivals</li>
+				<li class="breadcrumb-item"><a href="<?php echo base_url() ?>"><?php echo translate('home');?></a></li>
+				<li class="breadcrumb-item active" aria-current="page"><?php echo translate('new_arrivals');?></li>
 			</ol>
 		</nav>
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="wow fadeInLeft" data-wow-duration="1.5s">New Arrivals</h1>
+				<h1 class="wow fadeInLeft" data-wow-duration="1.5s"><?php echo translate('new_arrivals');?></h1>
 				<div class="row listing-item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
                                     
                                     <?php 

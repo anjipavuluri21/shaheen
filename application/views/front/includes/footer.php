@@ -17,7 +17,7 @@ $footer_text = $this->db->get_where('general_settings', array('type' => 'footer_
                         <div class="row">
                             <div class="col-lg-5 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.5s">
                                 <div class="banner-logo"><a href="index.php"><img src="<?= base_url() ?>template/front/images/banner-SNAFCO.jpg" alt="SNAFCO"></a></div>
-                                <h3>Socialize with us</h3>
+                                <h3><?php echo translate('social_with_us');?></h3>
                                 <ul class="social-media">
                                     <li><a href="<?php echo $twitter;?>" target="_blank"><img src="<?= base_url() ?>template/front/images/twitter.svg" alt="twitter"></a></li>
                                     <li><a href="javascript:void(0);"><img src="<?= base_url() ?>template/front/images/linkedin.svg" alt="linkedin"></a></li>
@@ -35,10 +35,10 @@ $footer_text = $this->db->get_where('general_settings', array('type' => 'footer_
                     </div>
                     <div class="col-12 rights-design-by">
                         <div class="rights">
-                            <p>All Rights Reserved Al-Shaheen</p>
+                            <p><?php echo translate('all_rights_reserved_al_shaheen');?></p>
                         </div>
                         <div class="design-by">
-                            <p><a href="https://design-master.com/" target="_blank">Design by : Design Master</a></p>
+                            <p><a href="https://design-master.com/" target="_blank"><?php echo translate('design_by');?> : <?php echo translate('design_master');?></a></p>
                         </div>
                     </div>
                 </div>	
