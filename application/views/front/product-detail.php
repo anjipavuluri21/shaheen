@@ -50,14 +50,14 @@
 			<div class="col-lg-8 col-md-7 col-sm-6 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s">
 				<div class="product-detail-sub">
 					<div class="product-dtl-text">
-						<h1><?php echo $row['title'];?></h1>
-						<p><?php echo $row['description']; ?><p><strong>What makes it special:</strong></p>
+						<h1><?php echo ($set_lang=="english")?$row['title']:$row['title_ar'];?></h1>
+						<p><?php echo ($set_lang=="english")?$row['description']:$row['description_ar'];?><p><strong>ما الذي يجعلها مميزة:</strong></p>
 						<div class="listing">
 							<?php echo $row['features']; ?>
 						</div>	
 						<div class="quantity-div">
 										<div class="quantity-sub">
-											<label>Quantity :</label>
+											<label>كمية  :</label>
 											<div class="quantity-control-div ">
                                                                                             
 												<a href="javascript:void(0);" class="minus-btn minusBtn minus quantity-button" data-name='minus'>-</a>
@@ -101,8 +101,8 @@
                 <?php
                      }
                 ?>
-						<div class="save-to-fav"><a href="javascript:void(0);" class="save-to-fav-link favourite-anchor" data-pid="<?=$row['product_id']?>"><img src="<?=base_url()?>template/front/images/faviourite-flat.svg" alt="faviourite"> Add to Favourite</a></div>
-					<div c class="btn-div"><a href="javascript:void(0);" class="button addtocart-anchor" data-pid="<?=$row['product_id']?>">Add To Cart</a></div>
+						<div class="save-to-fav"><a href="javascript:void(0);" class="save-to-fav-link favourite-anchor" data-pid="<?=$row['product_id']?>"><img src="<?=base_url()?>template/front/images/faviourite-flat.svg" alt="faviourite"> <?php echo translate('adding_to_favourite');?></a></a></div>
+					<div c class="btn-div"><a href="javascript:void(0);" class="button addtocart-anchor" data-pid="<?=$row['product_id']?>"><?php echo translate('add_to_cart');?></a></div>
 					</div>
 				</div>	
 			</div>

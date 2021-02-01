@@ -31,6 +31,7 @@ class Admin extends CI_Controller
     /* index of the admin. Default: Dashboard; On No Login Session: Back to login page. */
     public function index()
     {
+        
         if ($this->session->userdata('admin_login') == 'yes') {
             $page_data['page_name'] = "dashboard";
             $this->load->view('back/index', $page_data);
@@ -733,6 +734,7 @@ class Admin extends CI_Controller
             } else {
                 $num_of_imgs = count($_FILES["images"]['name']);
             }
+            $data['sku_number']              = $this->input->post('sku_number');
             $data['title']              = $this->input->post('title');
             $data['title_ar']              = $this->input->post('title_ar');
             $data['category']           = $this->input->post('category');
@@ -742,17 +744,17 @@ class Admin extends CI_Controller
             $data['features_ar']        = $this->input->post('features_ar');
             $data['sub_category']       = $this->input->post('sub_category');
             $data['sale_price']         = $this->input->post('sale_price');
-            $data['purchase_price']     = $this->input->post('purchase_price');
+//            $data['purchase_price']     = $this->input->post('purchase_price');
             $data['add_timestamp']      = time();
             $data['download']           = NULL;
             $data['featured']           = 'no';
             $data['status']             = 'ok';
             $data['rating_user']        = '[]';
-            $data['tax']                = $this->input->post('tax');
+//            $data['tax']                = $this->input->post('tax');
             $data['discount']           = $this->input->post('discount');
             $data['discount_type']      = $this->input->post('discount_type');
             $data['tax_type']           = $this->input->post('tax_type');
-            $data['shipping_cost']      = $this->input->post('shipping_cost');
+//            $data['shipping_cost']      = $this->input->post('shipping_cost');
             $data['tag']                = $this->input->post('tag');
             $data['size']                = $this->input->post('size');
             $data['is_bundle']          = 'no';
@@ -797,6 +799,7 @@ class Admin extends CI_Controller
             }
             $num                        = $this->crud_model->get_type_name_by_id('product', $para2, 'num_of_imgs');
             $download                   = $this->crud_model->get_type_name_by_id('product', $para2, 'download');
+            $data['sku_number']              = $this->input->post('sku_number');
             $data['title']              = $this->input->post('title');
             $data['title_ar']           = $this->input->post('title_ar');
             $data['category']           = $this->input->post('category');
@@ -806,12 +809,12 @@ class Admin extends CI_Controller
             $data['features_ar']        = $this->input->post('features_ar');
             $data['sub_category']       = $this->input->post('sub_category');
             $data['sale_price']         = $this->input->post('sale_price');
-            $data['purchase_price']     = $this->input->post('purchase_price');
-            $data['tax']                = $this->input->post('tax');
+//            $data['purchase_price']     = $this->input->post('purchase_price');
+//            $data['tax']                = $this->input->post('tax');
             $data['discount']           = $this->input->post('discount');
             $data['discount_type']      = $this->input->post('discount_type');
             $data['tax_type']           = $this->input->post('tax_type');
-            $data['shipping_cost']      = $this->input->post('shipping_cost');
+//            $data['shipping_cost']      = $this->input->post('shipping_cost');
             $data['tag']                = $this->input->post('tag');
             $data['size']               = $this->input->post('size');
             $data['color']              = json_encode($this->input->post('color'));

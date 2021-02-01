@@ -54,7 +54,7 @@
 							<div class="contact-dtl">
 								<h5><?php echo translate('telephone');?>, <?php echo translate('phone');?></h5>
 								<p><a href="tel:+96524740140"><?php echo $contact_telephone?></a>, <a href="tel:+96524761631"><?php echo $contact_phone;?></a></p>
-								<h5>Fax</h5>
+								<h5><?php echo translate('fax');?></h5>
 								<p><?php echo $contact_fax;?></p>
 								<h5><?php echo translate('wholesale_division');?></h5>
 								<p><a href="tel:+96599448122"><?php echo $contact_wholesale_divison; ?></a></p>

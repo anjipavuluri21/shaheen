@@ -35,7 +35,8 @@
         <link href="<?=base_url()?>template/front/css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link href="<?=base_url()?>template/front/css/responsive.css" rel="stylesheet" type="text/css" media="all" />	
         <?php 
-         if($this->session->userdata('language') != 'english'){
+        
+         if($this->session->userdata('language') == 'arabic'){
         ?>
         <link href="<?=base_url()?>template/front/css/style-ar.css" rel="stylesheet" type="text/css" media="all" />
 <link href="<?=base_url()?>template/front/css/responsive-ar.css" rel="stylesheet" type="text/css" media="all" />	
@@ -90,17 +91,17 @@
                                 
         
                                 <div class="account-navi">
-							<span class="welcome">Welcome :</span>
+							<span class="welcome"><?php echo translate('welcome');?> :</span>
 							<div class="account-main">
 								<a href="javascript:void(0);" class="account-link"><?=$this->session->userdata('user_name')?></a>
 								<div class="account-div">
 									<ul class="account-ul">
-										<li><a href="<?=base_url().'home/profile/info'?>">My Profile</a></li>
-										<li><a href="<?=base_url().'home/order_listed'?>">My Order</a></li>
-										<li><a href="my-favourite.html">My Favourite</a></li>
-										<li><a href="<?=base_url().'home/profile/update_info'?>">My Address</a></li>
-										<li><a href="<?=base_url().'home/profile/update_profile'?>">Change Password</a></li>
-										<li><a href="<?=base_url().'home/logout'?>">Logout</a></li>
+										<li><a href="<?=base_url().'home/profile/info'?>"><?php echo translate('my_profile');?></a></li>
+										<li><a href="<?=base_url().'home/order_listed'?>"><?php echo translate('my_order');?></a></li>
+										<li><a href="my-favourite.html"><?php echo translate('my_favourite');?></a></li>
+										<li><a href="<?=base_url().'home/profile/update_info'?>"><?php echo translate('my_order');?></a></li>
+										<li><a href="<?=base_url().'home/profile/update_profile'?>"><?php echo translate('change_password');?></a></li>
+										<li><a href="<?=base_url().'home/logout'?>"><?php echo translate('logout');?></a></li>
 									</ul>
 								</div>
 							</div>
