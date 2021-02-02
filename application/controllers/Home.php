@@ -75,7 +75,7 @@ class Home extends CI_Controller
         $page_data['page_title'] = translate('home');
         $this->benchmark->mark('code_start');
          $this->load->view('front/includes/header');
-        
+
 
         $this->load->view('front/index', $page_data);
         $this->load->view('front/includes/footer');
@@ -2402,6 +2402,7 @@ class Home extends CI_Controller
     /* FUNCTION: Setting Frontend Language */
     function set_language($lang)
     {
+        
         $this->session->set_userdata('language', $lang);
         $page_data['page_name'] = "home";
         recache();

@@ -35,7 +35,11 @@
         <link href="<?=base_url()?>template/front/css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link href="<?=base_url()?>template/front/css/responsive.css" rel="stylesheet" type="text/css" media="all" />	
         <?php 
-        
+         if($this->session->userdata('language')!=""){
+             $set_lang=$this->session->userdata('language');
+         } else {
+                                $set_lang = $this->db->get_where('general_settings',array('type'=>'language'))->row()->value;
+                            }
          if($this->session->userdata('language') == 'arabic'){
         ?>
         <link href="<?=base_url()?>template/front/css/style-ar.css" rel="stylesheet" type="text/css" media="all" />
@@ -62,9 +66,7 @@
                                     <div class="search-div"><div class="search-input"><input class="form-control" name="" id="" placeholder="<?php echo translate('search');?>" value=""></div><button class="search-btn"><?php echo translate('go');?></button></div>
                                 </div>
                                 <?php
-                            if($set_lang = $this->session->userdata('language')){} else {
-                                $set_lang = $this->db->get_where('general_settings',array('type'=>'language'))->row()->value;
-                            }
+//                           
                             $lid = $this->db->get_where('language_list',array('db_field'=>$set_lang))->row()->language_list_id;
                             $lnm = $this->db->get_where('language_list',array('db_field'=>$set_lang))->row()->name;
                         ?>

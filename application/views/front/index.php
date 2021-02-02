@@ -1,4 +1,5 @@
 <?php 
+$set_lang=$this->session->userdata('language');
     $categories=$this->db->get('category')->result_array();
    
                 $this->db->order_by("slides_id", "desc");
@@ -18,7 +19,7 @@
 						<div class="slideshow-container swiper-container">
 							<div class="swiper-wrapper">
                                                             <?php 
-                                                            
+
                                         foreach($slides as $row){ ?>
                                             <div class="swiper-slide">
 									<div class="slideshow-img"><img src="<?php echo $this->crud_model->file_view('slides',$row['slides_id'],'100','','no','src','','','.jpg') ?>" alt="slide"/></div>

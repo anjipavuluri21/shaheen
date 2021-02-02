@@ -1,4 +1,5 @@
 <?php
+$set_lang=$this->session->userdata('language');
 	foreach($product_data as $row)
 	{
 		$thumbs = $this->crud_model->file_view('product',$row['product_id'],'','','thumb','src','multi','all');

@@ -1,5 +1,5 @@
 <?php $this->load->view('front/includes/header');
-
+$set_lang=$this->session->userdata('language');
 	foreach($category_data as $cat)
 	{
    

@@ -45,18 +45,18 @@ if ($this->session->userdata('user_login') == "yes") {
     <div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                <li class="breadcrumb-item"><a href="index.php"><?php echo translate('home');?></a></li>
+                <li class="breadcrumb-item active" aria-current="page"><?php echo translate('checkout');?></li>
             </ol>
         </nav>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="wow fadeInLeft" data-wow-duration="1.5s">Checkout</h1>
+                <h1 class="wow fadeInLeft" data-wow-duration="1.5s"><?php echo translate('checkout');?></h1>
                 <div class="row wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
                     <div class="col-lg-4 col-md-4 col-sm-12 checkout-leftcol">
-                        <h2>Delivery Address</h2>
+                        <h2><?php echo translate('delivery_address');?></h2>
                         <div class="address-contents">
                             <ul class="unstyled store-list">
                                 <?php
@@ -74,7 +74,7 @@ if ($this->session->userdata('user_login') == "yes") {
                                         <div class="checkout-address">
                                             <div class="myprofile-main">
                                                 <div class="profiledata add-new-adddress">
-                                                    <div class="change-div"><a href="javascript:void(0);" class="button change-btn">Edit Address</a></div>
+                                                    <div class="change-div"><a href="javascript:void(0);" class="button change-btn"><?php echo translate('edit_address');?></a></div>
                                                 </div>
                                                 <div class="profileform">
                                                     <?php
@@ -123,7 +123,7 @@ if ($this->session->userdata('user_login') == "yes") {
                                 ?>
                                     <li>
                                         <div class="checkout-sub address-sub-div">
-								<div class="myprofile-main"><a href="#newAddressModel" data-fancybox class="button add-newadddress">Add New Address</a></div>					
+								<div class="myprofile-main"><a href="#newAddressModel" data-fancybox class="button add-newadddress"><?php echo translate('add_new_address');?></a></div>					
 							</div>
                                         
                                     </li>
@@ -142,7 +142,7 @@ if ($this->session->userdata('user_login') == "yes") {
                     ));
                    
                 ?>
-	<h2 class="anim1">Add New Address</h2>
+	<h2 class="anim1"><?php echo translate('add_new_address');?></h2>
 	<p class="anim2"><strong>PESORNAL DETAIL</strong></p>
         
 	<div class="row anim3">
@@ -220,7 +220,7 @@ if ($this->session->userdata('user_login') == "yes") {
 </div>	
 
                     <div class="col-lg-8 col-md-8 col-sm-12 checkout-rightcol">
-                        <h2>Cart Summary</h2>
+                        <h2><?php echo translate('cart_summary');?></h2>
                         <div class="summary-right">
                             <div class="shopping-summary">
                                 <div class="row">
@@ -238,9 +238,9 @@ if ($this->session->userdata('user_login') == "yes") {
                                                         <div class="product-dtl">
                                                             <h2><?php echo $items['name']; ?></h2>
                                                             <ul>
-                                                                <li><label>Price</label><div class="pric"><?php echo currency($items['price']); ?></div></li>
-                                                                <li><label>Quantity</label><div><?php echo $items['qty']; ?></div></li>
-                                                                <li><label>Sub Total</label><div><strong class="sub_total"><?php echo currency($items['subtotal']); ?></strong></div></li>
+                                                                <li><label><?php echo translate('price');?></label><div class="pric"><?php echo currency($items['price']); ?></div></li>
+                                                                <li><label><?php echo translate('quantity');?></label><div><?php echo $items['qty']; ?></div></li>
+                                                                <li><label><?php echo translate('subtotal');?></label><div><strong class="sub_total"><?php echo currency($items['subtotal']); ?></strong></div></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -252,7 +252,7 @@ if ($this->session->userdata('user_login') == "yes") {
                                         <div class="my-cart-items-sub">
                                             <ul class="summary-detail">
                                                 <li>
-                                                    <label>Subtotal</label>
+                                                    <label><?php echo translate('subtotal');?></label>
                                                     <div class="summary-dtl" id="total">37.500 KWD</div>
                                                 </li>
                                                 <li>
@@ -260,10 +260,10 @@ if ($this->session->userdata('user_login') == "yes") {
                                                     <?php if ($this->cart->total_discount() <= 0 && $this->session->userdata('couponer') !== 'done' && $this->cart->get_coupon() == 0) { ?>
 
                                                         <div class="discount-row">
-                                                            <div class="discount-lbl"><img src="<?= base_url() ?>template/front/images/percentage.svg" alt="product"/> Coupon Code</div>
+                                                            <div class="discount-lbl"><img src="<?= base_url() ?>template/front/images/percentage.svg" alt="product"/> <?php echo translate('coupon_code');?></div>
                                                             <div class="discount-input">
-                                                                <input type="text" id="" name="" placeholder="Coupon Code" class="form-control coupon_code">
-                                                                <button class="button coupon_btn">Apply</button>
+                                                                <input type="text" id="" name="" placeholder="<?php echo translate('coupon_code');?>" class="form-control coupon_code">
+                                                                <button class="button coupon_btn"><?php echo translate('apply');?></button>
                                                             </div>
                                                         </div>
 
@@ -275,15 +275,15 @@ if ($this->session->userdata('user_login') == "yes") {
 
                                                 </li>
                                                 <li>
-                                                    <label>Taxes</label>
+                                                    <label><?php echo translate('taxes');?></label>
                                                     <div class="summary-dtl" id="tax">1.000 KWD</div>
                                                 </li>
                                                 <li>
-                                                    <label>Delivery Chanrges</label>
+                                                    <label><?php echo translate('delivery_charges');?></label>
                                                     <div class="summary-dtl" id="shipping">5.000 KWD</div>
                                                 </li>
                                                 <li>
-                                                    <label><strong>Total</strong></label>
+                                                    <label><strong><?php echo translate('total');?></strong></label>
                                                     <div class="summary-dtl" id="grand"><strong>43.500 KWD</strong></div>
                                                 </li>
                                                 <li class="coupon_disp" <?php if ($this->cart->total_discount() <= 0) { ?>style="display:none;" <?php } ?>>

@@ -22,15 +22,15 @@
 	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item"><a href="<?php echo base_url();?>">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page">My Profile</li>
+				<li class="breadcrumb-item"><a href="<?php echo base_url();?>"><?php echo translate('home');?></a></li>
+				<li class="breadcrumb-item active" aria-current="page"><?php echo translate('my_profile');?></li>
 			</ol>
 		</nav>
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="wow fadeInLeft" data-wow-duration="1.5s">My Profile</h1>
+				<h1 class="wow fadeInLeft" data-wow-duration="1.5s"><?php echo translate('my_profile');?></h1>
                                 <?php
 	foreach($user_info as $row)
 	{
@@ -41,18 +41,18 @@
                          				 <div class="myprofile-main">
 								<div class="profiledata">
 									<div class="form-group">
-										<label>First Name </label><p><?php echo $row['username'];?></p>
+										<label><?php echo translate('first_name');?> </label><p><?php echo $row['username'];?></p>
 									</div>
 									<div class="form-group">
-										<label>Last Name </label><p><?php echo $row['surname'];?></p>
+										<label><?php echo translate('last_name');?> </label><p><?php echo $row['surname'];?></p>
 									</div>
 									<div class="form-group">
-										<label>Email Address</label><p><?php echo $row['email'];?></p>
+										<label><?php echo translate('email_address');?></label><p><?php echo $row['email'];?></p>
 									</div>
 									<div class="form-group">
-										<label>Mobile</label><p><?php echo $row['phone'];?></p>
+										<label><?php echo translate('mobile');?></label><p><?php echo $row['mobile'];?></p>
 									</div>
-									<div class="change-div"><a href="javascript:void(0);" class="button change-btn">CHANGE</a></div>
+									<div class="change-div"><a href="javascript:void(0);" class="button change-btn"><?php echo translate('change');?></a></div>
 								</div>					
 								<div class="profileform">
 									<div class="form-group">
@@ -79,11 +79,11 @@
 							<div class="shopping-summary">
 								<div class="my-cart-items-sub">
 									<ul class="profile-links">
-										<li><a href="<?=base_url().'home/profile/info'?>" class="active">My Profile</a></li>
-										<li><a href="my-order.php">My Order</a></li>
-										<li><a href="my-favourite.php">My Favourite</a></li>
-										<li><a href="<?=base_url().'home/profile/update_info'?>">My Address</a></li>
-										<li><a href="<?=base_url().'home/profile/update_profile'?>">Change Password</a></li>
+										<li><a href="<?=base_url().'home/profile/info'?>" class="active"><?php echo translate('my_profile');?></a></li>
+										<li><a href="my-order.php"><?php echo translate('my_order');?></a></li>
+										<li><a href="my-favourite.php"><?php echo translate('my_favourite');?></a></li>
+										<li><a href="<?=base_url().'home/profile/update_info'?>"><?php echo translate('my_address');?></a></li>
+										<li><a href="<?=base_url().'home/profile/update_profile'?>"><?php echo translate('change_password');?></a></li>
 										<li><a href="<?=base_url().'home/logout'?>">Logout</a></li>
 									</ul>
 								</div>

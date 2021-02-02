@@ -20,15 +20,15 @@
 	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item"><a href="<?php echo base_url();?>">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page">My Address</li>
+				<li class="breadcrumb-item"><a href="<?php echo base_url();?>"><?php echo translate('home');?></a></li>
+				<li class="breadcrumb-item active" aria-current="page"><?php echo translate('my_address');?></li>
 			</ol>
 		</nav>
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="wow fadeInLeft" data-wow-duration="1.5s">My Address</h1>
+				<h1 class="wow fadeInLeft" data-wow-duration="1.5s"><?php echo translate('my_address');?></h1>
 				<div class="row listing-item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
 					<div class="col-lg-8 col-md-8 col-sm-12">
 						<div class="shopping-box ord-hstr-div">
@@ -37,37 +37,37 @@
                                        $address_data = $this->db->get_where('address', array('user_id' => $this->session->userdata('user_id')))->result_array();
                                        
                                        ?>
-								<h3>Shipping Address</h3>
+								<h3><?php echo translate('shipping_address');?></h3>
                                                                 
 								<div class="myprofile-main">
                                                                     <?php 
                                                                     foreach($address_data as $row){ ?>
 									<div class="profiledata">
 									<div class="form-group">
-											<label>Name </label><p><?php echo $row['first_name'];?> </p>
+											<label><?php echo translate('name');?> </label><p><?php echo $row['first_name'];?> </p>
 										</div>
                                                                             <div class="form-group">
-											<label>Mobile</label><p><?php echo $row['mobile'];?> </p>
+											<label><?php echo translate('mobile');?></label><p><?php echo $row['mobile'];?> </p>
 										</div>
                                                                             <div class="form-group">
-											<label>Area </label><p><?php echo $row['area'];?> </p>
+											<label><?php echo translate('area');?> </label><p><?php echo $row['area'];?> </p>
 										</div>
 										<div class="form-group">
-											<label>Street </label><p><?php echo $row['street'];?></p>
+											<label><?php echo translate('street');?> </label><p><?php echo $row['street'];?></p>
 										</div>
 										<div class="form-group">
-											<label>Building No</label><p><?php echo $row['building_no'];?></p>
+											<label><?php echo translate('building_no');?></label><p><?php echo $row['building_no'];?></p>
 										</div>
 										<div class="form-group">
-											<label>Apartment No</label><p><?php echo $row['apartment_no'];?></p>
+											<label><?php echo translate('apartment_no');?></label><p><?php echo $row['apartment_no'];?></p>
 										</div>
 										<div class="form-group">
-											<label>Block</label><p><?php echo $row['block'];?></p>
+											<label><?php echo translate('block');?></label><p><?php echo $row['block'];?></p>
 										</div>
 										<div class="form-group">
-											<label>Floor No</label><p><?php echo $row['floor_no'];?></p>
+											<label><?php echo translate('floor_no');?></label><p><?php echo $row['floor_no'];?></p>
 										</div>						
-										<div class="change-div"><a href="javascript:void(0);" class="button change-btn">Change</a></div>
+										<div class="change-div"><a href="javascript:void(0);" class="button change-btn"><?php echo translate('change');?></a></div>
 									</div>	
                                                                     <div class="profileform">
                                                                             <?php
@@ -180,7 +180,7 @@
 								</div>					
 							</div>-->
 							<div class="checkout-sub address-sub-div">
-								<div class="myprofile-main"><a href="#newAddressModel" data-fancybox class="button add-newadddress">Add New Address</a></div>					
+								<div class="myprofile-main"><a href="#newAddressModel" data-fancybox class="button add-newadddress"><?php echo translate('add_new_address');?></a></div>					
 							</div>
 							 
 						</div>	
@@ -194,8 +194,8 @@
                     ));
                    
                 ?>
-	<h2 class="anim1">Add New Address</h2>
-	<p class="anim2"><strong>PESORNAL DETAIL</strong></p>
+	<h2 class="anim1"><?php echo translate('add_new_address');?></h2>
+	<p class="anim2"><strong><?php echo translate('personal_detail');?></strong></p>
         
 	<div class="row anim3">
 		<div class="col-lg-6 col-md-6 col-sm-6">
@@ -278,12 +278,12 @@
 							<div class="shopping-summary">
 								<div class="my-cart-items-sub">
 									<ul class="profile-links">
-										<li><a href="<?=base_url().'home/profile/info'?>">My Profile</a></li>
-										<li><a href="my-order.php">My Order</a></li>
-										<li><a href="my-favourite.php">My Favourite</a></li>
-										<li><a href="<?=base_url().'home/profile/update_info'?>" class="active">My Address</a></li>
-										<li><a href="<?=base_url().'home/profile/update_profile'?>">Change Password</a></li>
-										<li><a href="<?=base_url().'home/logout'?>">Logout</a></li>
+										<li><a href="<?=base_url().'home/profile/info'?>"><?php echo translate('my_profile');?></a></li>
+										<li><a href="my-order.php"><?php echo translate('my_order');?></a></li>
+										<li><a href="my-favourite.php"><?php echo translate('my_favourite');?></a></li>
+										<li><a href="<?=base_url().'home/profile/update_info'?>" class="active"><?php echo translate('my_address');?></a></li>
+										<li><a href="<?=base_url().'home/profile/update_profile'?>"><?php echo translate('change_password');?></a></li>
+										<li><a href="<?=base_url().'home/logout'?>"><?php echo translate('logout');?></a></li>
 									</ul>
 								</div>
 							</div>

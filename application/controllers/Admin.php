@@ -5197,6 +5197,16 @@ class Admin extends CI_Controller
             ));
             
         }
+        if ($para1 == "about") {
+            $this->db->where('type', "about_text");
+            $this->db->update('general_settings', array(
+                'value' => $this->input->post('about_text', 'chaira_de')
+            ));
+            $this->db->where('type', "about_text_ar");
+            $this->db->update('general_settings', array(
+                'value' => json_encode($this->input->post('about_text_ar'))
+            ));
+        }
         if ($para1 == "footer") {
             $this->db->where('type', "footer_text");
             $this->db->update('general_settings', array(
@@ -5532,6 +5542,10 @@ class Admin extends CI_Controller
     function contact_part(){
         $this->load->view('back/admin/contact_set');
     }
+    function aboutus_part(){
+        $this->load->view('back/admin/about_set');
+    }
+
     function footer_part(){
         $this->load->view('back/admin/footer_set');
     }

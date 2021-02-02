@@ -38,6 +38,9 @@
                      <li>
                         <a data-toggle="tab" href="#tab-8" id="footer"><?php echo translate('footer');?></a>
                     </li>
+                    <li>
+                        <a data-toggle="tab" href="#tab-10" id="about"><?php echo translate('about');?></a>
+                    </li>
                    
                 </ul>
 
@@ -85,11 +88,15 @@
                         <div id="footer_set">
                         </div>
                     </div>
+                    <div id="tab-10" class="tab-pane fade">             
+                        <div id="about_set">
+                        </div>
+                    </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <div style="display:none;" id="site"></div>
 <!-- for logo settings -->
 <script>
@@ -126,6 +133,9 @@ $('#footer').on('click',function(){
 $('#header').on('click',function(){
     $("#header_set").load("<?php echo base_url()?>admin/header_part/");
 });
+$('#about').on('click',function(){
+    $("#about_set").load("<?php echo base_url()?>admin/aboutus_part/");
+});
 $(document).ready(function() {
 	var tab_name= $('#tab_name').val();
 	if(tab_name=="theme"){
@@ -153,6 +163,9 @@ $(document).ready(function() {
 	}
     else if(tab_name=="header"){
         $('#header').click();
+    }
+    else if(tab_name=="about"){
+        $('#about').click();
     }
 	$("form").submit(function(e){
 		return false;

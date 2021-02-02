@@ -1,5 +1,11 @@
 <?php 
     $this->load->view('front/includes/header');
+    $set_lang=$this->session->userdata('language');
+    
+    
+    $about_text =  $this->db->get_where('general_settings',array('type' => 'about_text'))->row()->value;
+    $about_text_ar =  $this->db->get_where('general_settings',array('type' => 'about_text_ar'))->row()->value;
+            
 ?>
 <div class="inner-banner-main parallaxcont wow fadeInUp">
 	<div class="container">
@@ -35,11 +41,7 @@
 					<div class="col-12">
 						<figure class="inner-img"><img src="<?=base_url()?>template/front/images/SNAFCO-logo.jpg" alt="SNAFCO"/></figure>
 						<div class="inner-contents"><h1 class="wow fadeInLeft" data-wow-duration="1.5s"><?php echo translate('about_us');?></h1>
-							<h2>SNAFCO Lorem ipsum dolor sit amet</h2>
-							<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							<h3>Duis aute irure dolor </h3>
-							<p>Voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<?php echo ($set_lang=="english")?$about_text:$about_text_ar;?>
 						</div>
 					</div>
 				</div>

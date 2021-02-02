@@ -54,7 +54,7 @@
                                                 <div class="panel-body">
                                                     <ol>
                                                         <li>
-                                                            Category,Sub category and Brand should be in <code>numerical ids</code>.Click the <code>respected modals/pop-ups</code> to see the related ids
+                                                            Category should be in <code>numerical ids</code>.Click the <code>respected modals/pop-ups</code> to see the related ids
                                                         </li>
                                                         <li>
                                                             Tax and Discount can be in percentage.For example if the discount is 15, write only
@@ -65,7 +65,7 @@
                                                             <code>baby,food</code>.
                                                         </li>
                                                         <li>
-                                                            <code>Notice:Image Upload from url is not enable in this version </code><br>Image Urls are comma separated.If you have many image urls write like this: <code>http://imagescource/image001.jpg,http://anotherimagescource/image005.jpg</code>
+                                                            Image Urls are comma separated.If you have many image urls write like this: <code>http://imagescource/image001.jpg,http://anotherimagescource/image005.jpg</code>
                                                         </li>
                                                         <li>To publish automatically, fill the "published" column with <code>yes</code></li>
                                                         <li>

@@ -800,7 +800,12 @@ if ($this->crud_model->admin_permission('slider') ||
                                                     in
                                         <?php } ?> " >
 
-
+                                        <li <?php if ($tab == 'about') { ?>class="active-link"<?php } ?> >
+                                                    <a href="<?php echo base_url(); ?>admin/display_settings/about">
+                                                        <i class="fa fa-circle fs_i"></i>
+                                        <?php echo translate('about_us'); ?>
+                                                    </a>
+                                                </li>
                                                 <li <?php if ($tab == 'contact') { ?>class="active-link"<?php } ?> >
                                                     <a href="<?php echo base_url(); ?>admin/display_settings/contact">
                                                         <i class="fa fa-circle fs_i"></i>

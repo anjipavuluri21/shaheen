@@ -20,15 +20,15 @@
 	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item"><a href="<?php echo base_url();?>">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Change Password</li>
+				<li class="breadcrumb-item"><a href="<?php echo base_url();?>"><?php echo translate('home');?></a></li>
+				<li class="breadcrumb-item active" aria-current="page"><?php echo translate('change_password');?></li>
 			</ol>
 		</nav>
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="wow fadeInLeft" data-wow-duration="1.5s">Change Password</h1>
+				<h1 class="wow fadeInLeft" data-wow-duration="1.5s"><?php echo translate('change_password');?></h1>
 				<div class="row listing-item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
 					<div class="col-lg-8 col-md-8 col-sm-12">
                                             <?php
@@ -48,21 +48,21 @@
 							<div class="form-group">
 								<div class="inputbox"><input type="password" id="" name="password2" placeholder="Confirm Password" class="form-control" /></div>
 							</div>									
-							<div class="change-div"><button class="button" type="submit">Change Password</button></div>
+							<div class="change-div"><button class="button" type="submit"><?php echo translate('change_password');?></button></div>
 						</div>	
                                         </form>
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-12 dashboard-main"><a href="javascript:void(0);" charset="dashboard-link"><span></span></a>
 						<div id="sidebar">
-							<h3>My Account</h3>
+							<h3><?php echo translate('my_account');?></h3>
 							<div class="shopping-summary">
 								<div class="my-cart-items-sub">
 									<ul class="profile-links">
-										<li><a href="<?=base_url().'home/profile/info'?>">My Profile</a></li>
-										<li><a href="my-order.php">My Order</a></li>
-										<li><a href="my-favourite.php">My Favourite</a></li>
-										<li><a href="address.php">My Address</a></li>
-										<li><a href="<?=base_url().'home/profile/update_profile'?>" class="active">Change Password</a></li>
+										<li><a href="<?=base_url().'home/profile/info'?>" class="active"><?php echo translate('my_profile');?></a></li>
+										<li><a href="my-order.php"><?php echo translate('my_order');?></a></li>
+										<li><a href="my-favourite.php"><?php echo translate('my_favourite');?></a></li>
+										<li><a href="<?=base_url().'home/profile/update_info'?>"><?php echo translate('my_address');?></a></li>
+										<li><a href="<?=base_url().'home/profile/update_profile'?>"><?php echo translate('change_password');?></a></li>
 										<li><a href="<?=base_url().'home/logout'?>">Logout</a></li>
 									</ul>
 								</div>
