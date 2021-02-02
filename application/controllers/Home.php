@@ -1419,48 +1419,14 @@ class Home extends CI_Controller
 
         $id = $this->session->userdata('user_id');
         $ids = json_decode($this->db->get_where('user', array('user_id' => $id))->row()->wishlist, true);
+         if(count($ids) != 0)   
+         {
         $this->db->where_in('product_id', $ids);
 
-        $config['total_rows'] = $this->db->count_all_results('product');;
-        $config['base_url'] = base_url() . 'home/wish_listed/';
-        $config['per_page'] = 5;
-        $config['uri_segment'] = 5;
-        $config['cur_page_giv'] = $para2;
-
-        $function = "wish_listed('0')";
-        $config['first_link'] = '&laquo;';
-        $config['first_tag_open'] = '<li><a rel="grow" class="btn-u btn-u-sea grow" onClick="' . $function . '">';
-        $config['first_tag_close'] = '</a></li>';
-
-        $rr = ($config['total_rows'] - 1) / $config['per_page'];
-        $last_start = floor($rr) * $config['per_page'];
-        $function = "wish_listed('" . $last_start . "')";
-        $config['last_link'] = '&raquo;';
-        $config['last_tag_open'] = '<li><a rel="grow" class="btn-u btn-u-sea grow" onClick="' . $function . '">';
-        $config['last_tag_close'] = '</a></li>';
-
-        $function = "wish_listed('" . ($para2 - $config['per_page']) . "')";
-        $config['prev_tag_open'] = '<li><a rel="grow" class="btn-u btn-u-sea grow" onClick="' . $function . '">';
-        $config['prev_tag_close'] = '</a></li>';
-
-        $function = "wish_listed('" . ($para2 + $config['per_page']) . "')";
-        $config['next_link'] = '&rsaquo;';
-        $config['next_tag_open'] = '<li><a rel="grow" class="btn-u btn-u-sea grow" onClick="' . $function . '">';
-        $config['next_tag_close'] = '</a></li>';
-
-        $config['full_tag_open'] = '<ul class="pagination pagination-style-2 ">';
-        $config['full_tag_close'] = '</ul>';
-
-        $config['cur_tag_open'] = '<li class="active"><a rel="grow" class="btn-u btn-u-red grow" class="active">';
-        $config['cur_tag_close'] = '</a></li>';
-
-        $function = "wish_listed(((this.innerHTML-1)*" . $config['per_page'] . "))";
-        $config['num_tag_open'] = '<li><a rel="grow" class="btn-u btn-u-sea grow" onClick="' . $function . '">';
-        $config['num_tag_close'] = '</a></li>';
-        $this->ajax_pagination->initialize($config);
-        $ids = json_decode($this->db->get_where('user', array('user_id' => $id))->row()->wishlist, true);
-        $this->db->where_in('product_id', $ids);
         $page_data['query'] = $this->db->get('product', $config['per_page'], $para2)->result_array(); 
+         }else{
+             $page_data['query']=[];
+         }
         $this->load->view('front/includes/header', $page_data);
         $this->load->view('front/user/wishlist', $page_data);
         $this->load->view('front/includes/footer', $page_data);

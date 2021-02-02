@@ -304,6 +304,7 @@ echo form_open(base_url() . 'home/registration/add_info/', array(
                 $('body').on('click', '.remove_one', function () {
                     var here = $(this);
                     var rowid = here.data('pid');
+                    var page = here.data('page');
                     $.ajax({
                         url: base_url + 'Product/cart/remove_one/' + rowid,
 
@@ -311,7 +312,9 @@ echo form_open(base_url() . 'home/registration/add_info/', array(
                             alert("Removed");
                             //sound('cart_product_removed');
                             reload_header_cart();
-
+if(page=="main_cart"){
+    location.reload();
+}
 
                         },
                         error: function (e) {
@@ -657,6 +660,21 @@ function check_ok(element){
                             });
                         }
                     });
+                     $('body').on('click', '.remove_from_wish', function(){
+		var product = $(this).data('pid');
+		var button = $(this);
+		$.ajax({
+			url: base_url+'home/wishlist/remove/'+product,
+			
+			success: function(data) {
+				alert(data);
+                                location.reload();
+			},
+			error: function(e) {
+				console.log(e)
+			}
+		});
+    });
                     
     </script>
 
