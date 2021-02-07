@@ -45,28 +45,30 @@ if ($this->session->userdata('user_login') == "yes") {
     <div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href="index.php"><?php echo translate('home');?></a></li>
-                <li class="breadcrumb-item active" aria-current="page"><?php echo translate('checkout');?></li>
+                <li class="breadcrumb-item"><a href="index.php"><?php echo translate('home'); ?></a></li>
+                <li class="breadcrumb-item active" aria-current="page"><?php echo translate('checkout'); ?></li>
             </ol>
         </nav>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="wow fadeInLeft" data-wow-duration="1.5s"><?php echo translate('checkout');?></h1>
+                <h1 class="wow fadeInLeft" data-wow-duration="1.5s"><?php echo translate('checkout'); ?></h1>
                 <div class="row wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
                     <div class="col-lg-4 col-md-4 col-sm-12 checkout-leftcol">
-                        <h2><?php echo translate('delivery_address');?></h2>
+                        <h2><?php echo translate('delivery_address'); ?></h2>
                         <div class="address-contents">
                             <ul class="unstyled store-list">
                                 <?php
                                 $address_data = $this->db->get_where('address', array('user_id' => $this->session->userdata('user_id')))->result_array();
-                                $no=1;
+                                $no = 1;
                                 foreach ($address_data as $row) {
                                     ?>
                                     <li>
                                         <div class="store-radio">
-                                            <input class="styled-checkbox delivery_address" id="address<?php echo $row['id']; ?>" name="address" type="radio" value="<?php echo $row['id']; ?>" <?php if($no==1){echo "checked";}?>/>
+                                            <input class="styled-checkbox delivery_address" id="address<?php echo $row['id']; ?>" name="address" type="radio" value="<?php echo $row['id']; ?>" <?php if ($no == 1) {
+                                    echo "checked";
+                                } ?>/>
                                             <label for="address<?php echo $row['id']; ?>"><span>Select</span></label>
                                         </div>	
                                         <h3><?php echo $row['address_type']; ?></h3>
@@ -74,7 +76,7 @@ if ($this->session->userdata('user_login') == "yes") {
                                         <div class="checkout-address">
                                             <div class="myprofile-main">
                                                 <div class="profiledata add-new-adddress">
-                                                    <div class="change-div"><a href="javascript:void(0);" class="button change-btn"><?php echo translate('edit_address');?></a></div>
+                                                    <div class="change-div"><a href="javascript:void(0);" class="button change-btn"><?php echo translate('edit_address'); ?></a></div>
                                                 </div>
                                                 <div class="profileform">
                                                     <?php
@@ -119,114 +121,114 @@ if ($this->session->userdata('user_login') == "yes") {
                                             </div>
                                         </div>
                                     </li>
-                                <?php $no++; } 
-                                ?>
-                                    <li>
-                                        <div class="checkout-sub address-sub-div">
-								<div class="myprofile-main"><a href="#newAddressModel" data-fancybox class="button add-newadddress"><?php echo translate('add_new_address');?></a></div>					
-							</div>
-                                        
-                                    </li>
+    <?php $no++;
+}
+?>
+                                <li>
+                                    <div class="checkout-sub address-sub-div">
+                                        <div class="myprofile-main"><a href="#newAddressModel" data-fancybox class="button add-newadddress"><?php echo translate('add_new_address'); ?></a></div>					
+                                    </div>
+
+                                </li>
 
                             </ul>
-                            
+
                         </div>
-                        
+
                     </div>
-                     <div id="newAddressModel" class="popup-hidden new-address-model modelbox animated-modal">
-                                        <?php
-                    echo form_open(base_url() . 'home/registration/add__new_address/', array(
-                        'class' => 'form-signup',
-                        'method' => 'post',
-                        'id' => 'signup_form'
-                    ));
-                   
-                ?>
-	<h2 class="anim1"><?php echo translate('add_new_address');?></h2>
-	<p class="anim2"><strong>PESORNAL DETAIL</strong></p>
-        
-	<div class="row anim3">
-		<div class="col-lg-6 col-md-6 col-sm-6">
-			<div class="form-group">
-                            <div class="inputbox"><input type="text" value="" name="first_name" placeholder="First Name" class="form-control"></div>
-			</div>
-		</div>
-		<div class="col-lg-6 col-md-6 col-sm-6">
-			<div class="form-group">
-                            <div class="inputbox"><input type="text" value="" name="last_name" placeholder="Last Name" class="form-control"></div>
-			</div>
-		</div>
-		<div class="col-lg-6 col-md-6 col-sm-6">
-		<div class="form-group">
-                    <div class="inputbox"><input type="text" value="" name="email" placeholder="Email" class="form-control"></div>
-		</div>
-		</div>	
-		<div class="col-lg-6 col-md-6 col-sm-6">	
-		<div class="form-group">
-                    <div class="inputbox"><input type="text" value="" name="mobile" placeholder="Mobile" class="form-control"></div>
-		</div>
-		</div>
-	</div>
-	<p class="anim4"><strong>ADDRESS</strong></p>
-	<div class="row anim4">
-		<div class="col-12">
-			<div class="form-group">
-				<ul class="unstyled">
-					<li class="black">
-						<input class="styled-checkbox" id="a_aparment" name="address_type" type="radio" value="Aparment">
-						<label for="a_aparment"><span>Aparment</span></label>
-					</li>
-					<li class="white">
-						<input class="styled-checkbox" id="a_house" name="address_type" type="radio" value="House">
-						<label for="a_house"><span>House</span></label>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-lg-6 col-md-6 col-sm-6">
-			<div class="form-group">
-                            <div class="inputbox"><input type="text" value="" name="area" placeholder="Area" class="form-control"></div>
-			</div>
-		</div>
-		<div class="col-lg-6 col-md-6 col-sm-6">
-			<div class="form-group">
-                            <div class="inputbox"><input type="text" value="" name="street" placeholder="Street" class="form-control"></div>
-			</div>
-		</div>
-		<div class="col-lg-6 col-md-6 col-sm-6">
-		<div class="form-group">
-                    <div class="inputbox"><input type="text" value="" name="building_no" placeholder="Building No" class="form-control"></div>
-		</div>
-		<div class="form-group">
-                    <div class="inputbox"><input type="text" value="" name="apartment_no" placeholder="Apartment No" class="form-control"></div>
-		</div>
-		</div>	
-		<div class="col-lg-6 col-md-6 col-sm-6">	
-		<div class="form-group">
-                    <div class="inputbox"><input type="text" value="" name="block" placeholder="Block" class="form-control"></div>
-		</div>
-		<div class="form-group">
-                    <div class="inputbox"><input type="text" value="" name="avenue" placeholder="Avenue / Judda" class="form-control"></div>
-		</div>
-		</div>	
-		<div class="col-lg-6 col-md-6 col-sm-6">	
-			<div class="form-group">
-                            <div class="inputbox"><input type="text" value="" name="floor_no" placeholder="Floor No" class="form-control"></div>
-			</div>
-		</div>	
-		<div class="col-12 change-div"><button class="reverse-button" type="submit">Submit</button></div>
-	</div>
-                                    </form>
-</div>	
+                    <div id="newAddressModel" class="popup-hidden new-address-model modelbox animated-modal">
+                        <?php
+                        echo form_open(base_url() . 'home/registration/add__new_address/', array(
+                            'class' => 'form-signup',
+                            'method' => 'post',
+                            'id' => 'signup_form'
+                        ));
+                        ?>
+                        <h2 class="anim1"><?php echo translate('add_new_address'); ?></h2>
+                        <p class="anim2"><strong>PESORNAL DETAIL</strong></p>
+
+                        <div class="row anim3">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <div class="inputbox"><input type="text" value="" name="first_name" placeholder="First Name" class="form-control"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <div class="inputbox"><input type="text" value="" name="last_name" placeholder="Last Name" class="form-control"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <div class="inputbox"><input type="text" value="" name="email" placeholder="Email" class="form-control"></div>
+                                </div>
+                            </div>	
+                            <div class="col-lg-6 col-md-6 col-sm-6">	
+                                <div class="form-group">
+                                    <div class="inputbox"><input type="text" value="" name="mobile" placeholder="Mobile" class="form-control"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="anim4"><strong>ADDRESS</strong></p>
+                        <div class="row anim4">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <ul class="unstyled">
+                                        <li class="black">
+                                            <input class="styled-checkbox" id="a_aparment" name="address_type" type="radio" value="Aparment">
+                                            <label for="a_aparment"><span>Aparment</span></label>
+                                        </li>
+                                        <li class="white">
+                                            <input class="styled-checkbox" id="a_house" name="address_type" type="radio" value="House">
+                                            <label for="a_house"><span>House</span></label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <div class="inputbox"><input type="text" value="" name="area" placeholder="Area" class="form-control"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <div class="inputbox"><input type="text" value="" name="street" placeholder="Street" class="form-control"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <div class="inputbox"><input type="text" value="" name="building_no" placeholder="Building No" class="form-control"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputbox"><input type="text" value="" name="apartment_no" placeholder="Apartment No" class="form-control"></div>
+                                </div>
+                            </div>	
+                            <div class="col-lg-6 col-md-6 col-sm-6">	
+                                <div class="form-group">
+                                    <div class="inputbox"><input type="text" value="" name="block" placeholder="Block" class="form-control"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputbox"><input type="text" value="" name="avenue" placeholder="Avenue / Judda" class="form-control"></div>
+                                </div>
+                            </div>	
+                            <div class="col-lg-6 col-md-6 col-sm-6">	
+                                <div class="form-group">
+                                    <div class="inputbox"><input type="text" value="" name="floor_no" placeholder="Floor No" class="form-control"></div>
+                                </div>
+                            </div>	
+                            <div class="col-12 change-div"><button class="reverse-button" type="submit">Submit</button></div>
+                        </div>
+                        </form>
+                    </div>	
 
                     <div class="col-lg-8 col-md-8 col-sm-12 checkout-rightcol">
-                        <h2><?php echo translate('cart_summary');?></h2>
+                        <h2><?php echo translate('cart_summary'); ?></h2>
                         <div class="summary-right">
                             <div class="shopping-summary">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="shopping-box">
-                                            <?php foreach ($carted as $items) { ?>      
+<?php foreach ($carted as $items) { ?>      
                                                 <div class="cart-row" data-rowid="<?php echo $items['rowid']; ?>">
                                                     <div class="product-thumb">
                                                         <div class="product-holder">
@@ -238,58 +240,58 @@ if ($this->session->userdata('user_login') == "yes") {
                                                         <div class="product-dtl">
                                                             <h2><?php echo $items['name']; ?></h2>
                                                             <ul>
-                                                                <li><label><?php echo translate('price');?></label><div class="pric"><?php echo currency($items['price']); ?></div></li>
-                                                                <li><label><?php echo translate('quantity');?></label><div><?php echo $items['qty']; ?></div></li>
-                                                                <li><label><?php echo translate('subtotal');?></label><div><strong class="sub_total"><?php echo currency($items['subtotal']); ?></strong></div></li>
+                                                                <li><label><?php echo translate('price'); ?></label><div class="pric"><?php echo currency($items['price']); ?></div></li>
+                                                                <li><label><?php echo translate('quantity'); ?></label><div><?php echo $items['qty']; ?></div></li>
+                                                                <li><label><?php echo translate('subtotal'); ?></label><div><strong class="sub_total"><?php echo currency($items['subtotal']); ?></strong></div></li>
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            <?php } ?>
+<?php } ?>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="my-cart-items-sub">
                                             <ul class="summary-detail">
                                                 <li>
-                                                    <label><?php echo translate('subtotal');?></label>
+                                                    <label><?php echo translate('subtotal'); ?></label>
                                                     <div class="summary-dtl" id="total">37.500 KWD</div>
                                                 </li>
                                                 <li>
 
-                                                    <?php if ($this->cart->total_discount() <= 0 && $this->session->userdata('couponer') !== 'done' && $this->cart->get_coupon() == 0) { ?>
+<?php if ($this->cart->total_discount() <= 0 && $this->session->userdata('couponer') !== 'done' && $this->cart->get_coupon() == 0) { ?>
 
                                                         <div class="discount-row">
-                                                            <div class="discount-lbl"><img src="<?= base_url() ?>template/front/images/percentage.svg" alt="product"/> <?php echo translate('coupon_code');?></div>
+                                                            <div class="discount-lbl"><img src="<?= base_url() ?>template/front/images/percentage.svg" alt="product"/> <?php echo translate('coupon_code'); ?></div>
                                                             <div class="discount-input">
-                                                                <input type="text" id="" name="" placeholder="<?php echo translate('coupon_code');?>" class="form-control coupon_code">
-                                                                <button class="button coupon_btn"><?php echo translate('apply');?></button>
+                                                                <input type="text" id="" name="" placeholder="<?php echo translate('coupon_code'); ?>" class="form-control coupon_code">
+                                                                <button class="button coupon_btn"><?php echo translate('apply'); ?></button>
                                                             </div>
                                                         </div>
 
-                                                    <?php } else { ?>
+                                                        <?php } else { ?>
                                                         <p>
-                                                            <?php echo translate('coupon_already_activated'); ?>
+                                                        <?php echo translate('coupon_already_activated'); ?>
                                                         </p>
-                                                    <?php } ?>
+<?php } ?>
 
                                                 </li>
                                                 <li>
-                                                    <label><?php echo translate('taxes');?></label>
+                                                    <label><?php echo translate('taxes'); ?></label>
                                                     <div class="summary-dtl" id="tax">1.000 KWD</div>
                                                 </li>
                                                 <li>
-                                                    <label><?php echo translate('delivery_charges');?></label>
+                                                    <label><?php echo translate('delivery_charges'); ?></label>
                                                     <div class="summary-dtl" id="shipping">5.000 KWD</div>
                                                 </li>
                                                 <li>
-                                                    <label><strong><?php echo translate('total');?></strong></label>
+                                                    <label><strong><?php echo translate('total'); ?></strong></label>
                                                     <div class="summary-dtl" id="grand"><strong>43.500 KWD</strong></div>
                                                 </li>
                                                 <li class="coupon_disp" <?php if ($this->cart->total_discount() <= 0) { ?>style="display:none;" <?php } ?>>
                                                     <p><?php echo translate('coupon_discount'); ?></p>
                                                     <p id="disco">
-                                                        <?php echo currency($this->cart->total_discount()); ?>
+<?php echo currency($this->cart->total_discount()); ?>
                                                     </p>
                                                 </li>
                                                 <p id="coupon_report"></p>
@@ -302,8 +304,8 @@ if ($this->session->userdata('user_login') == "yes") {
                                         ?> 
                                         <input type="hidden" id="coup_frm" name="code">
                                         </form>
-                                        <?php
-                                        echo form_open(base_url() . 'Product/cart_finish/go', array(
+                                        <?php 
+                                        echo form_open(base_url() . 'home/cart_finish/go', array(
                                             'method' => 'post',
                                             'enctype' => 'multipart/form-data',
                                             'id' => 'cart_form'
