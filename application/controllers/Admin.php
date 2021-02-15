@@ -1063,7 +1063,7 @@ class Admin extends CI_Controller
     }
 
     public function product_bulk_upload_save()
-    {
+   {
 
         if(!file_exists($_FILES['bulk_file']['tmp_name']) || !is_uploaded_file($_FILES['bulk_file']['tmp_name'])){
             $this->session->set_flashdata('error',translate('File is not selected'));
@@ -1076,7 +1076,7 @@ class Admin extends CI_Controller
         $reader = $this->spreadsheet->createReader($inputFileType);
         $spreadsheet = $reader->load($inputFileName);
         $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-
+        
         $products = array();
         if(!empty($sheetData)){
 
@@ -1129,6 +1129,7 @@ class Admin extends CI_Controller
         }
 
         $product_data['category'] = $product['category'];
+        $product_data['sku_number'] = $product['sku_number'];
         $product_data['title'] = $product['title'];
         $product_data['title_ar'] = $product['title_ar'];
         $product_data['description'] = $product['description'];
@@ -1197,9 +1198,9 @@ class Admin extends CI_Controller
             $this->db->insert('stock', $product_stock_data);
         }
 
-//        if(!empty($image_urls)){
-//            $this->crud_model->file_up_from_urls($image_urls,"product", $product_id);
-//        }
+        if(!empty($image_urls)){
+            $this->crud_model->file_up_from_urls($image_urls,"product", $product_id);
+        }
 
     }
 

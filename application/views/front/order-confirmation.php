@@ -91,7 +91,7 @@ $this->load->view('front/includes/header');
 								</div>
 							</div>
 							<div class="no-print">
-								<a href="javascript:void(0);" class="button print-link">Print</a>
+								<a href="javascript:void(0);" class="button print-link">Print Invoice</a>
 								<a href="<?php echo base_url();?>" class="button">Continue Shopping</a>
 							</div>
 						</div>

@@ -32,7 +32,7 @@
     </div>
 </div>
 <br>
-<div class="col-md-12 col-sm-12" style="margin-top:20px;">
+<div class="col-md-12 col-sm-12" style="margin-top:20px;display:none">
     <div class="panel">
         <div class="panel-heading">
             <h3 class="panel-title"><?php echo translate('all_logos'); ?></h3>
@@ -46,76 +46,18 @@
 <form >
     <div class="col-md-12">
         <div class="panel">
-            <div class="panel-heading">
-                <h3 class="panel-title"><?php echo translate('select_logo'); ?></h3>
-            </div>
+            
             <?php
-            $admin_login_logo = $this->db->get_where('ui_settings', array('type' => 'admin_login_logo'))->row()->value;
-            $admin_nav_logo = $this->db->get_where('ui_settings', array('type' => 'admin_nav_logo'))->row()->value;
-            $home_top_logo = $this->db->get_where('ui_settings', array('type' => 'home_top_logo'))->row()->value;
-            $home_bottom_logo = $this->db->get_where('ui_settings', array('type' => 'home_bottom_logo'))->row()->value;
+           // $admin_login_logo = $this->db->get_where('ui_settings', array('type' => 'admin_login_logo'))->row()->value;
+            // $admin_nav_logo = $this->db->get_where('ui_settings', array('type' => 'admin_nav_logo'))->row()->value;
+            // $home_top_logo = $this->db->get_where('ui_settings', array('type' => 'home_top_logo'))->row()->value;
+           //  $home_bottom_logo = $this->db->get_where('ui_settings', array('type' => 'home_bottom_logo'))->row()->value;
             $promotion_banner_one = $this->db->get_where('ui_settings', array('type' => 'promotion_banner_one'))->row()->value;
             $promotion_banner_two = $this->db->get_where('ui_settings', array('type' => 'promotion_banner_two'))->row()->value;
             $promotion_banner_three = $this->db->get_where('ui_settings', array('type' => 'promotion_banner_three'))->row()->value;
             ?>
 
-            <div class="panel-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th><?php echo translate('place'); ?></th>
-                            <th><?php echo translate('logo'); ?></th>
-                            <th class="text-right"><?php echo translate('options'); ?></th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td><?php echo translate('admin_logo'); ?></td>
-                            <td>
-                                <div class="inner-div tr-bg img-fixed">
-                                    <img class="img-responsive img-sm" src="<?php echo base_url(); ?>uploads/logo_image/logo_<?php echo $admin_login_logo; ?>.png" id="admin_login_logo">
-                                </div>
-                            </td>
-                            <td class="text-right">
-                                <span class="btn btn-info btn-labeled fa fa-plus-circle" 
-                                      onclick="ajax_modal('show_all/selectable', '<?php echo translate('select_logo'); ?>', '<?php echo translate('successfully_selected!'); ?>', 'logo_set_change', 'admin_login_logo')">
-                                          <?php echo translate('change'); ?>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><?php echo translate('homepage_header_logo'); ?></td>
-                            <td>
-                                <div class="inner-div tr-bg img-fixed">
-                                    <img class="img-responsive img-sm" src="<?php echo base_url(); ?>uploads/logo_image/logo_<?php echo $home_top_logo; ?>.png" id="home_top_logo" >
-                                </div>
-                            </td>
-                            <td class="text-right">
-                                <span class="btn btn-info btn-labeled fa fa-plus-circle" 
-                                      onclick="ajax_modal('show_all/selectable', '<?php echo translate('select_logo'); ?>', '<?php echo translate('successfully_selected!'); ?>', 'logo_set_change', 'home_top_logo')">
-                                          <?php echo translate('change'); ?>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><?php echo translate('homepage_footer_logo'); ?></td>
-                            <td>
-                                <div class="inner-div tr-bg img-fixed">
-                                    <img class="img-responsive img-sm" src="<?php echo base_url(); ?>uploads/logo_image/logo_<?php echo $home_bottom_logo; ?>.png" id="home_bottom_logo" alt="User_Image" >
-                                </div>
-                            </td>
-                            <td class="text-right">
-                                <span class="btn btn-info btn-labeled fa fa-plus-circle" 
-                                      onclick="ajax_modal('show_all/selectable', '<?php echo translate('select_logo'); ?>', '<?php echo translate('successfully_selected!'); ?>', 'logo_set_change', 'home_bottom_logo')">
-                                          <?php echo translate('change'); ?>
-                                </span>
-                            </td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
-            </div>
+      
 
             
 

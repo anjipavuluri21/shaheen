@@ -2,7 +2,7 @@
 
 $this->load->view('front/includes/header');
 $set_lang=$this->session->userdata('language');
-	$most_viewed=$this->crud_model->product_list_set('most_viewed',4);
+	$most_viewed=$this->crud_model->product_list_set('most_viewed',10);
 //        print_r($most_viewed);exit;
 
 ?>

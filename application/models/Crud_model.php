@@ -2448,6 +2448,9 @@ class Crud_model extends CI_Model
         if ($speciality == 'most_viewed') {
             $this->db->order_by('number_of_view', 'desc');
         }
+        if ($speciality == 'number_of_order') {
+            $this->db->order_by('number_of_order', 'desc');
+        }
 
         if ($speciality == 'recently_viewed') {
             $this->db->order_by('last_viewed', 'desc');
@@ -2480,6 +2483,9 @@ class Crud_model extends CI_Model
         }
 
         $this->db->order_by('product_id', 'desc');
+        if($speciality == 'latest'){
+      $this->db->limit($limit);
+}
         $res = $this->db->get('product')->result_array();
         return $res;
         /*

@@ -486,10 +486,11 @@ if(page=="main_cart"){
             }
             function update_calc_cart() {
                 var url = base_url + 'Product/cart/calcs/full';
-                var total = $('#total');
+                var total = $('.sub_total');
                 var ship = $('#shipping');
                 var tax = $('#tax');
                 var grand = $('#grand');
+                var amount = $('#amount');
 
                 $.ajax({
                     url: url,
@@ -505,6 +506,7 @@ if(page=="main_cart"){
                         ship.html(res[1]).fadeIn();
                         tax.html(res[2]).fadeIn();
                         grand.html(res[3]).fadeIn();
+                        amount.val(res[3]).fadeIn();
                         //other_action();
                     },
                     error: function (e) {
@@ -674,6 +676,10 @@ function check_ok(element){
 				console.log(e)
 			}
 		});
+    });
+     $("#login-submit").click(function(e) {
+        e.preventDefault();
+        $('#login-form').submit();
     });
                     
     </script>

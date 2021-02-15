@@ -2,7 +2,7 @@
 
 $this->load->view('front/includes/header');
 $set_lang=$this->session->userdata('language');
-$latest = $this->crud_model->product_list_set('latest',3);
+$latest = $this->crud_model->product_list_set('latest',10);
 
 //print_r($latest);exit;
 ?>

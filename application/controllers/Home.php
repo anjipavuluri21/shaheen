@@ -20,6 +20,10 @@ class Home extends CI_Controller {
         $this->load->library('twoCheckout_Lib');
         $this->load->library('vouguepay');
         $this->load->library('pum');
+        if($this->session->userdata('language')==''){
+                   $this->session->set_userdata('language', "english");
+
+       }
         /* cache control */
         //ini_set("user_agent","My-Great-Marketplace-App");
         $cache_time = $this->db->get_where('general_settings', array('type' => 'cache_time'))->row()->value;
@@ -2864,12 +2868,12 @@ class Home extends CI_Controller {
 
     /* FUNCTION: Customer Registration */
 
-    function registration($para1 = "", $para2 = "") {
+  function registration($para1 = "", $para2 = "") {
         $safe = 'yes';
         $char = '';
         $msg = '';
         foreach ($_POST as $k => $row) {
-            if (preg_match('/[\'^":()}{#~><>|=¬]/', $row, $match)) {
+            if (preg_match('/[\'^":()}{#~><>|=柵/', $row, $match)) {
                 if ($k !== 'password1' && $k !== 'password2') {
                     $safe = 'no';
                     $char = $match[0];
@@ -3394,6 +3398,15 @@ class Home extends CI_Controller {
         }
 
         $carted = $this->cart->contents();
+        foreach($carted as $cart_item){
+            $product_data = $this->db->get_where('product', array('product_id' => $cart_item['id'], 'status' => 'ok'));
+
+        $this->db->where('product_id', $cart_item['id']);
+        $this->db->update('product', array(
+            'number_of_order' => $product_data->row()->number_of_order + 1,
+        ));
+        }
+
         $total = $this->cart->total();
         $exchange = exchange('usd');
         $vat_per = '';
@@ -3490,7 +3503,9 @@ class Home extends CI_Controller {
                 $transaction_id = "ENET-" . $unique_id;
                 $passcode = "53723E3B";
                 $sec_key = md5($transaction_id . $amount . $passcode);
-                $processpage = "http://www.alshaheen.com.kw/demo/processpagetest.php";
+                 $processpage = "http://www.alshaheen.com.kw/demo/processpage.php";
+                $processpage = "http://www.alshaheen.com.kw/demo1/home/invoice/";
+
                 $enet_data = ['merchant' => 'EPG6123',
                     'transaction_id' => $transaction_id,
                     'amount' => $amount,
@@ -3500,7 +3515,7 @@ class Home extends CI_Controller {
                     'user_email' => $email,
                     'currency' => 'KWD',
                     'language' => 'en',
-                    'UDF1' => 'User Defind Value',
+                    'UDF1' => $sale_id,
                     'processpage' => $processpage,
                 ];
 
@@ -4429,22 +4444,16 @@ class Home extends CI_Controller {
         if ($this->session->userdata('user_login') != "yes") {
             redirect(base_url(), 'refresh');
         }
-        $sale_id = $this->db->insert_id();
-        if($para1['result']=="CAPTURED"){
-                $payment_status[] = array('admin' => '', 'status' => 'paid');
-                $data['payment_status'] = json_encode($payment_status);
-                $data['payment_details'] = json_encode($para1);
-                $this->db->where('sale_id', $sale_id);
-                $this->db->update('sale', $data);
-        }
-        $page_data['sale_id'] = $sale_id;
+        
+      
+        $page_data['sale_id'] = $para1;
         $page_data['asset_page'] = "invoice";
         $page_data['page_name'] = "shopping_cart/invoice";
         $page_data['page_title'] = translate('invoice');
         if ($para2 == 'email') {
             $this->load->view('front/shopping_cart/invoice_email', $page_data);
         } else {
-            $this->load->view('front/index', $page_data);
+            $this->load->view('front/order-confirmation', $page_data);
         }
     }
 
@@ -5228,21 +5237,38 @@ class Home extends CI_Controller {
     }
 
     function test_mail() {
-
-        $from = 'sample@mail.com';
+//        echo "hi";
+        $from = 'anji.naga1@gmail.com';
         $from_name = 'sample';
-        $to = 'hridoymahmud71@gmail.com';
+        $to = 'anji.naga1@gmail.com';
         $sub = 'email test';
         $msg = 'email test ' . date('Y-m-d H:i:s');
-
+        
         $this->load->model('email_model');
-        $this->email_model->do_email($from, $from_name, $to, $sub, $msg);
+        $hhh=$this->email_model->do_email($from, $from_name, $to, $sub, $msg);
+        print_r($hhh);
     }
 
     function test() {
         $this->load->view('front/test');
     }
+   public function sendMail()
+    {
+       $to="anji.naga1@gmail.com"; $date=date("m/d/Y G:i:s");
+       $subject="comm papa"; $message="dcsc".$date;
+// To send HTML mail, the Content-type header must be set
+        $headers = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
+        $headers .= 'From: Activecare Team <hello@activecare.online>' . "\r\n";
+
+
+
+// Mail it
+
+        $mail_status = mail($to, $subject, $message, $headers);
+        var_dump($mail_status);
+   }
 }
 
 /* End of file home.php */

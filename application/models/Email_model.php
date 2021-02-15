@@ -474,11 +474,11 @@ class Email_model extends CI_Model
         $this->email->message($msg);
 
         if ($this->email->send()) {
-            //echo $this->email->print_debugger();exit;
-            return true;
+            echo $this->email->print_debugger();exit;
+//            return true;
         } else {
-            //echo $this->email->print_debugger();exit;
-            return false;
+            echo $this->email->print_debugger();exit;
+//            return false;
         }
         //echo $this->email->print_debugger();
     }

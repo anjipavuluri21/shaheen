@@ -1,75 +1,37 @@
-<?php 
+<?php
 
-$this->load->view('front/includes/header');
-$set_lang=$this->session->userdata('language');
-	$most_viewed=$this->crud_model->product_list_set('most_viewed',4);
-//        print_r($most_viewed);exit;
+function randString($length, $charset='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')
+{
+    $str = '';
+    $count = strlen($charset);
+    while ($length--) {
+        $str .= $charset[mt_rand(0, $count-1)];
+    }
 
+    return $str;
+}
+$unique_id = randString(7);
+$amount="20";
+$transaction_id="ENET-".$unique_id;
+$passcode="53723E3B";
+$sec_key=md5($transaction_id.$amount.$passcode);
+$processpage= base_url() . 'home/invoice/';
+ 
 ?>
-<div class="inner-banner-main parallaxcont wow fadeInUp">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<div class="banner-img">
-					<!--<nav aria-label="breadcrumb">
-						<ol class="breadcrumb justify-content-center">
-							<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-							<li class="breadcrumb-item"><a href="javascript:void(0);">Categories</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Indoor Plants</li>
-						</ol>
-					</nav>-->
-				</div>
-			</div>
-	 	</div>
-	</div>
+<form name="myform" method="POST" action="https://test.e.net.kw/Merchant/Payment/eNetCpgMainAPI.aspx" id="myform1">   
+<div>
+    <input type="hidden" name="merchant" value="EPG6123">
+    <input type="hidden" name="transaction_id" value="<?php echo $transaction_id;?>"> 
+    <input type="hidden" name="amount" value="<?php echo $amount;?>"> 
+    <input type="hidden" name="sec_key" value="<?php echo $sec_key ;?>"> 
+   <input type="hidden"   id="op_post"  value="true" name="op_post"/>
+    <input type="hidden" name="md_flds" value="transaction_id:amount"> 
+    <input type="hidden" name="user_email" value="anji.naga1@gmail.com"> 
+    <input type="hidden" name="currency" value="KWD"> 
+    <input type="hidden" name="language" value="en"> 
+    <input type="hidden" name="UDF1" value="User Defind Value"> 
+    <input type="hidden" name="processpage" value="http://e.net.kw/"> 
+    <input type="submit" name="submit"/>     
 </div>
-<section class="section">
-	<div class="breadcrumb-main wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item"><a href="<?php echo base_url();?>"><?php echo translate('home');?></a></li>
-				<li class="breadcrumb-item active" aria-current="page"><?php echo translate('top_sellers');?></li>
-			</ol>
-		</nav>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<h1 class="wow fadeInLeft" data-wow-duration="1.5s">Top Sellers</h1>
-				<div class="row listing-item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
-					
-                                            <?php 
-                                            foreach($most_viewed as $row){?>
-                                    <div class="col-lg-3 col-md-3 col-sm-6 loadmore-th">
-                                                <div class="product-thumb">
-							<div class="product-holder">
-								<div class="product-img"><img src="<?php echo $this->crud_model->file_view('product',$row['product_id'],'100','','thumb','src','multi','one');?>" alt="product"/></div>
-								<a href="javascript:void(0);" class="quick-link-btn" data-src="products/indoor-plants/10151-1.jpg" data-fancybox="product6"><span class="quick-img"><img src="<?=base_url()?>template/front/images/view.svg" alt="Quick View"></span><span class="quick-text">View large</span></a>
-								<a href="javascript:void(0);" class="none" data-src="products/indoor-plants/10151-2.jpg" data-fancybox="product6"></a>
-								<div class="favourite-addtocart">
-									<a href="javascript:void(0);" class="favourite-anchor" data-pid="<?=$row['product_id']?>"><img src="<?=base_url()?>template/front/images/faviourite.svg" alt="faviourite"></a>
-									<a href="javascript:void(0);" class="addtocart-anchor" data-pid="<?=$row['product_id']?>"><img src="<?=base_url()?>template/front/images/cart.svg" alt="cart"></a>
-								</div>
-							</div>
-							<div class="product-dtl">
-								<h2><?php echo $row['title']; ?></h2>
-								<div class="made-by">Size : <?php echo $row['size']; ?></div>
-								<p><?php echo currency($row['sale_price']); ?></p>
-							</div>
-						</div>
-                                        </div>
-                                            <?php }
-                                            
-                                            ?>
-						
-					
-					
-				
-				</div>
-			</div>
-		</div>	
-	</div>	
-</section>
-<?php 
-$this->load->view('front/includes/footer');
-?>
+</form>
+

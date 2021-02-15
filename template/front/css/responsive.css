@@ -385,7 +385,7 @@
 }
 @media screen and (min-width:300px) and (max-width:359px){
 	.search-div{width:290px}
-	.search-link{width:30px;height:30px}
+	.search-imain,.search-link{width:30px;height:30px}
 	.language-link {font-size:11px;margin-top:12px}
 	.search-area{margin-left:5px}
 	.cart-link{padding:5px 3px}

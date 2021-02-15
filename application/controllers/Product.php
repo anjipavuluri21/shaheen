@@ -22,6 +22,10 @@ class Product extends CI_Controller
         $this->load->library('twoCheckout_Lib');
         $this->load->library('vouguepay');
         $this->load->library('pum');
+        if($this->session->userdata('language')==''){
+                   $this->session->set_userdata('language', "english");
+
+       }
         /*cache control*/
         //ini_set("user_agent","My-Great-Marketplace-App");
         $cache_time = $this->db->get_where('general_settings', array('type' => 'cache_time'))->row()->value;

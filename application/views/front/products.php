@@ -74,8 +74,21 @@ $set_lang=$this->session->userdata('language');
 							</div>
 							<div class="product-dtl">
                                                             <h2><a href="<?php echo $this->crud_model->product_link($row['product_id']); ?>"> <?php echo ($set_lang=="english")?$row['title']:$row['title_ar'];?></a></h2>
-								<div class="pot-size"><?php echo translate('size');?> : <?php echo $row['size'];?> </div>
-								<div class="made-by"><?php echo translate('type');?> : <?php echo $row['tag'];?></div>
+                                                            <?php 
+                                                            if($row['size']==''){ ?>
+                                                            <div class="pot-size" style="display: none;"><?php echo translate('size');?> : <?php echo $row['size'];?> </div>
+                                                            <?php }
+                                                            else{ ?>
+                                                                <div class="pot-size"><?php echo translate('size');?> : <?php echo $row['size'];?> </div>                                                            <?php }
+                                                            ?>
+                                                            <?php 
+                                                                if($row['category']==''){ ?>
+                                                                <div class="made-by" style="display: none"><?php echo translate('type');?> : <?php echo $row['category'];?></div>    
+                                                                <?php }else{?>
+                                                                    
+                                                                <div class="made-by"><?php echo translate('type');?> : <?php echo $row['category'];?></div>    
+                                                                <?php } ?>
+								
 								<p><?php echo currency($this->crud_model->get_product_price($row['product_id']));?></p>
 							</div>	
 						</div>

@@ -100,7 +100,7 @@
 									<ul class="account-ul">
 										<li><a href="<?=base_url().'home/profile/info'?>"><?php echo translate('my_profile');?></a></li>
 										<li><a href="<?=base_url().'home/order_listed'?>"><?php echo translate('my_order');?></a></li>
-										<li><a href="my-favourite.html"><?php echo translate('my_favourite');?></a></li>
+										<li><a href="<?php echo base_url().'home/wish_listed/'?>"><?php echo translate('my_favourite');?></a></li>
 										<li><a href="<?=base_url().'home/profile/update_info'?>"><?php echo translate('my_order');?></a></li>
 										<li><a href="<?=base_url().'home/profile/update_profile'?>"><?php echo translate('change_password');?></a></li>
 										<li><a href="<?=base_url().'home/logout'?>"><?php echo translate('logout');?></a></li>
